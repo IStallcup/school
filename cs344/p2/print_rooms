@@ -2,7 +2,7 @@
 
 i=0
 
-while [ $i -le 6 ]
+while [ $i -le 9 ]
 do
 	cat ./room$i
 	i=$((i+1))

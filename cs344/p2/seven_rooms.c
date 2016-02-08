@@ -2,12 +2,14 @@
 #include <stdlib.h>
 #include <time.h>
 
+/* to do: fix one-way paths...... */
+
 void setConnections(FILE* room, char roomNames[7][6], int roomNum)
 {
 	int connections[7] = {-1,-1,-1,-1,-1,-1,-1};
 	int i,j;
 	int numConnections = (rand() % 4) + 3;
-	printf("# conn. for %s:%d\n",roomNames[roomNum],numConnections);
+/*	printf("# conn. for %s:%d\n",roomNames[roomNum],numConnections);*/
 	int randConnection;
 	/*printf("connections for %s\n",roomNames[roomNum]);*/
 	for (j = 0; j < numConnections; ++j)
@@ -51,7 +53,7 @@ void setConnections(FILE* room, char roomNames[7][6], int roomNum)
 	int k;
 	for (k = 0; k < numConnections; ++k)
 	{
-		printf("connections[%d] = %s\n",k,roomNames[connections[k]]);
+/*		printf("connections[%d] = %s\n",k,roomNames[connections[k]]);*/
 		fprintf(room,"CONNECTION %d:%s\n",k+1,roomNames[connections[k]]);
 	}
 	
@@ -76,7 +78,7 @@ void createRoom(FILE* room, char roomNames[7][6], int roomNum)
 
 void printRoom(FILE* room, char roomNames[7][6], int roomNum)
 {
-	/* use fread*/
+	
 }
 
 void chooseRooms(char allNames[10][6], char roomNames[7][6])
@@ -87,19 +89,19 @@ void chooseRooms(char allNames[10][6], char roomNames[7][6])
 	for (i = 0; i < 7; ++i)
 	{
 		roomChoice = rand() % 10;
-		printf("roomChoice = %d\n",roomChoice);
+		/*printf("roomChoice = %d\n",roomChoice);*/
 		for (j = 0; j < i; ++j)
 		{
 			if (chosenRooms[j] == roomChoice)
 			{
 				roomChoice = rand() % 10;	
-				printf("oops! reset to %d\n",roomChoice);
+				/*printf("oops! reset to %d\n",roomChoice);*/
 				j = -1;
 			}
 		}
 		chosenRooms[i] = roomChoice;
 		strcpy(roomNames[i],allNames[roomChoice]);
-		printf("%s\n",roomNames[i]);
+		/*printf("%s\n",roomNames[i]);*/
 	}
 }
 
@@ -117,5 +119,5 @@ int main()
 		createRoom(room,roomNames,roomNum);
 		printRoom(room,roomNames,roomNum);
 	}
-	
+	return 0;
 }
