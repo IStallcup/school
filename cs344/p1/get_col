@@ -1,0 +1,17 @@
+#!/bin/bash
+
+rm -f temp
+
+numlines=$(wc -l list | tr -d ' list')
+
+i=1
+numlines=$((numlines+1))
+
+while [ $i -lt $numlines ]
+do
+	cat list | cut -f $i >> temp
+	echo '.' >> temp
+	i=$((i+1))
+done
+
+numlines=$((numlines-1))

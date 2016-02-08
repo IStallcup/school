@@ -1,0 +1,49 @@
+pp246-254
+
+Stack
+-last in, first out
+-"upside down", since we add to the top
+-other memory called "heap" in regards to C++, complicated in assembly
+-push
+  -multiple push instructions exist for pushing different registers
+   or combinatoins of them onto the stack
+-if pushed, must be popped
+ -some pops don't change position of stack
+
+pp327-355
+Advice: complexity = bad in programs
+-functionalism, compartmentalization = golden in code writing
+-break down tasks into simpler and simpler pieces
+	-can also potentially re-use pieces
+-example/exemplar program: takes input file, dumps its ascii codes and hex values for input
+ text
+-uses i/o redirection
+-remember push/pop saves and returns register to its value when pushed
+Procedures
+-begin with label (identifier w/colon)
+-procedures must have RET instruction
+-execution ends from procedure with RET instruction
+-call to jump to another procedure (recursion)
+-remember to differentiate between global and local data in your procedures
+	-especially if they work with looping
+	-especially especially if they work with recursion!!
+Recursion
+-remember recursion is *very* expensive with memory
+-accidental recursion can eat up memory for a program
+-each procedure call pushes 32-bit return address onto stack
+-another seg fault source
+-remember that dec and counted loops don't play well; flag ettiquette is incorrect
+	-CF problems
+Registers
+-Remember that most of the time registers will probably not hold values
+ you want them to
+-caller values must be popped from the stack in reverse order than they were pushed
+-after pushing, CALL calls a procedure with the pushed data
+-procedure cannot pop data off stack into registers as return address is in the way
+-remember length of a var can be declared with $
+-local lables have a . in front of them
+-jumps have length
+
+
+
+

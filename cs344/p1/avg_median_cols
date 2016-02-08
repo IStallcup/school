@@ -1,0 +1,86 @@
+#!/bin/bash
+
+filename=$1
+citerator=1
+addedcol=1
+colsize=$(cat $filename | cut -f 1 | wc -w)
+numcols=$(cat $filename | head -n 1 | wc -w)
+midpoint=$((colsize/2))
+
+cat $filename
+
+echo "#elements in col: $colsize"
+echo "start midpoint: $midpoint"
+
+while [ $citerator -le $numcols ]
+do
+	
+	if (( "$colsize" % 2 != "0")) 
+	then
+#		echo "# lines odd"
+		midpoint=$((midpoint+1))
+#		echo "ending midpoint: $midpoint"
+		median=$(cat $filename | cut -f $citerator | sort -n | tr '\n' '\t' | cut -f $midpoint)
+	#	echo "char at pos $midpoint in file $filename is  $median"
+		echo "Median: $median"
+		midpoint=$((colsize/2))
+		midpoint=$((colsize/2))
+	else
+#		echo "# lines even"
+		midpointtwo=$(($midpoint+1))
+#		echo "ending midpoints @ pos $midpoint,$midpointtwo"
+		mid1=$(cat $filename | cut -f $citerator | sort -n | tr '\n' '\t' | cut -f $midpoint)
+		mid2=$(cat $filename | cut -f $citerator | sort -n | tr '\n' '\t' | cut -f $midpointtwo)
+#		echo "mids are $mid1 $mid2"
+	
+		compresult=$(expr $mid1 \< $mid2)
+		if [ $compresult -eq 1 ]
+		then
+			median=$mid1
+		else
+			median=$mid2
+		fi
+	
+		echo "Median: $median"
+		midpoint=$((colsize/2))
+		midpointtwo=$((colsize/2))
+	fi
+	
+	cat $filename | cut -f $citerator | tr '\n' '\t' > temp
+	mean=0
+	sum=0
+	summand=0
+	addedcol=1
+	while [ $addedcol -le $colsize ]
+	do
+		summand=$(cat temp | cut -f $addedcol)
+		sum=$((sum+summand))
+		addedcol=$((addedcol+1))
+	done
+	mean=$(((sum+(colsize/2))/colsize)) #ADDS ROUNDING
+	echo "Sum: $sum"
+	echo "Mean: $mean"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+citerator=$((citerator+1))
+
+done

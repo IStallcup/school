@@ -1,0 +1,217 @@
+     1                                  	; Name:				Isaac Stallcup
+     2                                  	; Creation date: 	Jan 27, 2015
+     3                                  	; Last modified: 	7:35 Jan 27, 2015
+     4                                  	;
+     5                                  	; 
+     6                                  	; Name of file: FILENAME.asm
+     7                                  	; Description: print an integer from storage and from a register
+     8                                  		
+     9                                  	; Assemble:	nasm -f elf -l FILNAME.lst  FILENAME.asm
+    10                                  	; Link:		gcc -m32 -o FILENAME FILENAME.o
+    11                                  	; Run:		./FILENAME
+    12                                  	; Output:	
+    13                                  
+    14                                  	; Equivalent C code
+    15                                  
+    16                                  	extern	printf		
+    17                                  	extern 	scanf
+    18                                  	
+    19                                  SECTION .data				
+    20                                  
+    21 00000000 4E616D653A09094973-     name:		db "Name:		Isaac Stallcup", 10, 0
+    22 00000009 616163205374616C6C-
+    23 00000012 6375700A00         
+    24                                  
+    25 00000017 50726F6772616D3A09-     title:		db "Program:	Fibonnaci.asm", 10, 0
+    26 00000020 4669626F6E6E616369-
+    27 00000029 2E61736D0A00       
+    28                                  
+    29 0000002F 576861742069732079-     pr_name:	db "What is your name?", 10, 0
+    30 00000038 6F7572206E616D653F-
+    31 00000041 0A00               
+    32                                  
+    33 00000043 257300                  name_get:	db "%s", 0
+    34                                  
+    35 00000046 486F77206D616E7920-     pr_num1:	db "How many numbers in the Fibonacci sequence would you like?", 10, 0
+    36 0000004F 6E756D626572732069-
+    37 00000058 6E2074686520466962-
+    38 00000061 6F6E61636369207365-
+    39 0000006A 7175656E636520776F-
+    40 00000073 756C6420796F75206C-
+    41 0000007C 696B653F0A00       
+    42                                  
+    43 00000082 2A506C656173652065-     pr_num2:	db "*Please enter a number between 1 and 46, inclusive*", 10, 0
+    44 0000008B 6E7465722061206E75-
+    45 00000094 6D6265722062657477-
+    46 0000009D 65656E203120616E64-
+    47 000000A6 2034362C20696E636C-
+    48 000000AF 75736976652A0A00   
+    49                                  
+    50 000000B7 257500                  num_in:		db "%u", 0
+    51                                  
+    52 000000BA 0A476F6F646279652C-     bye1:		db 10, "Goodbye, ", 0
+    53 000000C3 2000               
+    54                                  
+    55 000000C5 2E0A00                  bye2:		db ".", 10, 0
+    56                                  
+    57 000000C8 53686F77696E672066-     show_fibs:	db "Showing first %u Fibonacci numbers.", 10, 0
+    58 000000D1 697273742025752046-
+    59 000000DA 69626F6E6163636920-
+    60 000000E3 6E756D626572732E0A-
+    61 000000EC 00                 
+    62                                  
+    63 000000ED 25753A2000              fib_num:	db "%u: ", 0
+    64                                  
+    65 000000F2 2575202020202000        fib_res:	db "%u     ", 0
+    66                                  
+    67 000000FA 0A                      line_br:	db 10
+    68                                  
+    69                                  
+    70                                  
+    71                                  SECTION .bss				
+    72                                  
+    73 00000000 <res 00000008>          name_in:	resd 2
+    74                                  
+    75 00000008 <res 00000004>          num:		resd 1
+    76                                  
+    77 0000000C <res 00000004>          fib_a:		resd 1
+    78                                  
+    79 00000010 <res 00000004>          fib_b:		resd 1
+    80                                  
+    81 00000014 <res 00000004>          fib_c:		resd 1
+    82                                  
+    83 00000018 <res 00000004>          incv:		resd 1
+    84                                  
+    85                                  SECTION .text				
+    86                                  
+    87                                  	global main				
+    88                                  
+    89                                  	main:					
+    90 00000000 55                      		push	ebp
+    91 00000001 89E5                    		mov		ebp,esp
+    92                                  		
+    93                                  .introduction:
+    94 00000003 68[00000000]            		push dword name
+    95 00000008 E8(00000000)            		call printf
+    96 0000000D 81C404000000            		add esp, 4
+    97                                  		
+    98 00000013 68[17000000]            		push dword title
+    99 00000018 E8(00000000)            		call printf
+   100 0000001D 81C404000000            		add esp, 4
+   101                                  		
+   102 00000023 68[2F000000]            		push dword pr_name
+   103 00000028 E8(00000000)            		call printf
+   104 0000002D 81C404000000            		add esp, 4
+   105                                  		
+   106 00000033 68[00000000]            		push dword name_in
+   107 00000038 68[43000000]            		push dword name_get
+   108 0000003D E8(00000000)            		call scanf
+   109 00000042 81C408000000            		add esp, 8
+   110                                  
+   111                                  .user_instructions:
+   112 00000048 68[46000000]            		push dword pr_num1
+   113 0000004D E8(00000000)            		call printf
+   114 00000052 81C404000000            		add esp, 4
+   115                                  		
+   116 00000058 68[82000000]            		push dword pr_num2
+   117 0000005D E8(00000000)            		call printf
+   118 00000062 81C404000000            		add esp, 4
+   119                                  		
+   120                                  .get_user_data:
+   121 00000068 68[08000000]            		push dword num
+   122 0000006D 68[B7000000]            		push dword num_in
+   123 00000072 E8(00000000)            		call scanf
+   124 00000077 81C408000000            		add esp, 8
+   125                                  		
+   126                                  .display_fibs_intro:
+   127 0000007D FF35[08000000]          		push dword [num]
+   128 00000083 68[C8000000]            		push dword show_fibs
+   129 00000088 E8(00000000)            		call printf
+   130 0000008D 81C408000000            		add esp, 8
+   131                                  		
+   132                                  .set_init_fibs:
+   133 00000093 B800000000              		mov eax, 0			;sets incrementing var to 0
+   134 00000098 A3[18000000]            		mov [incv], eax
+   135                                  		
+   136 0000009D B801000000              		mov eax, 1			;sets displayed fib number to 1 (current/nth term)
+   137 000000A2 A3[0C000000]            		mov [fib_a], eax
+   138                                  		
+   139 000000A7 B801000000              		mov eax, 1			;sets "previous" fib number to 1 (previous/n-1th term)
+   140 000000AC A3[10000000]            		mov [fib_b], eax
+   141                                  		
+   142 000000B1 B800000000              		mov eax, 0			;sets fib before previous to 0 (pre-previous/n-2th term)
+   143 000000B6 A3[14000000]            		mov [fib_c], eax
+   144                                  		
+   145                                  .linebr:
+   146 000000BB 68[FA000000]            		push dword line_br
+   147 000000C0 E8(00000000)            		call printf
+   148 000000C5 81C404000000            		add esp, 4
+   149                                  		
+   150 000000CB A1[18000000]            		mov eax, [incv]
+   151 000000D0 8B1D[08000000]          		mov ebx, [num]
+   152 000000D6 29D8                    		sub eax, ebx		;checks if number of terms has been reached
+   153 000000D8 7463                    		jz .farewell
+   154                                  		
+   155                                  .display_fibs:		
+   156                                  		
+   157 000000DA A1[18000000]            		mov eax, [incv]
+   158 000000DF 40                      		inc eax
+   159 000000E0 A3[18000000]            		mov [incv], eax
+   160                                  		
+   161 000000E5 FF35[0C000000]          		push dword [fib_a]
+   162 000000EB 68[F2000000]            		push dword fib_res
+   163 000000F0 E8(00000000)            		call printf
+   164 000000F5 81C408000000            		add esp, 8
+   165                                  
+   166                                  .calc_fibs:
+   167                                  ;Fibonacci sequence: F(n) = F(n-1) + F(n-2)
+   168                                  ;{n is the current term, or value of incv}
+   169                                  ;This code snippet effectively increments n, moving
+   170                                  ;	F(n) to F(n+1), F(n-1) to F(n) and F(n-2) to F(n-1)
+   171                                  ;	so the next time F(n) is displayed with the next n it is
+   172                                  ;	correct and this process can be repeated to reach the next
+   173                                  ;	correct value.
+   174                                  
+   175 000000FB A1[0C000000]            		mov eax, [fib_a]	;copies value of F(n) to eax
+   176 00000100 8B1D[10000000]          		mov ebx, [fib_b]	;copies value of F(n-1) to ebx
+   177 00000106 8B0D[14000000]          		mov ecx, [fib_c]	;copies value of F(n-2) to ecx
+   178 0000010C 891D[14000000]          		mov [fib_c], ebx	;copies value of F(n-1) to F(n-2)
+   179 00000112 01CB                    		add ebx, ecx		;adds F(n-1) and F(n-2) to get F(n+1), stores in ebx
+   180 00000114 89D8                    		mov eax, ebx		;moves value of F(n+1) to eax
+   181 00000116 A3[0C000000]            		mov [fib_a], eax	;sets F(n) to F(n+1)
+   182 0000011B A3[10000000]            		mov [fib_b], eax	;sets F(n-1) to F(n)
+   183                                  		
+   184                                  ;After this process, when 'n' is incremented, fib_a will contain F(n),
+   185                                  ;	fib_b will contain F(n-1) and fib_c will contain F(n-2) so this process
+   186                                  ;	can be continued.
+   187                                  
+   188 00000120 A1[18000000]            		mov eax, [incv]		;sets eax to [incv] outside of loop to check if line break needed
+   189                                  .check_ends:
+   190 00000125 2D05000000              		sub eax, 5			;subtracts five from the iteration value
+   191 0000012A 748F                    		jz .linebr			;if the result is zero (the iteration is a multiple of five), jump to the .linebr instruction
+   192 0000012C 7FF7                    		jg .check_ends		;repeat process if the result of the subtraction 
+   193                                  		
+   194 0000012E A1[18000000]            		mov eax, [incv]
+   195 00000133 8B1D[08000000]          		mov ebx, [num]
+   196 00000139 29D8                    		sub eax, ebx		;checks if number of terms has been reached
+   197 0000013B 759D                    		jnz .display_fibs
+   198                                  		
+   199                                  .farewell:
+   200 0000013D 68[BA000000]            		push dword bye1
+   201 00000142 E8(00000000)            		call printf
+   202 00000147 81C404000000            		add esp, 4
+   203                                  
+   204 0000014D 68[00000000]            		push dword name_in
+   205 00000152 E8(00000000)            		call printf
+   206 00000157 81C404000000            		add esp, 4
+   207                                  		
+   208 0000015D 68[C5000000]            		push dword bye2
+   209 00000162 E8(00000000)            		call printf
+   210 00000167 81C404000000            		add esp, 4
+   211                                  		
+   212 0000016D 89EC                    		mov		esp, ebp
+   213 0000016F 5D                      		pop		ebp
+   214                                  
+   215 00000170 B800000000              		mov		eax,0
+   216 00000175 C3                      		ret	
+   217                                  	

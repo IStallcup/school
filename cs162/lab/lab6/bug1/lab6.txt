@@ -1,0 +1,3 @@
+bug 1: in file state.cpp:
+		in function set_name: char *name was not allocated
+		Error: accessing memory not allocated

@@ -1,0 +1,22 @@
+test plan:
+
+calculator used to check answers
+
+1,2,3,4,5 = 3
+34, 45, 68, 64, 24= 47
+99,67,56,45,44 = 62.2, rounded 62
+111, 12, 23, 45, 54 = 49 (no error)
+-5,-3,-355,-34,400 = 0.6, rounded 1 (no error)
+a = quit, values of 0 passed
+32,34,45,53/2 = quit, value of 29 passed (29 from unknown source)
+89.2 = quit, value of 89.2 passed, rounded, used for remaining operations in program
+
+After float modification:
+
+34.5+89.6+87.4+45.8+86.4 = 68.7, rounded to 69
+1+2+3+4+5 = 3
+
+Summary:
+
+Float values did not work, so functionality was input to accept them; but non-numeric values
+still break the code.

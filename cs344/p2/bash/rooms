@@ -1,0 +1,28 @@
+#!/bin/bash
+
+filename="rooms"
+
+pid="$$"
+
+path="stallcui.rooms.$pid"
+
+#echo "path=$path"
+
+mkdir $path
+
+echo "This is room one." >$path/room1
+
+cat $path/room1
+
+echo "This will overwrite the contents of room1." >$path/room1
+
+cat $path/room1
+
+rm -rf $path
+
+if [ -d $path ]
+then
+	echo "error - not deleted"
+else
+	echo "success - deleted"
+fi

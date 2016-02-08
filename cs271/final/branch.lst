@@ -1,0 +1,41 @@
+     1                                  SECTION .text
+     2                                  
+     3                                  	global main
+     4                                  	
+     5                                  main:
+     6                                  		
+     7 00000000 55                      		push ebp
+     8 00000001 89E5                    		mov ebp, esp
+     9                                  		
+    10 00000003 B805000000              		mov eax, 5
+    11 00000008 BB04000000              		mov ebx, 4
+    12                                  		
+    13 0000000D 55                      		push ebp
+    14 0000000E 89E5                    		mov ebp, esp
+    15                                  		
+    16 00000010 E90B000000              		jmp .func1
+    17                                  		
+    18                                  .post_f:
+    19                                  		
+    20 00000015 01D8                    		add	eax, ebx
+    21 00000017 89C2                    		mov	edx, eax
+    22 00000019 01CA                    		add	edx, ecx
+    23                                  		
+    24 0000001B E90A000000              		jmp .theend
+    25                                  		
+    26                                  .func1:
+    27                                  		
+    28 00000020 89C1                    		mov ecx, eax
+    29                                  		
+    30 00000022 89EC                    		mov esp, ebp
+    31 00000024 5D                      		pop ebp
+    32                                  		
+    33 00000025 E9EBFFFFFF              		jmp .post_f
+    34                                  		
+    35                                  .theend:
+    36                                  		
+    37 0000002A 89EC                    		mov esp, ebp
+    38 0000002C 5D                      		pop ebp
+    39                                  		
+    40 0000002D B800000000              		mov eax, 0
+    41 00000032 C3                      		ret

@@ -1,0 +1,50 @@
+     1                                  	extern printf			; the C function, to be called
+     2                                  	extern scanf			; C input function
+     3                                  
+     4                                  SECTION .data				; Data section, initialized variables
+     5 00000000 476F7420256420616E-     	fmt:    db "Got %d and %d as input!", 10, 0 ; The printf format, "\n",'0'
+     6 00000009 642025642061732069-
+     7 00000012 6E707574210A00     
+     8 00000019 256420256400            	input:	db "%d %d",0			 ; the scanf format
+     9                                  
+    10                                  SECTION .bss				; BSS, uninitialized variables
+    11 00000000 <res 00000004>          	int1:	resd 1
+    12 00000004 <res 00000004>          	int2:	resd 1
+    13 00000008 <res 00000004>          	sum:	resd 1
+    14                                  	
+    15                                  SECTION .text				; Code section.
+    16                                  
+    17                                  	global main				; the standard gcc entry point
+    18                                  
+    19                                  	main:					; the program label for the entry point
+    20 00000000 55                      		push ebp			; set up stack frame
+    21 00000001 89E5                    		mov ebp,esp
+    22                                  
+    23 00000003 68[04000000]            		push dword int2
+    24 00000008 68[00000000]            		push dword int1
+    25 0000000D 68[19000000]            		push dword input
+    26 00000012 E8(00000000)            		call scanf
+    27 00000017 81C40C000000            		add esp, 12
+    28                                  
+    29 0000001D FF35[04000000]          		push dword [int2]
+    30 00000023 FF35[00000000]          		push dword [int1]
+    31 00000029 68[00000000]            		push dword fmt
+    32 0000002E E8(00000000)            		call printf
+    33 00000033 81C40C000000            		add esp, 12
+    34                                  
+    35 00000039 A1[00000000]            		mov eax, [int1]
+    36 0000003E 8B1D[04000000]          		mov ebx, [int2]
+    37 00000044 01D8                    		add eax, ebx
+    38 00000046 A3[08000000]            		mov [sum], eax
+    39                                  		
+    40 0000004B 68[08000000]            		push dword sum
+    41 00000050 FF35[08000000]          		push dword [sum]
+    42 00000056 68[00000000]            		push dword fmt
+    43 0000005B E8(00000000)            		call printf
+    44 00000060 81C40C000000            		add esp, 12
+    45                                  		
+    46 00000066 89EC                    		mov esp, ebp	; takedown stack frame
+    47 00000068 5D                      		pop ebp			; same as "leave" op
+    48                                  
+    49 00000069 B800000000              		mov eax,0		; normal, no error, return value
+    50 0000006E C3                      		ret					; return

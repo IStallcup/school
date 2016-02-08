@@ -1,0 +1,15 @@
+#!/bin/bash
+
+getopts "rc" opts
+case $opts in
+	r)
+		echo "r input"
+		;;
+	c)
+		echo "c input"
+		;;
+	\?)
+		echo "stats usage: stats { -r | -c } [filename]"
+		exit 1
+		;;
+esac

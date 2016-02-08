@@ -1,0 +1,16 @@
+++PLANNING++
+
+Q. Why do you think we are learning UNIX and C++?
+A. They are both vvery universal and practically standard, and are therefore
+marketable skills in the workforce. They also are very powerful tools.
+
+Q. What resources did you use?
+A. Each other (I was partnered with Nick Carleson), the lab manual online and the man command.
+
+Q. Did you use your time wisely?
+A. Yes; we finished the section before the metacognitive questions with 50 minutes to spare and
+the entirety of the lab with 20.
+
+++MONITORING++
+
+Q. What was the most d

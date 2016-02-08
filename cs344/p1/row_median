@@ -1,0 +1,36 @@
+#!/bin/bash
+
+filename=$1
+riterator=1
+numrows=$(cat $filename | wc -l | tr -d $filename)
+rowsize=$(cat $filename | head -n 1 | wc -w)
+
+while [ $riterator -le $numrows ]
+do
+	if (("$rowsize" % 2 != "0"))
+	then
+		midpoint=$(((rowsize/2)+1))
+		median=$(cat $filename | tail -n +$riterator | head -n 1 | sort -n | cut -f $midpoint)
+		echo $median
+	else
+		midpoint=$(((rowsize/2)))
+		midtwo=$(((rowsize/2)+1))
+		try1=$(cat $filename | tail -n +$riterator | head -n 1 | tr '\t' '\n' | sort -n | tr '\n' '\t' | cut -f $midpoint)
+		try2=$(cat $filename | tail -n +$riterator | head -n 1 | tr '\t' '\n' | sort -n | tr '\n' '\t' | cut -f $midtwo)
+		
+		compresult=$(expr $try1 \< $try2)
+		if [ $compresult -eq 1 ]
+		then
+			median=$try2
+		else
+			median=$try1
+		fi
+
+		echo "median=$median"
+
+	fi
+
+	riterator=$((riterator+1))
+
+done
+	

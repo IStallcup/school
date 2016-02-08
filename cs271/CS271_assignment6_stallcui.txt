@@ -1,0 +1,181 @@
+CS 271 Assignment 6			Isaac Stallcup
+
+
+
+	1. Convert the IEEE.754 value 01000001001011000000000000000000 to decimal.
+
+IEEE.754 Binary value:		0 10000010 01011000000000000000000
+	0 - sign bit, signifies positive
+	10000010 - exponent; subtract bias to get useful value
+		= 130; 130 - 127[bias] = 3
+	
+	01011000000000000000000 - fraction; bits are representative of different fractional values
+	    1 = .03125
+	   1 = .0625
+	 1 = .25
+	= .34375
+
+Value = (-1)^sign bit * (2^exponent - bias) * (1 + fraction)
+	= (-1)^0 * (2^(130-127)) * (1+.34375)
+	= 1 * (2^3) * (1.34375)
+	= 10.75
+
+
+
+	2. Convert the decimal value -76.025 to IEEE.754 double precision.
+
+Decimal Value:			-76.025
+	1 - Sign bit as number is < 0
+
+	76 = 0b1001100 = (2^6) + (2^3) + (2^2); highest power 2^6 so in final calculation desired exponent is 2^6
+	Bias = 1023, so Exponent value = 6 + 1023 = 1029 = 0b10000000101
+
+	76.025/(2^6) = fraction value = 1.187890625
+	Subtract 1 from value (as in calculation 1 added to fraction value) to determine binary:
+	=0.187890625
+Process: If resultant is >1, subtract 1 and the binary number gets a 1 in that bit. Then multiply by two and repeat 52 times to fill 52 bits.
+
+Value * 2		Resultant		Binary bit	Bit #
+0.187890625 * 2 =	0.37578125		0		52
+0.37578125 * 2 =	0.7515625		0		51
+0.7515625 * 2 = 	1.503125		1		50	Subtract 1 as 1.503125 > 1, number gets 1 in bit
+0.503125 * 2 =		1.00625			1		49	Again subtract 1; number gets 1 in bit
+.00625 * 2 =		0.0125			0		48
+0.0125 * 2 =		0.025			0		47
+0.025 * 2 =		0.05			0		46
+0.05 * 2 =		0.1			0		45
+0.1 * 2 =		0.2			0		44
+0.2 * 2 =		0.4			0		43
+0.4 * 2 =		0.8			0		42
+0.8 * 2 =		1.6			1		41
+0.6 * 2 =		1.2			1		40
+0.2 * 2 =		0.4			0		39
+0.4 * 2 =		0.8			0		38
+0.8 * 2 =		1.6			1		37
+0.6 * 2 =		1.2			1		36
+0.2 * 2 =		0.4			0		35
+0.4 * 2 =		0.8			0		34
+0.8 * 2 =		1.6			1		33
+0.6 * 2 =		1.2			1		32
+0.2 * 2 =		0.4			0		31
+0.4 * 2 =		0.8			0		30
+0.8 * 2 =		1.6			1		29
+0.6 * 2 =		1.2			1		28
+0.2 * 2 =		0.4			0		27
+0.4 * 2 =		0.8			0		26
+0.8 * 2 =		1.6			1		25
+0.6 * 2 =		1.2			1		24
+0.2 * 2 =		0.4			0		23
+0.4 * 2 =		0.8			0		22
+0.8 * 2 =		1.6			1		21
+0.6 * 2 =		1.2			1		20
+0.2 * 2 =		0.4			0		19
+0.4 * 2 =		0.8			0		18
+0.8 * 2 =		1.6			1		17
+0.6 * 2 =		1.2			1		16
+0.2 * 2 =		0.4			0		151
+0.4 * 2 =		0.8			0		14
+0.8 * 2 =		1.6			1		13
+0.6 * 2 =		1.2			1		12
+0.2 * 2 =		0.4			0		11
+0.4 * 2 =		0.8			0		10
+0.8 * 2 =		1.6			1		9
+0.6 * 2 =		1.2			1		8
+0.2 * 2 =		0.4			0		7
+0.4 * 2 =		0.8			0		6
+0.8 * 2 =		1.6			1		5
+0.6 * 2 =		1.2			1		4
+0.2 * 2 =		0.4			0		3
+0.4 * 2 =		0.8			0		2
+0.8 * 2 =		1.6			1		1
+
+=0b0011 0000 0001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1001
+
+Add one back to calculate binary value used in the IEEE.754 format:
+
+=0b0011 0000 0001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1010
+
+Combine all three parts to get
+
+1 [sign] 100 0000 0101 [exponent] 0011 0000 0001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1010 [fraction]
+
+=0b1100 0000 0101 0011 0000 0001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1010
+
+
+
+	3. Give the IEEE.754 format, both single and double precision.
+
+Single Precision:
+
+S = Sign bit; 0 signifies positive number and 1 signifies negative number
+
+E = Exponent bits; subtract bias to get resulting power of 2
+
+F = Fraction; binary representation of fraction between 1 and 0
+
+SEEE EEEE EFFF FFFF FFFF FFFF FFFF FFFF
+
+Double Precision:
+
+SEEE EEEE EEEE FFFF FFFF FFFF FFFF FFFF FFFF FFFF FFFF FFFF FFFF FFFF FFFF
+
+
+
+	4. Give the steps for passing parameters to a procedure via the stack.
+
+First, push onto the stack the parameters you wish to use in reverse order. Then, run the procedure, and
+either pop the pushed items off the stack or add an offset to ESP equal to the amount of data you
+pushed onto the stack. 
+
+
+
+	5. Convert the infix expression (5 + 3) * 7 + 5 to the equivalent postfix expression (RPN).
+
+The open paren. is added to the stack., the first character scanned is 5, added to the postfix string. Next,
++ is scanned and added to the stack. 3 is next scanned and added to the output string which is
+now 53. The close paren. is then scanned, and the stack is popped; output is now 53+. The operator * is then scanned, and the stack
+then contains *. The character 7 is scanned and added to the output string which is now
+53+7, and then the character + is scanned. * has higher precedence than +, so the * element is popped
+from the stack and added to the output string which is now 53+7*. + is then added to the stack. 5 is then scanned and added to the output string
+to form output of 536*5, and as the end of the string has been reached the stack is popped and 
+added to the output to form
+
+	5 3 + 7 * 5 +
+
+
+	6. Convert the infix expression (3 * 7) / (2 + 4) * 5 + 7 to postfix.
+
+The open paren is added to the stack, then 3 is added to output. * is added to stack, 7 to output
+then the close praren is scanned, popping the stack to give 37* as the output. / is then added to the stack,
+followed by the open parenthesis. 2 is added to the output, + to the stack and then 4 to the output
+to give 37*24 as the output and /(+ in the stack. The close paren is scanned, and the stack is popped
+giving 37*24+/ as the output. Finally, * is scanned to the stack and 5 to the output. When + is
+scanned, it has lower precedence than * so * is popped to the output and + is added to the stack
+giving an output of 37*24+/5* and the stack of +. 7 is scanned to output, then the string ends
+so the stack is popped to output giving
+
+	3 7 * 2 4 + / 5 * 7 +
+
+
+
+	7. Give the 16-bit 2s-complement representation of the decimal number -378.
+
+378 = 1(2^8) + 0(2^7) + 1(2^6) + 1(2^5) + 1(2^4) + 1(2^3) + 0(2^2) + 1(2^1) + 0(2^0)
+	=0b101111010
+Add leading 0 to make 16 bits:
+	=0b0000000101111010
+Add 1:
+	=0b0000000101111001
+Invert 0's, 1's to get final answer:
+
+	=0b1111111010000110
+
+
+
+	8. Explain why passing parameters via registers is insufficient in general.
+
+Passing parameters via registers is dangerous as other processes, procedures or functions may
+change the values of those functions before you can call the operation that requires these
+parameters. Passing registers via the stack makes sure they stay the same when passed to the
+operation that requires them, making this process much more reliable.
+

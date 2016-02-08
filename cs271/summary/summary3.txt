@@ -1,0 +1,139 @@
+Summary 3
+
+Chapter 7
+-start instructions now
+-sandbox program only intended to be run in debugger
+-program requires a "start" place
+-executable requires data and text sections
+-nop instructions help with debugging
+	-note: seg faults can happen when you try and access memory past end of program
+-instructions have operands; things the instruction (operator) acts on/with
+-mov copies data:
+MOV eax, ebx ;copies contents of ebx to eax, replaces eax
+	-mov can put immediate data, register data and memory data
+	-immediate data: data goes directly from machine code; CPU doesn't have to look anywhere else
+		-pulling data from register is faster
+		-putting text in EAX can have unintended consequences
+	-memory data (p209) stored somewhere in system memory "owned" by the program
+		-if you want the data *in* a register, use brackets around the name of the register
+		-MOV eax, [ebx] ;moves contents of ebx into eax
+		-MOV eax, [ebx+16] ;can also add literal constant in brackets
+		-MOV eax, [ebx+ecx] ;also legal syntax
+		-MOV eax, [ebx+ecx+16] ;again legal syntax
+		-cannot add >2 registers
+	-mov copies address of a data definition
+ex:
+	Foo:	db "Contents"
+	...
+	mov ecx, Foo ;copies address of Foo in memory to ecx
+	;mov ecx, [Foo] moves "Contents" to ecx
+	;does this by pulling first 32 bits of data from address
+	;loads into ecx starting with least significant byte (C in this case)
+
+	-if only single character desired, use one-byte container
+	
+	mov al, [Foo] ;AL address of least significant byte of EAX (see p207 for reference image), "C"
+	mov ax, [Foo] ;AX is address of lower 2 bytes, "Co"
+
+	-can tell nasm how many bytes to move: size specifier
+
+	mov [Foo], byte 'G'
+
+
+-ADD adds dest to source, like so:
+ADD eax, ebx ;adds contents of ebx to eax, replaces eax
+	-cannot move 32-bit object into 16-bit register, etc
+-XCHG exchanges the contents of two registers
+
+Flags
+Eflags register
+	-32-bit register in CPU
+	-CPU flags only covered in detail
+-Flags = bit of information independent of other bits
+	-set to 1 or cleared to 0 by CPU
+-Names:
+	-OF: Overflow; set when arithmetic operation becomes too large
+	-DF: Direction; tells CPU direction that activity moves during execution of string instructions
+		-when it is cleared, string proceeds from low to high memory
+	-IF: Interrupt enable flag; set self with STI and CLI instructions
+		-IF cleared, interrupts ignored by CPU
+		-consider it off limits
+	-TF: Trap flag; allows debuggers to manage single stepping by forcing CPU to only execute once before
+	 calling interrupt
+		-not useful for ordinary programming
+	-SF: Sign flag carries sign for mathematical operations (highest bit in signed operation becomes 1)
+		-positivity clears SF
+	-ZF: Zero flag; sets when results of operation become zero
+		-useful for conditionals
+	-AF: Auxiliary carry flag used only for BCD arightmetic
+		-treats each operand byte as a pair of 4-bit "nybbles", allows psuedo-base10 arithmetic
+	-PF: Parity flag; involved in serial data communication
+		-indicates whether number of "set (1) bits" [p214] in "low order byte" of result is even or odd.
+		-carryover from parity checking error checking method
+	-CF: Carrry flag useful in unsigned arithmetic operations; if result of arithmetic "carries" bit from
+	 operand, CF set. otherwise CF is cleared.
+
+"Flag Etiquette"
+-Descriptions above are generalized
+	-each instruction has its own flag behavior, basically
+ex:
+	-INC, DEC increment and decrement operator by one
+	-take only 1 operand
+	-INC does not affect carry flag	
+
+-GDB "info reg" command helps in viewing flags while debugging
+-DEC affects OF, SF, ZF, AF, PF flags
+	-OF can clear because operand does not become too large to fit in register [reason left alone]
+	-SF can clear because high bit does not become 1
+	-ZF can clear because operand is not zero
+	-AF can clear because no BCD to carry nybbles around
+	-PF can clear because number of 1 bits was odd
+	-IF remains same
+
+-flags affect program in various ways
+	-program can "jump" when flags change
+	-called conditional jump statements
+	-JNZ ;jump if not zero
+		-tests value of ZF
+		-if ZF is 1, nothing happens
+		-if ZF is 0, execution travels somewhere else in program
+example (loop):
+
+	mov	eax, 5
+DoMore:	dec	eax
+	jnz	DoMore
+
+	-runs DoMore until eax contains value 0
+	-equivalent of do-while loop with incrementing/checking var, or perhaps a for loop in C/C++
+
+-NEG calculates 2's compliment for us.............
+	-remember 2's compliment can be outside of binary (hex, oct, dec{?})
+
+-remember moving 16-bit signed value into 32 bits loses the significance of the higheset bit as the sign in the
+ 32-bit space
+-MOVSX moves/copies values with sign extension intact.
+
+Notation:
+- r16 meas any 16-bit register
+- r/m16 means any 16-bit register *or* memory location
+
+Implicit Operands/Operations
+-some operations have implicit operands
+-multiplication of 32-bit operands can result in quantities with 33-64 bits (max 64)
+	-sol'n: use 2 registers
+-MUL table:
+Explicit Operand	Implicit Operand	Product
+r/m8			AL			AX
+r/m16			AX			DX and AX
+r/m32			EAX			EDX and EAX
+
+'D' register only used if needed 
+-MUL sets carry flag if overflow occurs
+	-check after multiplication to see if overflow! very useful.
+
+Unsigned Division
+-DIV does integer division
+-no floating points
+-uses two registers for result anyway, one for result and one for remainder
+-no flags affected, but can't divide by zero (duh); test divisor/dividend for zero before dividing to prevent 
+ gross things from happening

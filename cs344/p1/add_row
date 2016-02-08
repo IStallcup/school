@@ -1,0 +1,31 @@
+#!/bin/bash
+
+rm -f temp
+
+numlines=$(wc -l list)
+numlines=$(echo $numlines | tr -d ' list')
+
+i=1
+sum=0
+
+numlines=$((numlines+1))
+
+cat list | while read input
+do
+	echo $input | tr -d ' \t' > temp
+	echo "======================"
+	echo "temp file:"
+	cat temp
+	echo "======================"
+	cat temp | while read -n 1 insum
+	do
+		echo $insum
+		sum=$((sum + insum))
+		echo "sum=$sum"
+		echo $sum > temp2
+	done
+echo "======================"
+echo "sum:"
+cat temp2 #awkward, probably have to be changed for script
+echo "======================"
+done

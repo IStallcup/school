@@ -1,0 +1,895 @@
+     1                                  ; Name: Richard Sala
+     2                                  ; Creation date: 2/23/2015
+     3                                  ; Last modified: 2/27/2015
+     4                                  ;
+     5                                  ; 
+     6                                  ; Name of file: a5.asm
+     7                                  ; Description: approximation of e, number calculation
+     8                                  ;			   matrix multiplication, frequency table
+     9                                  			
+    10                                  ; Assemble:	nasm -f elf -l a5.lst  a5.asm
+    11                                  ; Link:		gcc -m32 -o a5  a5.o
+    12                                  ; Run:		./a5
+    13                                  ; Output:	
+    14                                  
+    15                                  ; Equivalent C code
+    16                                  
+    17                                  	
+    18                                  ; Declare needed external functions
+    19                                  ;
+    20                                  extern	printf			; the C function, to be called
+    21                                  extern scanf
+    22                                  	
+    23                                  SECTION .data				; Data section, initialized variables
+    24                                  	;introduction variables
+    25 00000000 48656C6C6F2C207468-     	printi: db "Hello, this is Assignment 5 by Richard Sala!", 10, 0 	; printf format
+    26 00000009 697320697320417373-
+    27 00000012 69676E6D656E742035-
+    28 0000001B 206279205269636861-
+    29 00000024 72642053616C61210A-
+    30 0000002D 00                 
+    31 0000002E 506C65617365207365-     	printi2: db "Please select one of the following: ", 10, 0
+    32 00000037 6C656374206F6E6520-
+    33 00000040 6F662074686520666F-
+    34 00000049 6C6C6F77696E673A20-
+    35 00000052 0A00               
+    36 00000054 31203D20417070726F-     	printi3: db "1 = Approximate e. 2 =calculator. 3 = matrix multiplication. 4 = Relative Frequency Table.", 10, 0
+    37 0000005D 78696D61746520652E-
+    38 00000066 2032203D63616C6375-
+    39 0000006F 6C61746F722E203320-
+    40 00000078 3D206D617472697820-
+    41 00000081 6D756C7469706C6963-
+    42 0000008A 6174696F6E2E203420-
+    43 00000093 3D2052656C61746976-
+    44 0000009C 65204672657175656E-
+    45 000000A5 6379205461626C652E-
+    46 000000AE 0A00               
+    47 000000B0 256400                  	choice: db "%d", 0
+    48 000000B3 00000000                	userchoice: dd 0
+    49 000000B7 4E6F7420312D342C20-     	emessage: db "Not 1-4, ending now. Have a nice day.", 10, 0
+    50 000000C0 656E64696E67206E6F-
+    51 000000C9 772E20486176652061-
+    52 000000D2 206E69636520646179-
+    53 000000DB 2E0A00             
+    54 000000DE 5468616E6B7320666F-     	exitmessage: db "Thanks for using my assignment, have a nice day. Good bye now.", 10, 0
+    55 000000E7 72207573696E67206D-
+    56 000000F0 792061737369676E6D-
+    57 000000F9 656E742C2068617665-
+    58 00000102 2061206E6963652064-
+    59 0000010B 61792E20476F6F6420-
+    60 00000114 627965206E6F772E0A-
+    61 0000011D 00                 
+    62                                  
+    63                                  	;func1
+    64 0000011E 546869732069732074-     	printe: db "This is the true value of e: %.10f", 10, 0
+    65 00000127 686520747275652076-
+    66 00000130 616C7565206F662065-
+    67 00000139 3A20252E3130660A00 
+    68 00000142 546869732069732074-     	printe2: db "This is the approximation of e after 50 loops: %.10f", 10, 0
+    69 0000014B 686520617070726F78-
+    70 00000154 696D6174696F6E206F-
+    71 0000015D 662065206166746572-
+    72 00000166 203530206C6F6F7073-
+    73 0000016F 3A20252E3130660A00 
+    74 00000178 0000000000004940        	limit: dq 50.0
+    75 00000180 000000000000F03F        	counte: dq 1.0
+    76 00000188 000000000000F03F        	n: dq 1.0
+    77                                  	
+    78                                  	;func2
+    79 00000190 0000000000005940        	UB: dq 100.0			; upper bound
+    80 00000198 0000000000000000        	LB: dq 0.0				; lower bound
+    81 000001A0 48656C6C6F21205468-     	intro: db "Hello! This is Part 2 of Assignment 3. I'm not really sure what to call it but Richard Sala wrote it", 10, 0
+    82 000001A9 697320697320506172-
+    83 000001B2 742032206F66204173-
+    84 000001BB 7369676E6D656E7420-
+    85 000001C4 332E2049276D206E6F-
+    86 000001CD 74207265616C6C7920-
+    87 000001D6 737572652077686174-
+    88 000001DF 20746F2063616C6C20-
+    89 000001E8 697420627574205269-
+    90 000001F1 63686172642053616C-
+    91 000001FA 612077726F74652069-
+    92 00000203 740A00             
+    93 00000206 506C6561736520656E-     	usernamep: db "Please enter your name: ", 10, 0 
+    94 0000020F 74657220796F757220-
+    95 00000218 6E616D653A200A00   
+    96 00000220 257300                  	name: db "%s", 0
+    97 00000223 48656C6C6F2C202573-     	Hello: db "Hello, %s!", 10, 0
+    98 0000022C 210A00             
+    99 0000022F 596F752077696C6C20-     	part1: db "You will be prompted for a value (decimals can be used) less than or equal to 100.0", 10, 0
+   100 00000238 62652070726F6D7074-
+   101 00000241 656420666F72206120-
+   102 0000024A 76616C756520286465-
+   103 00000253 63696D616C73206361-
+   104 0000025C 6E2062652075736564-
+   105 00000265 29206C657373207468-
+   106 0000026E 616E206F7220657175-
+   107 00000277 616C20746F20313030-
+   108 00000280 2E300A00           
+   109 00000284 5768656E20796F7527-     	part2: db "When you're finished simply enter a negative number like -1", 10, 0
+   110 0000028D 72652066696E697368-
+   111 00000296 65642073696D706C79-
+   112 0000029F 20656E746572206120-
+   113 000002A8 6E6567617469766520-
+   114 000002B1 6E756D626572206C69-
+   115 000002BA 6B65202D310A00     
+   116 000002C1 5468652070726F6772-     	part3: db "The program will then show the number of non negative numbers entered, sum, and average value of your input.", 10, 0
+   117 000002CA 616D2077696C6C2074-
+   118 000002D3 68656E2073686F7720-
+   119 000002DC 746865206E756D6265-
+   120 000002E5 72206F66206E6F6E20-
+   121 000002EE 6E6567617469766520-
+   122 000002F7 6E756D626572732065-
+   123 00000300 6E74657265642C2073-
+   124 00000309 756D2C20616E642061-
+   125 00000312 766572616765207661-
+   126 0000031B 6C7565206F6620796F-
+   127 00000324 757220696E7075742E-
+   128 0000032D 0A00               
+   129 0000032F 456E74657220796F75-     	part4: db "Enter your numbers", 10, 0
+   130 00000338 72206E756D62657273-
+   131 00000341 0A00               
+   132 00000343 256C66000000000000-     	input: dq "%lf", 0
+   133 0000034C 00000000000000     
+   134 00000353 4E756D626572206F76-     	error: db "Number over 100. Number must be less.", 10, 0
+   135 0000035C 6572203130302E204E-
+   136 00000365 756D626572206D7573-
+   137 0000036E 74206265206C657373-
+   138 00000377 2E0A00             
+   139 0000037A 596F7520656E746572-     	printf21: db "You entered a negative number! We're done!", 10, 0
+   140 00000383 65642061206E656761-
+   141 0000038C 74697665206E756D62-
+   142 00000395 657221205765277265-
+   143 0000039E 20646F6E65210A00   
+   144 000003A6 526573756C74733A0A-     	printf22: db "Results:", 10, 0
+   145 000003AF 00                 
+   146 000003B0 4E756D626572206F66-     	printf23: db "Number of non negative integers = %.1f", 10, 0
+   147 000003B9 206E6F6E206E656761-
+   148 000003C2 7469766520696E7465-
+   149 000003CB 67657273203D20252E-
+   150 000003D4 31660A00           
+   151 000003D8 53756D203D20252E33-     	printf24: db "Sum = %.3f", 10, 0
+   152 000003E1 660A00             
+   153 000003E4 41766572616765203D-     	printf25: db "Average = %.3f", 10, 0
+   154 000003ED 20252E33660A00     
+   155 000003F4 4E6F206E6F6E206E65-     	specialcase: db "No non negative integers were entered!", 10, 0
+   156 000003FD 67617469766520696E-
+   157 00000406 746567657273207765-
+   158 0000040F 726520656E74657265-
+   159 00000418 64210A00           
+   160 0000041C 6279652C202573210A-     	bye: dd "bye, %s!", 10, 0
+   161 00000425 00000000000000     
+   162 0000042C 496E70757420746865-     	print1: dd "Input the numbers you want"
+   163 00000435 206E756D6265727320-
+   164 0000043E 796F752077616E7400-
+   165 0000042D 00                 
+   166 00000448 0000000000000000        	num: dq 0.0
+   167 00000450 0000000000000000        	sum: dq 0.0
+   168 00000458 0000000000000000        	numbers: dq 0.0
+   169 00000460 0000000000000000        	av: dq 0.0
+   170 00000468 0000000000000000        	zero: dq 0.0
+   171 00000470 000000000000F03F        	one: dq 1.0
+   172 00000478 0000000000000000        	temp: dq 0.0
+   173                                  
+   174                                  	;func3
+   175 00000480 EC51B81E85EBF13FD7-     	matrix1: dq 1.12, 2.23, 3.34, 4.45
+   176 00000489 A3703D0AD70140B81E-
+   177 00000492 85EB51B80A40CDCCCC-
+   178 0000049B CCCCCC1140         
+   179 000004A0 E17A14AE47E10040C3-     	matrix2: dq 2.11, 3.22, 4.33, 5.44
+   180 000004A9 F5285C8FC2094052B8-
+   181 000004B2 1E85EB511140C3F528-
+   182 000004BB 5C8FC21540         
+   183 000004C0 200A00                  	linebr: db " ", 10, 0
+   184 000004C3 546865736520617265-     	matrixprint: db "These are the two matrices that will be multiplied together: ", 10, 0
+   185 000004CC 207468652074776F20-
+   186 000004D5 6D6174726963657320-
+   187 000004DE 746861742077696C6C-
+   188 000004E7 206265206D756C7469-
+   189 000004F0 706C69656420746F67-
+   190 000004F9 65746865723A200A00 
+   191 00000502 50726F647563742069-     	product: db "Product is:", 10, 0
+   192 0000050B 733A0A00           
+   193 0000050F 252E30326620252E30-     	matrixprintval: db "%.02f %.02f", 10, 0
+   194 00000518 32660A00           
+   195                                  
+   196                                  	;func4
+   197 0000051C 5461626C652069733A-     	tablep: db "Table is: ", 0
+   198 00000525 2000               
+   199 00000527 2563200A00              	stringp: db "%c ", 10, 0
+   200 0000052C 00000000                	freqcount:	dd 0
+   201 00000530 0000000000001840        	freqsize:	dq 6.0
+   202 00000538 537472696E67206973-     	stringmess: db "String is: ", 10, 0
+   203 00000541 3A200A00           
+   204 00000545 256C662000              	tableprint: db "%lf ",  0
+   205 0000054A 0000000000000000        	count2: dq 0.0
+   206 00000552 000000000000F03F        	one4:	dq 1.0
+   207 0000055A 256400000A00000000-     	what:	dd "%d", 10, 0
+   208 00000563 000000             
+   209 00000566 0A00                    	test:	db "", 10, 0
+   210 00000568 00000000                	counter4:	dd	0
+   211 0000056C 0000000000000000        	normalized:	dq 0.0
+   212 00000574 0000000000000000        	normalizedA: dq 0.0
+   213 0000057C 4E6F726D616C697A65-     	print14:		db "Normalized value of one occurrence is: %lf ", 10, 0
+   214 00000585 642076616C7565206F-
+   215 0000058E 66206F6E65206F6363-
+   216 00000597 757272656E63652069-
+   217 000005A0 733A20256C66200A00 
+   218 000005A9 56616C756573206170-     	print1.54:		db "Values appear in order of string.", 10, 0
+   219 000005B2 7065617220696E206F-
+   220 000005BB 72646572206F662073-
+   221 000005C4 7472696E672E0A00   
+   222 000005CC 417420706F73697469-     	print24:		db "At position %d the ", 0
+   223 000005D5 6F6E20256420746865-
+   224 000005DE 2000               
+   225 000005E0 4672657175656E6379-     	print34:		db "Frequency as a normalized value is: %lf", 10, 0
+   226 000005E9 2061732061206E6F72-
+   227 000005F2 6D616C697A65642076-
+   228 000005FB 616C75652069733A20-
+   229 00000604 256C660A00         
+   230                                  
+   231                                  SECTION .bss				; BSS, uninitialized variables
+   232                                  	;func1:
+   233 00000000 <res 00000008>          	e: resq 1
+   234 00000008 <res 00000008>          	e2: resq 1
+   235                                  	
+   236                                  	;func2
+   237 00000010 <res 00000004>          	username: resd 1		; variable for username
+   238 00000014 <res 00000008>          	invar: resq 1
+   239                                  
+   240                                  	;func3
+   241 0000001C <res 00000008>          	v1: resq 1
+   242 00000024 <res 00000008>          	v2: resq 1
+   243 0000002C <res 00000008>          	v3: resq 1
+   244 00000034 <res 00000008>          	v4: resq 1
+   245 0000003C <res 00000008>          	v5: resq 1
+   246 00000044 <res 00000008>          	v6: resq 1
+   247 0000004C <res 00000008>          	v7: resq 1
+   248 00000054 <res 00000008>          	v8: resq 1
+   249 0000005C <res 00000020>          	v4x: resq 4
+   250                                  
+   251                                  	;func4
+   252 0000007C <res 00000018>          	string:	resd 6
+   253 00000094 <res 00000400>          	table:	resq 128
+   254                                  
+   255                                  
+   256                                  SECTION .text				; Code section.
+   257                                  
+   258                                  global main				; the standard gcc entry point
+   259                                  
+   260                                  	main:					; the program label for the entry point
+   261 00000000 55                      		push	ebp			; set up stack frame
+   262 00000001 89E5                    		mov		ebp,esp
+   263                                  		
+   264                                  		;introduction with instructions on what to choose
+   265 00000003 68[00000000]            		push dword printi
+   266 00000008 E8(00000000)            		call printf
+   267 0000000D 68[2E000000]            		push dword printi2
+   268 00000012 E8(00000000)            		call printf
+   269 00000017 68[54000000]            		push dword printi3
+   270 0000001C E8(00000000)            		call printf
+   271 00000021 81C40C000000            		add esp, 12
+   272                                  		
+   273                                  		;get input from user to make decision
+   274 00000027 68[B3000000]            		push dword userchoice
+   275 0000002C 68[B0000000]            		push dword choice
+   276 00000031 E8(00000000)            		call scanf
+   277 00000036 81C408000000            		add esp, 8
+   278                                  
+   279                                  		;if they choose 1, go to func1
+   280 0000003C A1[B3000000]            		mov eax, [userchoice]
+   281 00000041 3D01000000              		cmp eax, 1
+   282 00000046 7429                    		je .func1
+   283                                  		
+   284                                  		;if they choose 2, go to func2
+   285 00000048 A1[B3000000]            		mov eax, [userchoice]
+   286 0000004D 3D02000000              		cmp eax, 2
+   287 00000052 7439                    		je .func2
+   288                                  		
+   289                                  		;if they choose 3, go to func3
+   290 00000054 A1[B3000000]            		mov eax, [userchoice]
+   291 00000059 3D03000000              		cmp eax, 3
+   292 0000005E 7437                    		je .func3
+   293                                  		
+   294                                  		;if they choose 4, go to func4
+   295 00000060 A1[B3000000]            		mov eax, [userchoice]
+   296 00000065 3D04000000              		cmp eax, 4
+   297 0000006A 7435                    		je .func4
+   298                                  		
+   299                                  		;if not, jump to last
+   300 0000006C E93A000000              		jmp .end
+   301                                  		
+   302                                  		;calls func1 then jumps to last
+   303                                  		.func1:
+   304 00000071 FF35[7C010000]          			push dword [limit + 4]
+   305 00000077 FF35[78010000]          			push dword [limit]
+   306 0000007D E85B000000              			call func1
+   307 00000082 81C408000000            			add esp, 8
+   308 00000088 E937000000              			jmp .exit
+   309                                  		
+   310                                  		;calls func2 then jumps to last
+   311                                  		.func2:
+   312 0000008D E817010000              			call func2
+   313 00000092 E92D000000              			jmp .exit
+   314                                  		;calls func3 then jumps to last
+   315                                  		.func3:
+   316 00000097 E8CA020000              			call func3
+   317 0000009C E923000000              			jmp .exit
+   318                                  		;calls func4 then jumps to last
+   319                                  		.func4:
+   320 000000A1 E8CC040000              			call func4
+   321 000000A6 E919000000              			jmp .exit
+   322                                  
+   323                                  		;says goodbye
+   324                                  		.end:
+   325 000000AB 68[B7000000]            			push emessage
+   326 000000B0 E8(00000000)            			call printf
+   327 000000B5 81C404000000            			add esp, 4
+   328                                  
+   329 000000BB 89EC                    			mov		esp, ebp	; takedown stack frame
+   330 000000BD 5D                      			pop		ebp			; same as "leave" op
+   331                                  
+   332 000000BE B800000000              			mov		eax,0		; normal, no error, return value
+   333 000000C3 C3                      			ret					; return
+   334                                  
+   335                                  		;exits correctly after function
+   336                                  		.exit:
+   337 000000C4 68[DE000000]            			push exitmessage
+   338 000000C9 E8(00000000)            			call printf
+   339 000000CE 81C404000000            			add esp, 4
+   340                                  
+   341 000000D4 89EC                    			mov		esp, ebp	; takedown stack frame
+   342 000000D6 5D                      			pop		ebp			; same as "leave" op
+   343                                  
+   344 000000D7 B800000000              			mov		eax,0		; normal, no error, return value
+   345 000000DC C3                      			ret					; return
+   346                                  
+   347                                  	
+   348                                  ; *********** FUNC1 ************	
+   349                                  	func1:
+   350 000000DD 55                      		push	ebp			; set up stack frame
+   351 000000DE 89E5                    		mov		ebp,esp
+   352                                  		
+   353                                  		;calculate actual average of e
+   354 000000E0 D9EA                    		fldl2e ; load log_2(e)
+   355 000000E2 D9E8                    		fld1   ; load 1
+   356 000000E4 DEE9                    		fsub   ; subtract, store in st0
+   357 000000E6 D9F0                    		f2xm1  ; 2**st0 - 1
+   358 000000E8 D9E8                    		fld1   ; load 1
+   359 000000EA DEC1                    		fadd   ; add, result is 2**st0
+   360 000000EC D9C0                    		fld st0; reload st0
+   361 000000EE DEC1                    		fadd   ; so that we can double it
+   362 000000F0 DD1D[08000000]          		fstp qword [e2]; load e
+   363                                  		
+   364                                  		;print actual value of e
+   365 000000F6 FF35[0C000000]          		push dword [e2 + 4]
+   366 000000FC FF35[08000000]          		push dword [e2]
+   367 00000102 68[1E010000]            		push printe
+   368 00000107 E8(00000000)            		call printf
+   369 0000010C 81C40C000000            		add esp, 12
+   370                                  	
+   371                                  		;adding the first one
+   372 00000112 DD05[70040000]          		fld qword [one]
+   373 00000118 DC05[68040000]          		fadd qword [zero]
+   374 0000011E DD1D[00000000]          		fstp qword [e]
+   375                                  		
+   376                                  		
+   377                                  		;loop to calculate e
+   378                                  		.eloop:
+   379                                  			;multiplying n by the counter
+   380 00000124 DD05[88010000]          			fld qword [n]
+   381 0000012A DC0D[80010000]          			fmul qword [counte]
+   382 00000130 DD1D[88010000]          			fstp qword [n]
+   383                                  
+   384                                  			;1 / factorial
+   385 00000136 DD05[70040000]          			fld qword [one]
+   386 0000013C DC35[88010000]          			fdiv qword [n]
+   387 00000142 DD1D[78040000]          			fstp qword [temp]
+   388                                  
+   389                                  			;e = e + temp
+   390 00000148 DD05[78040000]          			fld qword [temp]
+   391 0000014E DC05[00000000]          			fadd qword [e]
+   392 00000154 DD1D[00000000]          			fstp qword [e]
+   393                                  			
+   394                                  			;increases counter
+   395 0000015A DD05[80010000]          			fld qword [counte]
+   396 00000160 DC05[70040000]          			fadd qword [one]
+   397 00000166 DD1D[80010000]          			fstp qword [counte]
+   398                                  			
+   399                                  			;compare the counter to the limist 
+   400 0000016C DD05[80010000]          			fld qword [counte]		; load counte
+   401 00000172 DC1D[78010000]          			fcomp qword [limit]		; compare to limit (50.0)
+   402 00000178 9B                      			wait
+   403 00000179 9BDFE0                  			fstsw ax
+   404 0000017C 9E                      			sahf
+   405 0000017D 7705                    			ja .print
+   406                                  			
+   407                                  			;loop back
+   408 0000017F E9A0FFFFFF              			jmp .eloop
+   409                                  			
+   410                                  		;print the value of e
+   411                                  		.print:
+   412 00000184 FF35[04000000]          			push dword [e + 4]
+   413 0000018A FF35[00000000]          			push dword [e]
+   414 00000190 68[42010000]            			push printe2
+   415 00000195 E8(00000000)            			call printf
+   416 0000019A 81C40C000000            			add esp, 12
+   417                                  		
+   418 000001A0 89EC                    		mov		esp, ebp	; takedown stack frame
+   419 000001A2 5D                      		pop		ebp			; same as "leave" op
+   420                                  		
+   421 000001A3 B800000000              		mov		eax,0		; normal, no error, return value
+   422 000001A8 C3                      		ret					; return
+   423                                  		
+   424                                  ; *********** FUNC2 ************	
+   425                                  	func2:
+   426 000001A9 55                      		push	ebp			; set up stack frame
+   427 000001AA 89E5                    		mov		ebp,esp
+   428                                  
+   429                                  		;Displays the intro and asks the user to input their name
+   430 000001AC 68[A0010000]            		push dword intro	; pushes intro
+   431 000001B1 68[06020000]            		push dword usernamep ; pushes username
+   432 000001B6 E8(00000000)            		call printf			; call to printf
+   433 000001BB 81C408000000            		add esp, 8			; allocate memory
+   434                                  		
+   435                                  		;Get the name from the user and put it into username
+   436 000001C1 68[10000000]            		push dword username	; pushes username
+   437 000001C6 68[20020000]            		push dword name	; push name
+   438 000001CB E8(00000000)            		call scanf			; call to scanf
+   439 000001D0 81C408000000            		add esp, 8			; allocate memory
+   440                                  		
+   441                                  		;Welcomes the user
+   442 000001D6 68[10000000]            		push dword username
+   443 000001DB 68[23020000]            		push dword Hello
+   444 000001E0 E8(00000000)            		call printf
+   445 000001E5 81C408000000            		add esp, 8
+   446                                  		
+   447                                  		;Displays the instructions for the user
+   448 000001EB 68[2F020000]            		push dword part1
+   449 000001F0 68[84020000]            		push dword part2
+   450 000001F5 68[C1020000]            		push dword part3
+   451 000001FA 68[2F030000]            		push dword part4
+   452 000001FF E8(00000000)            		call printf
+   453 00000204 81C410000000            		add esp, 16
+   454                                  		
+   455                                  		;input funciton
+   456                                  		.input:
+   457                                  			;gets a number input by the user
+   458 0000020A 68[14000000]            			push invar
+   459 0000020F 68[43030000]            			push input
+   460 00000214 E8(00000000)            			call scanf
+   461 00000219 81C408000000            			add esp, 8
+   462                                  			
+   463                                  			;compares to upper limit
+   464 0000021F DD05[14000000]          			fld qword [invar]		; load invar
+   465 00000225 DC1D[90010000]          			fcomp qword [UB]		; compare to upper bound 50.0
+   466 0000022B 9B                      			wait
+   467 0000022C 9BDFE0                  			fstsw ax
+   468 0000022F 9E                      			sahf
+   469 00000230 7741                    			ja .errorMsg			; jump if above to errorMsg
+   470                                  			
+   471                                  			;compares to lower bound
+   472 00000232 DD05[14000000]          			fld qword [invar]		; load invar
+   473 00000238 DC1D[98010000]          			fcomp qword [LB]		; compare to lower bound 0.0
+   474 0000023E 9B                      			wait
+   475 0000023F 9BDFE0                  			fstsw ax
+   476 00000242 9E                      			sahf
+   477 00000243 7243                    			jb .print				; jump if below to print
+   478                                  			
+   479 00000245 E900000000              			jmp .func				; if it's fine, go to func
+   480                                  		
+   481                                  		.func:
+   482 0000024A DD05[50040000]          			fld qword [sum]			; load sum
+   483 00000250 DC05[14000000]          			fadd qword [invar]		; add invar
+   484 00000256 DD1D[50040000]          			fstp qword [sum]		; store is back un sum
+   485                                  			
+   486 0000025C DD05[58040000]          			fld qword [numbers]		; load counter (numbers)
+   487 00000262 DC05[70040000]          			fadd qword [one]		; increase counter by one
+   488 00000268 DD1D[58040000]          			fstp qword [numbers]	; store value into numbers	
+   489                                  			
+   490 0000026E E997FFFFFF              			jmp .input				; jump back to input, loop
+   491                                  		
+   492                                  		
+   493                                  		.errorMsg:
+   494 00000273 68[53030000]            			push dword error	; prints error message
+   495 00000278 E8(00000000)            			call printf
+   496 0000027D 81C404000000            			add esp, 4
+   497                                  		
+   498 00000283 E982FFFFFF              			jmp .input				; jump back to input, loop
+   499                                  			
+   500                                  			
+   501                                  		.print:
+   502                                  			;special case, if there are no numbers
+   503 00000288 DD05[58040000]          			fld qword [numbers]		; load numbers
+   504 0000028E DC1D[68040000]          			fcomp qword [zero]		; compare to 0
+   505 00000294 9B                      			wait
+   506 00000295 9BDFE0                  			fstsw ax
+   507 00000298 9E                      			sahf
+   508 00000299 0F849F000000            			je .special				; jump to special
+   509                                  			
+   510 0000029F 68[7A030000]            			push dword printf21		; print the description of results
+   511 000002A4 68[A6030000]            			push dword printf22
+   512 000002A9 E8(00000000)            			call printf
+   513 000002AE 81C404000000            			add esp, 4
+   514                                  			
+   515                                  			; prints how many non negative integers
+   516 000002B4 FF35[5C040000]          			push dword [numbers + 4]
+   517 000002BA FF35[58040000]          			push dword [numbers]
+   518 000002C0 68[B0030000]            			push dword printf23
+   519 000002C5 E8(00000000)            			call printf
+   520 000002CA 81C40C000000            			add esp, 12
+   521                                  			
+   522                                  			; prints the sum
+   523 000002D0 FF35[54040000]          			push dword [sum + 4]
+   524 000002D6 FF35[50040000]          			push dword [sum]
+   525 000002DC 68[D8030000]            			push dword printf24
+   526 000002E1 E8(00000000)            			call printf
+   527 000002E6 81C40C000000            			add esp, 12
+   528                                  			
+   529 000002EC E900000000              			jmp .calcav				; jumps to calculate average
+   530                                  		
+   531                                  		;calculate the average
+   532                                  		.calcav:
+   533 000002F1 DD05[50040000]          			fld qword [sum]			; load sum
+   534 000002F7 DC35[58040000]          			fdiv qword [numbers]	; divide by the counter (numbers)
+   535 000002FD DD1D[60040000]          			fstp qword [av]			; store value in average (av)
+   536                                  			
+   537 00000303 E900000000              			jmp .finish				; jump to finish
+   538                                  			
+   539                                  		.finish:
+   540                                  			; display the average
+   541 00000308 FF35[64040000]          			push dword [av + 4]
+   542 0000030E FF35[60040000]          			push dword [av]
+   543 00000314 68[E4030000]            			push dword printf25
+   544 00000319 E8(00000000)            			call printf
+   545 0000031E 81C40C000000            			add esp, 12
+   546                                  			
+   547 00000324 68[10000000]            			push dword username		; gets the username
+   548 00000329 68[1C040000]            			push dword bye		; goodbye statement 
+   549 0000032E E8(00000000)            			call printf
+   550 00000333 81C408000000            			add esp, 8
+   551                                  			
+   552 00000339 E91F000000              			jmp .end				; jumps to end
+   553                                  			
+   554                                  		; special case function
+   555                                  		.special:
+   556 0000033E 68[F4030000]            			push dword specialcase		; print the special message		
+   557 00000343 68[10000000]            			push dword username		; gets username
+   558 00000348 68[1C040000]            			push dword bye		; goodbye message
+   559 0000034D E8(00000000)            			call printf
+   560 00000352 81C40C000000            			add esp, 12
+   561                                  			
+   562 00000358 E900000000              			jmp .end
+   563                                  			
+   564                                  		.end:
+   565 0000035D 89EC                    			mov		esp, ebp	; takedown stack frame
+   566 0000035F 5D                      			pop		ebp			; same as "leave" op
+   567                                  			
+   568 00000360 B800000000              			mov		eax,0		; normal, no error, return value
+   569 00000365 C3                      			ret					; return
+   570                                  
+   571                                  ; *********** FUNC3 ************
+   572                                  		func3:
+   573 00000366 55                      			push	ebp			; set up stack frame
+   574 00000367 89E5                    			mov		ebp,esp
+   575                                  			
+   576                                  			;introduction
+   577 00000369 68[C3040000]            			push dword matrixprint
+   578 0000036E E8(00000000)            			call printf
+   579 00000373 81C404000000            			add esp, 4
+   580                                  			
+   581                                  			;print the first matrix
+   582 00000379 FF35[84040000]          			push dword [matrix1 + 4]
+   583 0000037F FF35[80040000]          			push dword [matrix1]
+   584 00000385 FF35[8C040000]          			push dword [matrix1 + 12]
+   585 0000038B FF35[88040000]          			push dword [matrix1 + 8]
+   586 00000391 68[0F050000]            			push dword matrixprintval
+   587 00000396 E8(00000000)            			call printf
+   588 0000039B FF35[94040000]          			push dword [matrix1 + 20]
+   589 000003A1 FF35[90040000]          			push dword [matrix1 + 16]
+   590 000003A7 FF35[9C040000]          			push dword [matrix1 + 28]
+   591 000003AD FF35[98040000]          			push dword [matrix1 + 24]
+   592 000003B3 68[0F050000]            			push dword matrixprintval
+   593 000003B8 E8(00000000)            			call printf
+   594 000003BD 81C428000000            			add esp, 40
+   595                                  			;end line
+   596 000003C3 68[C0040000]            			push dword linebr
+   597 000003C8 E8(00000000)            			call printf
+   598 000003CD 81C404000000            			add esp, 4
+   599                                  			
+   600                                  			;print the second matrix
+   601 000003D3 FF35[A4040000]          			push dword [matrix2 + 4]
+   602 000003D9 FF35[A0040000]          			push dword [matrix2]
+   603 000003DF FF35[AC040000]          			push dword [matrix2 + 12]
+   604 000003E5 FF35[A8040000]          			push dword [matrix2 + 8]
+   605 000003EB 68[0F050000]            			push dword matrixprintval
+   606 000003F0 E8(00000000)            			call printf
+   607 000003F5 FF35[B4040000]          			push dword [matrix2 + 20]
+   608 000003FB FF35[B0040000]          			push dword [matrix2 + 16]
+   609 00000401 FF35[BC040000]          			push dword [matrix2 + 28]
+   610 00000407 FF35[B8040000]          			push dword [matrix2 + 24]
+   611 0000040D 68[0F050000]            			push dword matrixprintval
+   612 00000412 E8(00000000)            			call printf
+   613 00000417 81C428000000            			add esp, 40
+   614                                  			;end line
+   615 0000041D 68[C0040000]            			push dword linebr
+   616 00000422 E8(00000000)            			call printf
+   617 00000427 81C404000000            			add esp, 4
+   618                                  				
+   619                                  		
+   620                                  		;calculations
+   621                                  		.calc:
+   622 0000042D DD05[80040000]          			fld qword [matrix1]		; load first location of matrix1
+   623 00000433 DC0D[A0040000]          			fmul qword [matrix2]		; multiply by the first location of matrix2
+   624 00000439 DD1D[1C000000]          			fstp qword [v1]	; store in 
+   625                                  				
+   626 0000043F DD05[88040000]          			fld qword [matrix1 + 8]
+   627 00000445 DC0D[B0040000]          			fmul qword [matrix2 + 16]
+   628 0000044B DD1D[24000000]          			fstp qword [v2]
+   629                                  				
+   630 00000451 DD05[80040000]          			fld qword [matrix1]	
+   631 00000457 DC0D[B0040000]          			fmul qword [matrix2 + 16]
+   632 0000045D DD1D[2C000000]          			fstp qword [v3]		
+   633                                  				
+   634 00000463 DD05[88040000]          			fld qword [matrix1 + 8]
+   635 00000469 DC0D[B8040000]          			fmul qword [matrix2 + 24]
+   636 0000046F DD1D[34000000]          			fstp qword [v4]
+   637                                  				
+   638 00000475 DD05[90040000]          			fld qword [matrix1 + 16]
+   639 0000047B DC0D[A0040000]          			fmul qword [matrix2]
+   640 00000481 DD1D[3C000000]          			fstp qword [v5]
+   641                                  				
+   642 00000487 DD05[98040000]          			fld qword [matrix1 + 24]
+   643 0000048D DC0D[B0040000]          			fmul qword [matrix2 + 16]
+   644 00000493 DD1D[44000000]          			fstp qword [v6]	
+   645                                  				
+   646 00000499 DD05[90040000]          			fld qword [matrix1 + 16]
+   647 0000049F DC0D[A8040000]          			fmul qword [matrix2 + 8]
+   648 000004A5 DD1D[4C000000]          			fstp qword [v7]	
+   649                                  				
+   650 000004AB DD05[98040000]          			fld qword [matrix1 + 24]	
+   651 000004B1 DC0D[B8040000]          			fmul qword [matrix2 + 24]
+   652 000004B7 DD1D[54000000]          			fstp qword [v8]	
+   653                                  				
+   654 000004BD DD05[1C000000]          			fld qword [v1]
+   655 000004C3 DC05[24000000]          			fadd qword [v2]
+   656 000004C9 DD1D[5C000000]          			fstp qword [v4x]
+   657                                  				
+   658 000004CF DD05[2C000000]          			fld qword [v3]
+   659 000004D5 DC05[34000000]          			fadd qword [v4]
+   660 000004DB DD1D[64000000]          			fstp qword [v4x + 8]
+   661                                  				
+   662 000004E1 DD05[3C000000]          			fld qword [v5]
+   663 000004E7 DC05[44000000]          			fadd qword [v6]
+   664 000004ED DD1D[6C000000]          			fstp qword [v4x + 16]
+   665                                  				
+   666 000004F3 DD05[4C000000]          			fld qword [v7]
+   667 000004F9 DC05[54000000]          			fadd qword [v8]
+   668 000004FF DD1D[74000000]          			fstp qword [v4x + 24]
+   669                                  				
+   670 00000505 E900000000              			jmp .printMatrix
+   671                                  		
+   672                                  		.printMatrix:
+   673                                  			;product
+   674 0000050A 68[02050000]            			push dword product
+   675 0000050F E8(00000000)            			call printf
+   676 00000514 81C404000000            			add esp, 4
+   677                                  				
+   678                                  			;print the resulting matrix
+   679 0000051A FF35[60000000]          			push dword [v4x + 4]
+   680 00000520 FF35[5C000000]          			push dword [v4x]
+   681 00000526 FF35[68000000]          			push dword [v4x + 12]
+   682 0000052C FF35[64000000]          			push dword [v4x + 8]
+   683 00000532 68[0F050000]            			push dword matrixprintval
+   684 00000537 E8(00000000)            			call printf
+   685 0000053C FF35[70000000]          			push dword [v4x + 20]
+   686 00000542 FF35[6C000000]          			push dword [v4x + 16]
+   687 00000548 FF35[78000000]          			push dword [v4x + 28]
+   688 0000054E FF35[74000000]          			push dword [v4x + 24]
+   689 00000554 68[0F050000]            			push dword matrixprintval
+   690 00000559 E8(00000000)            			call printf
+   691 0000055E 81C428000000            			add esp, 40
+   692                                  
+   693 00000564 E900000000              			jmp .end
+   694                                  
+   695                                  		.end:
+   696 00000569 89EC                    			mov		esp, ebp	; Takedown stack frame
+   697 0000056B 5D                      			pop		ebp			; same as "leave" op
+   698                                  
+   699 0000056C B800000000              			mov		eax,0		; normal, no error, return value
+   700 00000571 C3                      			ret					; return
+   701                                  
+   702                                  ; *********** FUNC4 ************	
+   703                                  		func4:
+   704 00000572 55                      		push	ebp			; set up stack frame
+   705 00000573 89E5                    		mov		ebp,esp
+   706                                  
+   707                                  	; create a frequency table from a char array
+   708                                  	freqTable:
+   709                                  		;push	ebp			; set up stack frame
+   710                                  		;mov		ebp,esp
+   711                                  	
+   712                                  	;manually fills the string with values
+   713                                  	;I couldn't get it working without manually adding them
+   714                                  	.manualfill:
+   715 00000575 B900000000              		mov ecx, 0
+   716                                  		
+   717 0000057A C6048D[7C000000]41      		mov [string + 4 * ecx], byte 'A'
+   718 00000582 81C101000000            		add ecx, 1
+   719 00000588 C6048D[7C000000]41      		mov [string + 4 * ecx], byte 'A'
+   720 00000590 81C101000000            		add ecx, 1
+   721 00000596 C6048D[7C000000]42      		mov [string + 4 * ecx], byte 'B'
+   722 0000059E 81C101000000            		add ecx, 1
+   723 000005A4 C6048D[7C000000]43      		mov [string + 4 * ecx], byte 'C'
+   724 000005AC 81C101000000            		add ecx, 1
+   725 000005B2 C6048D[7C000000]44      		mov [string + 4 * ecx], byte 'D'
+   726 000005BA 81C101000000            		add ecx, 1
+   727 000005C0 C6048D[7C000000]45      		mov [string + 4 * ecx], byte 'E'
+   728 000005C8 81C101000000            		add ecx, 1
+   729                                  
+   730 000005CE 68[1C050000]            	push tablep
+   731 000005D3 E8(00000000)            	call printf
+   732 000005D8 81C404000000            	add esp, 4
+   733                                  
+   734                                  	;prints table
+   735                                  	.tableprint:
+   736 000005DE FF35[98000000]          		push dword [table + 4]		;pushes value at postion eax in table
+   737 000005E4 68[94000000]            		push dword table
+   738 000005E9 68[45050000]            		push dword tableprint
+   739 000005EE E8(00000000)            		call printf
+   740 000005F3 81C40C000000            		add esp, 12
+   741                                  
+   742 000005F9 A1[4A050000]            		mov eax, [count2]
+   743 000005FE 40                      		inc eax
+   744 000005FF A3[4A050000]            		mov [count2], eax
+   745 00000604 813D[4A050000]0600-     		cmp dword [count2], 6
+   746 0000060C 0000               
+   747 0000060E 7CCE                    		jl .tableprint
+   748 00000610 A1[4A050000]            		mov eax, [count2]
+   749 00000615 B800000000              		mov eax, 0
+   750 0000061A A3[4A050000]            		mov [count2], eax
+   751                                  
+   752                                  	;zeros the registers
+   753                                  	.zero:
+   754 0000061F B800000000              		mov eax, 0
+   755 00000624 B900000000              		mov ecx, 0
+   756                                  
+   757 00000629 68[66050000]            		push dword test
+   758 0000062E E8(00000000)            		call printf
+   759 00000633 81C404000000            		add esp, 4
+   760                                  
+   761 00000639 68[38050000]            		push dword stringmess
+   762 0000063E E8(00000000)            		call printf
+   763 00000643 81C404000000            		add esp, 4
+   764 00000649 E900000000              		jmp .originprint
+   765                                  
+   766                                  	;prints string
+   767                                  	.originprint:
+   768 0000064E A1[4A050000]            		mov eax, [count2]
+   769 00000653 FF3485[7C000000]        		push dword [string + 4 * eax]
+   770 0000065A 68[27050000]            		push dword stringp
+   771 0000065F E8(00000000)            		call printf
+   772 00000664 81C408000000            		add esp, 8
+   773                                  
+   774 0000066A BB00000000              		mov ebx, 0
+   775 0000066F 891D[68050000]          		mov [counter4], ebx
+   776                                  
+   777 00000675 A1[4A050000]            		mov eax, [count2]
+   778 0000067A 40                      		inc eax
+   779 0000067B A3[4A050000]            		mov [count2], eax
+   780 00000680 813D[4A050000]0600-     		cmp dword [count2], 6
+   781 00000688 0000               
+   782 0000068A 7CC2                    		jl .originprint
+   783                                  
+   784 0000068C B900000000              		mov ecx, 0
+   785 00000691 890D[4A050000]          		mov [count2], ecx
+   786 00000697 E900000000              		jmp .freqnorm
+   787                                  
+   788                                  	.freqnorm:
+   789 0000069C DD05[52050000]          		fld qword [one4]
+   790 000006A2 DC35[30050000]          		fdiv qword [freqsize]
+   791 000006A8 DD1D[6C050000]          		fstp qword [normalized]
+   792 000006AE E900000000              		jmp .counts
+   793                                  
+   794                                  	;counter loop
+   795                                  	.counts:
+   796                                  		;push dword test
+   797                                  		;call printf
+   798                                  		;add esp, 4
+   799                                  
+   800 000006B3 FF35[70050000]          		push dword [normalized + 4]
+   801 000006B9 FF35[6C050000]          		push dword [normalized]
+   802 000006BF 68[7C050000]            		push dword print14
+   803 000006C4 E8(00000000)            		call printf
+   804 000006C9 81C40C000000            		add esp, 12
+   805                                  
+   806 000006CF 68[A9050000]            		push dword print1.54
+   807 000006D4 E8(00000000)            		call printf
+   808 000006D9 81C404000000            		add esp, 4
+   809                                  
+   810 000006DF DD05[6C050000]          		fld qword [normalized]
+   811 000006E5 DC05[6C050000]          		fadd qword [normalized]
+   812 000006EB DD1D[74050000]          		fstp qword [normalizedA]
+   813                                  
+   814 000006F1 DD05[74050000]          		fld qword [normalizedA]
+   815 000006F7 DD1D[94000000]          		fstp qword [table]
+   816                                  
+   817 000006FD DD05[6C050000]          		fld qword [normalized]
+   818 00000703 DD1D[9C000000]          		fstp qword [table + 8]
+   819                                  		
+   820 00000709 DD05[6C050000]          		fld qword [normalized]
+   821 0000070F DD1D[A4000000]          		fstp qword [table + 16]
+   822                                  
+   823 00000715 DD05[6C050000]          		fld qword [normalized]
+   824 0000071B DD1D[AC000000]          		fstp qword [table + 24]
+   825                                  
+   826 00000721 DD05[6C050000]          		fld qword [normalized]
+   827 00000727 DD1D[B4000000]          		fstp qword [table + 32]
+   828                                  
+   829 0000072D E900000000              		jmp .printstatement
+   830                                  
+   831                                  	;prints out values 
+   832                                  	.printstatement:
+   833 00000732 68[66050000]            		push dword test
+   834 00000737 E8(00000000)            		call printf
+   835 0000073C 81C404000000            		add esp, 4
+   836                                  
+   837 00000742 FF35[98000000]          		push dword [table + 4]
+   838 00000748 FF35[94000000]          		push dword [table]
+   839 0000074E 68[E0050000]            		push dword print34
+   840 00000753 E8(00000000)            		call printf
+   841 00000758 81C40C000000            		add esp, 12
+   842                                  
+   843 0000075E 68[66050000]            		push dword test
+   844 00000763 E8(00000000)            		call printf
+   845 00000768 81C404000000            		add esp, 4
+   846                                  
+   847 0000076E FF35[A0000000]          		push dword [table + 12]
+   848 00000774 FF35[9C000000]          		push dword [table + 8]
+   849 0000077A 68[E0050000]            		push dword print34
+   850 0000077F E8(00000000)            		call printf
+   851 00000784 81C410000000            		add esp, 16
+   852                                  
+   853 0000078A 68[66050000]            		push dword test
+   854 0000078F E8(00000000)            		call printf
+   855 00000794 81C404000000            		add esp, 4
+   856                                  
+   857 0000079A FF35[A8000000]          		push dword [table + 20]
+   858 000007A0 FF35[A4000000]          		push dword [table + 16]
+   859 000007A6 68[E0050000]            		push dword print34
+   860 000007AB E8(00000000)            		call printf
+   861 000007B0 81C40C000000            		add esp, 12
+   862                                  
+   863 000007B6 68[66050000]            		push dword test
+   864 000007BB E8(00000000)            		call printf
+   865 000007C0 81C404000000            		add esp, 4
+   866                                  
+   867 000007C6 FF35[B0000000]          		push dword [table + 28]
+   868 000007CC FF35[AC000000]          		push dword [table + 24]
+   869 000007D2 68[E0050000]            		push dword print34
+   870 000007D7 E8(00000000)            		call printf
+   871 000007DC 81C40C000000            		add esp, 12
+   872                                  
+   873 000007E2 68[66050000]            		push dword test
+   874 000007E7 E8(00000000)            		call printf
+   875 000007EC 81C404000000            		add esp, 4
+   876                                  
+   877 000007F2 FF35[B8000000]          		push dword [table + 36]
+   878 000007F8 FF35[B4000000]          		push dword [table + 32]
+   879 000007FE 68[E0050000]            		push dword print34
+   880 00000803 E8(00000000)            		call printf
+   881 00000808 81C40C000000            		add esp, 12
+   882                                  
+   883 0000080E 68[66050000]            		push dword test
+   884 00000813 E8(00000000)            		call printf
+   885 00000818 81C404000000            		add esp, 4
+   886 0000081E E900000000              		jmp .end
+   887                                  
+   888                                  
+   889                                  	;ends function
+   890                                  	.end:
+   891 00000823 89EC                    		mov		esp, ebp	; takedown stack frame
+   892 00000825 5D                      		pop		ebp			; same as "leave" op
+   893                                  
+   894 00000826 B800000000              		mov		eax,0		; normal, no error, return value
+   895 0000082B C3                      		ret					; return

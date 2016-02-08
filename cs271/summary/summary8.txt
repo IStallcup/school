@@ -1,0 +1,29 @@
+Part I
+data to discontinuitous strings
+-data to different areas of memory very quickly
+-jcxz jumps when ecx goes to zero
+Command-line args detailed in ch 12
+
+Linux Virtual Memory
+-linux sets up stack by declaring first byte
+-see image pp426
+-esp has 32-bit #; CLA counted and added
+-stack at program start - pp428\
+-stack address is randomized/semi-random
+
+SCASB
+-scan string by byte
+-CLD clears direction flag
+-EDL address of first byte of string
+-value to be searched for placed in AL
+-EDI points to byte after the found character's position in search string
+
+Part II
+-software interupts
+-kernel services call gate represents heavily guarded gateway between user space and kernel space
+-first 1024 bytes are reserved for interrupt vectors
+-interrupt 80h has been pointing to services dispatches
+-INT 80H jumps to kernel space
+-pushes insturction of next stack instruction onto stack
+-pp258
+-IRET returns from interrupts

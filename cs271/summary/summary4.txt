@@ -1,0 +1,82 @@
+pp 176-193, pp237-255
+
+Upon creation, Linux was mainframe OS
+	-timesharing multiple users
+	-each user had separate terminals
+	-no graphical desktop
+	-terminal-oriented, still is today
+
+Linux Console
+-Emulated from in modern linux
+-Ubuntu comes with GNOME
+-Console emulator communicates with 'dev/console'
+-channels commands to system, and returns its
+ responses
+-suggested by book: konsole
+-character encoding:
+	-which 8-bit character codes correspond
+	 to which characters
+	-'high' characters (past 128) can vary
+	-character codes vary in different
+	 scripts (cryllic, arabic, etc)
+	-ibm released ROM-based character set
+	  -useful for fillable forms
+	-similar encoding scheme used in UNIX
+	  -IBM-850; more helpful for non-english
+	-neither selected by default, can use
+	 IBM850 by command
+Unix Fundamental: everything is a file
+-Three standard unix files:
+1. stdin; file descriptor 0, keybaord
+2. stdout; file descriptor 1, display
+3. stderr; file descriptor 2, display
+Linux returns file descriptors when you create
+or open files according to these codes
+-aside: command mov ebx, 1 specifies
+		std output
+Input/output redirection
+-std output goes to display by default
+-can change endpoint for streams
+ coming from standard output, for example
+ to a file
+-ls can create a file this way
+	ls > dircontents.txt
+-creates file with contents in it
+-can pass arguments to programs
+ in the form of other files
+-can also set stdout and stdin at
+ outset of program to make file
+ reading automatic
+-can also redirect errors to files
+Terminal Escape Sequences
+-Older terminals used code input inline
+ to seperate 'interpretation'
+-escape sequences all interrupt command
+ flow
+GUI?
+-lots of effort for relatively little payoff
+-makefiles: execute multiple commands
+ in order to create an executable
+-does so by specifing dependencies
+-makefiles help keep track of what different
+ files requre to complie/fit together
+-in makefile, declare dependencies
+	-ex: eatsyscall: eatsycall.o
+	-eatsyscall.o is a dependency; required
+		to make the file
+	-additional files separated by spaces
+	-2nd line is the instruction to carry out
+	-must have single tab character at the beginning
+Make refuses to make files if they're not up to date
+-depends on timestamping
+-dependencies can form sort of daisy
+ chains to create the appropriate
+ files
+-if timestamps are off, new file must be re-linked
+-make helps you speld less time compiling
+-
+
+
+
+
+pp298-326

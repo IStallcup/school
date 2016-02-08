@@ -1,0 +1,40 @@
+Metacognitive Questions			Partners:	Isaac Stallcup
+Lab 2							Jeremiah Roberts
+
+++PLANNING++
+Q. Why do you think we are learning to design first, then program?
+
+Because it is generally a better strategy to plan before you act;
+this way your actions are guided by a singluar purpose and plan
+that unifies all actions.
+
+Q. What resources did you use to complete this lab?
+
+Each other, the lab manual, Terminal RT (for Jeremiah) and PuTTY.
+
+Q. Did you use your time wisely to finish the lab on time?
+
+We finished this section of the lab with 40 minutes to go.
+
+++MONITORING++
+Q. What was the most difficult and confusing part of this lab?
+
+Dealing with Terminal RT.
+
+Q. What did you do to address the difficulties and confusions?
+
+Learned by experimation the commands to navigate and edit code.
+
+++EVALUATION++
+Q. How well do you think you accomplished the lab?
+
+Very well; our code compiled and accepts the appropriate inputs
+and outputs the appropriate outputs.
+
+Q. If you had to do this over, what would you have done differently?
+
+Nothing; our program worked very well. If anything, we would have used
+something other than Terminal RT if it were within our power.
+
+Q. What worked well for you and what didn’t?
+Terminal RT did not work well for us; everything else worked well.

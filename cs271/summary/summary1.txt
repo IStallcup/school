@@ -1,0 +1,123 @@
+  1 SUMMARY ONE
+  2
+  3 Chapter Two
+  4
+  5 Assembly level, computers do not count in base 10
+  6 -instead work in base 2 and base 16
+  7 -everything in assembly language depends on ability to work in these
+  8     bases
+  9
+ 10 Allegory to teach different-base counting systems
+ 11 -base 4
+ 12     -count 0,1,2,3,10,11,12,13,20, etc
+ 13     -can be expressed by a sum of powers
+ 14 -base 8
+ 15     -count 0,1,2,3,4,5,6,7,10, etc
+ 16     -also expressed as a sum of powers
+ 17 -base 16
+ 18     -count 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F,10, etc
+ 19     -tricker to epress as sum of powers but still performed same way
+ 20 -base 2
+ 21     -count 0,1,10,11,100,101,110,111, etc
+ 22     -easily expressed as sum of powers of two
+ 23
+ 24 Note: Programming always starts couting *WITH* zero
+ 25
+ 26 In computers: voltage in a cricut = 1, no voltage = 0
+ 27
+ 28 Computers use hex to manage very large binary numbers with relative ease
+ 29
+ 30 Chapter Three
+ 31
+ 32 Physical computer: changes properties of parts on a memory chip between
+ 33     1-bits and 0-bits to perform functions with that computer
+ 34 -Switches used to "remember" their configuration (on/off)
+ 35 -Memory is aggregate of switches that remain in position long enough
+ 36     to retain information
+ 37     -alterable
+ 38 -Ideally, memory should be "operated by same force it controls"
+ 39 -This means that memory can be moved around; in EM world this is called
+ 40     a "relay"
+ 41     -relay position flipped by appyling current
+ 42 -computers nowadays made from transistors
+ 43     -silicon switches
+ 44     -power flows between two points when current is applied, but does
+ 45      not flow when power is removed
+ 46     -power flowing = 1, not flowing = 0
+ 47 -transistor switch and its accompanying parts are called a memory cell
+ 48 -bits are single binary digit, 0 or 1
+ 49     -bits are smallest possible unit
+ 50 -as time goes on transistrs become more and more compact
+ 51 -chips consequently can have more and more of them
+ 52
+ 53 RAM
+ 54 -memory drawm from RAM at random
+ 55 -as opposed to serial-access devices (bus schedule; miss one have to wait
+ 56     for it to come around again) [mass storage]
+ 57 -each memory cell has an address
+ 58 -pins coming out of chips are address pins
+ 59     -singluar is data pin; each has an address
+ 60 -different chips have different times as far as how fast data appears
+ 61     on the pin
+ 62 *STAY OUT OF MEMORY when you can*
+ 63
+ 64 bit = 0 or 1
+ 65 bytes = 8 contiguous bits
+ 66 word = 2 bytes together
+ 67 double word = 2 words together
+ 68 quad word = 2 double words side by side
+ 69
+ 70 combination of memory chips doesn't affect program operation
+ 71
+ 72 each byte has own unique address!!!
+ 73
+ 74 CPU - makes sure everything gets done
+ 75     -talks to memory (read/write)
+ 76     -peripherals are other things that attach to CPU
+ 77         -have own I/O address
+ 78         -plug to motherboard
+ 79     -immediate work-in-progress held in registers (temp storage)
+ 80 Data Bus
+ 81     -where things are "stored" in between CPU and rest of computer
+ 82
+ 83 CPU follows machine code/instructions
+ 84     -CPU executes programs by getting numbers from data bus
+ 85     -each instruction is bite-sized
+ 86     -instruction pointer contains address of next instruction to be given
+ 87     -system clock coordinates the operaitions chronologically
+ 88     -instructions carried out through cascade of transistor switchings
+ 89     -some instructions change the order in which instructions are fetched
+ 90         -from instruction pointer, its address
+ 91     -flags in instructions can make CPU go do something completely else
+ 92
+ 93 Architecture
+ 94     -Combination of:
+ 95     -Registers
+ 96     -Machine instructions
+ 97     -Subsystems
+ 98 OS
+ 99     -manages operation of physical components
+100     -software
+101     -early OS's had to close when another program opened (no mem)
+102     -ROM is different than RAM; keeps its stuff without power
+103     -BIOS is on ROM
+104     -*firmware* is on a ROM chip [good to know!]
+105     -Win95 first to offer 'multitasking'
+106     -Linux separated user from system space
+107     -Early 2000's multiple CPU became common
+108
+109
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+                                                                                                                                                                                             61,1-4        Bot
+
+                                                                                                                                                                                             1,5           Top

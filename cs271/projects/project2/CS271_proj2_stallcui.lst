@@ -1,0 +1,243 @@
+     1                                  	; Name: Isaac Stallcup
+     2                                  	; Creation date: Jan 20, 2015
+     3                                  	; Last modified: 20:53 Jan 23, 2015
+     4                                  	;
+     5                                  	; 
+     6                                  	; Name of file: CS271_proj2_stallcui.asm
+     7                                  	; Description: get 2 integers from the user, display their
+     8                                  	;				sum, difference, product, integer quotient and remainder
+     9                                  	; Assemble:	nasm -f elf CS271_proj2_stallcui.lst  CS271_proj2_stallcui.asm
+    10                                  	; Link:		gcc -m32 -o CS271_proj2_stallcui  CS271_proj2_stallcui.o
+    11                                  	; Run:		./CS271_proj2_stallcui
+    12                                  	; Output:	Sum:[value] Difference[value] Product:[value] Quotient:[value] Remainder:[value]
+    13                                  	;
+    14                                  	;Equivalent C Code:
+    15                                  	;
+    16                                  	;#include <stdio.h>
+    17                                  	;
+    18                                  	;int main()
+    19                                  	;{
+    20                                  	;	signed int* integer1 = malloc(sizeof(*integer1));
+    21                                  	;	
+    22                                  	;	signed int* integer2 = malloc(sizeof(*integer2));
+    23                                  	;	
+    24                                  	;	signed int* sum = malloc(sizeof(*sum));
+    25                                  	;	
+    26                                  	;	signed int* dif = malloc(sizeof(*dif));
+    27                                  	;	
+    28                                  	;	signed int* pro = malloc(sizeof(*pro));	
+    29                                  	;	
+    30                                  	;	signed int* quo = malloc(sizeof(*quo));	
+    31                                  	;	
+    32                                  	;	signed int* rem = malloc(sizeof(*rem));	
+    33                                  	;	
+    34                                  	;	printf("Name:		Isaac Stallcup\n");
+    35                                  	;	
+    36                                  	;	printf("Program:	CS271_proj2_stallcui.asm\n");
+    37                                  	;	
+    38                                  	;	printf("Please input two integers:\n");
+    39                                  	;	
+    40                                  	;	scanf("%d %d", integer1, integer2);
+    41                                  	;	
+    42                                  	;	printf("Integers: %d %d\n", *integer1, *integer2);
+    43                                  	;	
+    44                                  	;	*sum = *integer1 + *integer2;
+    45                                  	;	
+    46                                  	;	*dif = *integer1 - *integer2;
+    47                                  	;	
+    48                                  	;	*pro = *integer1 * *integer2;
+    49                                  	;		
+    50                                  	;	*quo = *integer1 / *integer2;
+    51                                  	;
+    52                                  	;	*rem = *integer1 - (*quo * *integer2);
+    53                                  	;	
+    54                                  	;	printf("Sum:%d Difference:%d Product:%d Quotient:%d Remainder:%d\n", *sum, *dif, *pro, *quo, *rem);
+    55                                  	;	
+    56                                  	;	printf("Goodbye.\n");
+    57                                  	;	
+    58                                  	;	return 0;
+    59                                  	;}
+    60                                  
+    61                                  	;declare external functions
+    62                                  	extern printf
+    63                                  	extern scanf
+    64                                  	
+    65                                  section .data
+    66                                  
+    67                                  	;name
+    68 00000000 4E616D653A09094973-     	myname:		db "Name:		Isaac Stallcup", 10, 0
+    69 00000009 616163205374616C6C-
+    70 00000012 6375700A00         
+    71                                  	
+    72                                  	;program name
+    73 00000017 50726F6772616D3A09-     	myprog:		db "Program:	CS271_proj2_stallcui.asm", 10, 0
+    74 00000020 43533237315F70726F-
+    75 00000029 6A325F7374616C6C63-
+    76 00000032 75692E61736D0A00   
+    77                                  	
+    78                                  	;asks for input
+    79 0000003A 506C6561736520696E-     	askin:		db "Please input two integers:", 10, 0
+    80 00000043 7075742074776F2069-
+    81 0000004C 6E7465676572733A0A-
+    82 00000055 00                 
+    83                                  	
+    84                                  	;imput prompt formatting
+    85 00000056 256420256400            	prompt:		db "%d %d", 0
+    86                                  	
+    87                                  	;shows input
+    88 0000005C 496E7465676572733A-     	showint:	db "Integers: %d %d", 10, 0
+    89 00000065 2025642025640A00   
+    90                                  	
+    91                                  	;shows result
+    92 0000006D 53756D3A2564204469-     	showres:	db "Sum:%d Difference:%d Product:%d Quotient:%d Remainder:%d", 10, 0
+    93 00000076 66666572656E63653A-
+    94 0000007F 25642050726F647563-
+    95 00000088 743A25642051756F74-
+    96 00000091 69656E743A25642052-
+    97 0000009A 656D61696E6465723A-
+    98 000000A3 25640A00           
+    99                                  	
+   100                                  	;displays end message
+   101 000000A7 476F6F646279652E0A-     	disend:		db "Goodbye.", 10, 0
+   102 000000B0 00                 
+   103                                  	
+   104                                  section .bss
+   105                                  	
+   106                                  	;integer values
+   107 00000000 <res 00000004>          	integer1:	resd 1
+   108 00000004 <res 00000004>          	integer2:	resd 1
+   109                                  	
+   110                                  	;math values
+   111 00000008 <res 00000004>          	sum:	resd 1
+   112 0000000C <res 00000004>          	dif:	resd 1
+   113 00000010 <res 00000004>          	pro:	resd 1
+   114 00000014 <res 00000004>          	quo:	resd 1
+   115 00000018 <res 00000004>          	rem:	resd 1
+   116                                  	
+   117                                  section .text
+   118                                  
+   119                                  	global main
+   120                                  	
+   121                                  	main:
+   122 00000000 90                      		nop
+   123 00000001 55                      		push ebp
+   124 00000002 89E5                    		mov ebp, esp
+   125                                  		
+   126                                  		;print name
+   127                                  		
+   128 00000004 68[00000000]            		push dword myname
+   129                                  		
+   130 00000009 E8(00000000)            		call printf
+   131                                  		
+   132 0000000E 81C404000000            		add esp, 4 ;move stack pointer
+   133                                  		
+   134                                  		;print program name
+   135 00000014 68[17000000]            		push dword myprog
+   136                                  		
+   137 00000019 E8(00000000)            		call printf
+   138                                  		
+   139 0000001E 81C404000000            		add esp, 4
+   140                                  		
+   141                                  		;ask for inputs
+   142 00000024 68[3A000000]            		push dword askin
+   143                                  		
+   144 00000029 E8(00000000)            		call printf
+   145                                  		
+   146 0000002E 81C404000000            		add esp, 4
+   147                                  		
+   148                                  		;get 2 inputs
+   149 00000034 68[04000000]            		push dword integer2
+   150                                  		
+   151 00000039 68[00000000]            		push dword integer1
+   152                                  		
+   153 0000003E 68[56000000]            		push dword prompt
+   154                                  		
+   155 00000043 E8(00000000)            		call scanf
+   156                                  		
+   157 00000048 81C40C000000            		add esp, 12
+   158                                  		
+   159                                  		;confirm the inputs
+   160 0000004E FF35[04000000]          		push dword [integer2]
+   161                                  		
+   162 00000054 FF35[00000000]          		push dword [integer1]
+   163                                  		
+   164 0000005A 68[5C000000]            		push dword showint
+   165                                  		
+   166 0000005F E8(00000000)            		call printf
+   167                                  		
+   168 00000064 81C40C000000            		add esp, 12
+   169                                  		
+   170                                  		;sums the inputs
+   171 0000006A A1[00000000]            		mov eax, [integer1]
+   172                                  		;moves integer1 to eax
+   173 0000006F 0305[04000000]          		add eax, [integer2]
+   174                                  		;adds integer2 to the accumulated
+   175                                  		;register (containing integer1),
+   176                                  		;stores it in eax
+   177 00000075 A3[08000000]            		mov [sum], eax
+   178                                  		;copies eax to the value of sum
+   179                                  		
+   180                                  		;gets integer1 - integer2
+   181 0000007A A1[00000000]            		mov eax, [integer1]
+   182                                  		;moves integer1 to eax
+   183 0000007F 2B05[04000000]          		sub eax, [integer2]
+   184                                  		;subtracts integer2 from the accumulated
+   185                                  		;register (containing integer1),
+   186                                  		;stores it in eax
+   187 00000085 A3[0C000000]            		mov [dif], eax
+   188                                  		;copies eax to the value of dif
+   189                                  		
+   190                                  		
+   191 0000008A A1[00000000]            		mov eax, [integer1]
+   192                                  		;moves integer1 to eax
+   193 0000008F F725[04000000]          		mul dword [integer2]
+   194                                  		;multiplies integer2 and 
+   195                                  		;contents of the accumulated
+   196                                  		;register (containing integer1),
+   197                                  		;stores it in eax
+   198 00000095 A3[10000000]            		mov [pro], eax
+   199                                  		;copies eax to the value of pro
+   200                                  		
+   201 0000009A A1[00000000]            		mov eax, [integer1]
+   202                                  		;moves integer1 to eax
+   203 0000009F F735[04000000]          		div dword [integer2]
+   204                                  		;divides accumulated value by integer2
+   205                                  		;[integer division], stores remainder in
+   206                                  		;edx and stores result in eax
+   207 000000A5 A3[14000000]            		mov [quo], eax
+   208                                  		;copies eax to value of quo
+   209 000000AA 8915[18000000]          		mov [rem], edx
+   210                                  		;copies edx to value of rem
+   211                                  		
+   212                                  		;prepare values to be output
+   213 000000B0 FF35[18000000]          		push dword [rem]
+   214                                  		
+   215 000000B6 FF35[14000000]          		push dword [quo]
+   216                                  		
+   217 000000BC FF35[10000000]          		push dword [pro]
+   218                                  		
+   219 000000C2 FF35[0C000000]          		push dword [dif]
+   220                                  		
+   221 000000C8 FF35[08000000]          		push dword [sum]
+   222                                  		
+   223 000000CE 68[6D000000]            		push dword showres
+   224                                  		
+   225 000000D3 E8(00000000)            		call printf
+   226                                  		;prints out values formatted correctly
+   227 000000D8 81C414000000            		add esp, 20
+   228                                  		
+   229                                  		
+   230 000000DE 68[A7000000]            		push dword disend
+   231                                  		;displays end message
+   232 000000E3 E8(00000000)            		call printf
+   233                                  		
+   234 000000E8 81C404000000            		add esp, 4
+   235                                  		
+   236                                  		
+   237 000000EE 89EC                    		mov esp, ebp
+   238                                  		
+   239 000000F0 5D                      		pop ebp
+   240                                  		
+   241 000000F1 B800000000              		mov eax, 0
+   242                                  		
+   243 000000F6 C3                      		ret

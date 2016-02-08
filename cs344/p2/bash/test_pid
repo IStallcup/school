@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo $$
+ps
+#PID=$(ps | grep test_pid | awk '{print $1}')
+
+#echo $PID
+
+#ps | grep test_pid | awk '{print $1}'
+
+#PID2=$(ps | grep test_pid | awk '{print $1}')
+
+#echo "$PID2"

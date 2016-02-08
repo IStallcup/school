@@ -1,0 +1,36 @@
+pp439-444
+Most of Linux written in C
+GNU developed by Richard Stallman in 70's
+GNU compiler gcc
+-used a ton
+-complies C in fairly standard way
+-gcc needs to know what to link
+pp470-475
+AT&T Instruction
+-made with portability in mind
+-All lowercase
+-register names have % symbol in front
+-every instruction has suffix indicating how large operands are
+-source and destination are SWAPPED
+-immediate operands have $ in front
+-some things aren't recognized by gcc
+-use -S [cap s] to examine .s file created by gcc
+-created mechanically by compiler not by human being
+-parenthesis instead of square brackets in memory addressing
+Rest of Ch. 12
+Random Numbers
+-seed with time since Jan 1, 1970
+-rand() returns 31-bit unsigned value in 32-bit integer; always positive
+-can shift the 32-bit value to get one in a certain range
+File I/O
+-to use command line arguments as numbers, input then and sscanf
+-fopen, other C code for opening I/O files, fopen has codes given pp490
+-using fgets
+	-push file returned form fopen
+	-push character count limit value
+	-push address of character buffer into fgets should store characters
+	-call fgets
+-using fprintf
+	-push values or addresses into stack
+	-push address of base string, as if for printf
+	-push file handle to which the text file should be written

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#row add
+
+rm -f temp
+
+exec 3<&0 #change standard input
+exec 0<list #change to file list
+
+while read input
+do
+	echo $input > output
+	cat output | cut -d$' ' -f 1 | tr '\n' ' ' >> temp
+done
+
+exec 0<temp
+
+for i in 1 2
+do
+	cat | cut -f $i	
+done
+
+exec 0<&3 #return standard input to previous state

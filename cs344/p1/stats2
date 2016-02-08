@@ -1,0 +1,55 @@
+#!/bin/bash
+
+cflag=
+rflag=
+filename=$2
+
+#custom command line input
+getopts "rc" opts
+case $opts in
+	r)
+		rflag="1" cflag="0"
+		;;
+	c)
+		rflag="0" cflag="1"
+		;;
+	\?)
+		echo "error: invalid option"
+		echo "usage: stats { -r | -c } [filename]"
+		exit 1
+		;;
+esac
+
+numlines=$(wc -l $filename | tr -d $filename)
+numcols=$(wc -w $filename | tr -d $filename)
+
+	echo "file $filename has $numlines lines and $numcols columns"
+
+midpoint=$((numlines/2))
+
+#adjust midpoint for median calculation based on whether
+#	# of lines is even or odd:
+if (("$numlines" % 2 != "0"))
+then #if odd, then add one to midpoint to obtain true midpoint
+	midpoint=$((midpoint+1))
+else #otherwise, calculate a secondary midpoint to obtain average with
+	midpointttwo=$(($midpoint+1))
+fi
+
+
+if [ "$rflag" -eq "1" ] #if rows selected...
+	then
+		echo "rflag set"
+
+elif [ "$cflag" -eq "1" ] #else if columns selected...
+	then
+		echo "cflag set"
+		
+		while [ $colnum -le $numlines ]
+		do
+			median=$(cat $filename | cut -f $colnum | sort -n | tr '\n' '\t' | cut -f $midpoint)
+			echo "Median: $median"
+			colnum=$((colnum+1))
+		done	
+	
+	fi

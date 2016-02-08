@@ -1,0 +1,49 @@
+1. Provide an Provide an analysis of each function that you wrote for this assignment. It does not have to be a rigorous proof, but it should convince the reader of your claim. Be sure to cite specific line numbers where appropriate.
+
+
+	int BFS():
+	
+BFS has a worst case runtime of O(V + V) because it will iterate through all the nodes once to push and once to check. It will not add a node more than once and it will not check a node more than once. In the absolute worst case it will push all of the nodes and find the last node it pushes is the one it wants.
+
+Result: O(N)
+
+
+	int DFS():
+	
+The call to clearVisited() on line 221 has a runtime of O(N), clearVisited()'s runtime. Otherwise, the function's components each have O(1) runtime until we reach the while loop on line 233. It iterates until the stack is empty; this is at worst O(N) runtime, as we cannot add a vertex to the stack more than once, and potentially we will add all vertices. 
+
+Inside this while loop, we have a for loop (line 239) that iterates through non-visited neighbors of the top of the stack. This again has potential worst O(N-1) runtime; the node could be connected to all other nodes, with the destination the last node added.
+
+As we have an O(N-1) loop inside an O(N) loop, we get a runtime of O({N-1}*N) = O(N^2 - N) = O(N^2).
+
+
+	void computeAdjacencyMatrix():
+
+The for loop on line 305 runs N times, once for each vertex of the graph. The for loop on line 308 runs N times as well, but it contains two nested for loops. The first nested loop also runs N times (once per vertex), and the second nested for loop (line 310) can run between 0 and N-1 times, as the vertex can have between 0 and N-1 reachable unvisited neighbors, giving this loop structure O(N*N*{N-1}) worst runtime; O(N*N*{N-1}) = O(N*N*N) = O(N^3) runtime.
+The for loop on line 318 runs O(N) times and is overruled by the triple loop structure earler in the code.
+
+Result: O(N^3).
+
+
+	void computeReachabilityMatrix():
+
+The function has a for loop on line 341 that runs N times, setting up the matrix. On line 345, there is a double nested for loop with each level running N times, giving O(N*N) runtime. Then we have a for loop running N times to free the matrix. As O(N^2) is the greatest among these, the function has O(N^2) runtime.
+
+Result: O(N^2).
+	
+	
+2. Describe the tradeoffs between representing a graph with an adjacency list and representing a graph with an adjacency matrix.
+
+Adjacency lists are good for situations requiring vertex by vertex access, or immediate & specific knowledge of each vertex. Adjacency matrices provide immediate and complete representations of the relationships between all vertices, instead of one at a time as an adjacency list does.
+
+3. Which of the graphs are connected? How can you tell?
+
+Graphs 1 and 5 are connected, as their reachability matrices are full. This in turn means there is a path between any two vertices of the graph, the definition of a complete graph.
+
+4. Which matrix has more 1's in it? Why?
+
+The reachability matrix has at least as many as the adjacency, and usually more. If vertices A and B are connected, and B and C are connected, but A and C are not, there will be a 1 in the A-B, A-C and B-C entries of the reachability matrix but only ones in the A-B and B-C entries, as A and C are not adjacent but a path exists between them.
+
+5. Imagine that we ran each search the other direction (from destination to source, instead of source to destination). Would the output change at all? What if the graph had been a DIRECTED graph.
+
+Reversing the direction of a search in an undirected graph has no effect on the reachability matrix as the relationships between the vertices are not changed when reversing the direction of the search. However, if the graph is a directed on the output would change significantly, in that a path from A to B in a directed graph does NOT imply a path from B to A; indeed one may not exist.

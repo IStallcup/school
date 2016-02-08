@@ -1,0 +1,6 @@
+#!/bin/bash
+
+gcc -o get_pid get_pid.c
+ps
+./get_pid
+ps

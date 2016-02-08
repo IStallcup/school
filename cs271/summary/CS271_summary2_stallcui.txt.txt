@@ -1,0 +1,83 @@
+Assignment 2
+
+Chapter 4
+
+Assembly language is skill of memory addressing
+
+Multiple ways to address memory in x86 model
+	-real mode flat model
+	-real mode segmented model
+	-protected mode flat model
+	-real mode flat model is like protected mode flat model in miniature
+
+16 address lines gets you 65,535 bytes (64k = shorthand for this)
+
+8080 Memory Model
+	-1. Addresses w/o installed memory
+	-2. CP/M-80 OS
+	-3. Unused memory
+	-4. Transient Program Code
+	-5. Program Segment Prefix
+
+8080 memory segment much much smaller than that of 8086
+
+Segmented Real Mode
+	-CPU can use up to 1 Mb of memory
+	-Memory starts from 0
+	-Caused backward compatability in computing; newer chips with >1Mb of mem had to be able to run older
+	 software
+	-sol'n: limit memory newer computers can handle; temporarily become 8086
+	-virtual-86 mode
+64k blinders
+	-CPU can only really see 64k of memory
+	-
+
+Segments
+	-defined by where they start
+	-more a "horizon" than a place
+	-up to 64k long
+	-can overlap
+
+Registers
+	-32 bit registers now common; can also be 64 bits
+	-16 common in the olden times
+	-hold addresses of locations in memory
+	-20-bit address goes in 2 16-bit registers
+	-each byte's address is really the address of the segment and its distance from the start of segment
+	-segment and offest addresses (separated by colon)
+	-can have 3 legal addresses that are "same"
+	-named:
+	-CS = code segments; machine instruction
+	-DS = data segment; variables go here
+	-SS = stack segment; stack goes here
+	-ES = extra segment; extra space
+	-FS, GS = clones of ES
+
+General Purpose Registers
+	-size different between 32 and 64-bit machines
+	-3 classes: 16-bit general, 32-bit extended, and 8-bit half
+	-16-bit: AX, BX, CX, DX, BP, SI, DI, SP.
+	-32-bit: EAX, EBX, ECX, EDX, EBP, ESI, EDI, ESP
+	-bigger registers, also new
+	-Half registers divided into AH, AL for half registers (H high half, L low half)
+	-no way to specify top 16 bits of a register
+
+Instruction Pointer
+	-IP, EIP
+	-contains offset addres of next instruction in memory
+	-code segment: machine instructions are stored
+	-real mode segmented: code segment value changes frequently
+	-flat models: cs almost never changes
+	-IP incrimented by an amount after each instruction
+
+Flags Register
+	-FLAGS/EFLAGS
+	-composed of single bit registers called flags
+	-flags named
+	-either 0 or 1
+
+Real Mode Flat Model
+	-64k available
+	-has stack
+		-LIFO
+

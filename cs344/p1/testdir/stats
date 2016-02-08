@@ -1,0 +1,220 @@
+#!/bin/bash
+
+#clear #maybe make things pretty?
+
+
+#program structure to determine which input was selected
+getopts ":rc" opts #looks for options beginning with r or c
+case $opts in
+	r) #if -r option found, set rflag
+		rflag=1
+		cflag=0
+		;;
+	c) #if -c option found, set cflag
+		rflag=0
+		cflag=1
+		;;
+	\?) #otherwise exit
+		>&2 echo "Usage: stats { -r | -c } [filename]"
+		rflag=0
+		cflag=0
+		exit 1
+		;;
+esac
+
+#statements to check arguments for errors
+#determines program behavior
+if [ $# -eq 0 ] #if no arguments
+then
+	exit 1 #or equivalent
+	#stderr here?
+elif [ $# -eq 1 ] #if one argument
+then
+	stdinflag=1;
+	#maybe flag for stdin input instead of filename input?
+	#	could mean two program flows, hmm...
+elif [ $# -eq 2 ] #if two arguments
+then
+	stdinflag=0;
+	filename=$2 #maybe set elsewhere?
+elif [ $# -ge 3 ] #if more than two arguments
+then
+	>&2 echo "Usage: stats { -r | -c } [filename]"
+	exit 1 #o equivalent
+	#stderr here?
+fi
+
+#check if file is readable
+if [ $stdinflag -eq 0 ]
+then
+	if [ -r $2 ]
+	then
+		echo "file readable"
+	else
+		>&2 echo "file not readable" #if file not readable exit
+		exit 1
+	fi
+fi
+
+#main program flow begins
+if [ $rflag -eq 1 ]
+then
+#	echo "===========" #make things pretty!
+#	echo "   Rows    "
+#	echo "==========="
+	echo "Average Median"
+	
+	riterator=1 #generic iterator variable
+	numrows=$(cat $filename | wc -l | tr -d $filename) #set number of rows to be # of rows
+	rowsize=$(cat $filename | head -n 1 | wc -w) #set # of items per row
+
+	while (( riterator <= numrows && numrows != 0 ))  #while iterator <= # rows...
+	do												  #iterates through each row in the file
+		mean=0		#set up mean
+		sum=0		#set up sum
+		sumadd=0	#set up temporary adder
+		rowadd=1	#set up row to add from
+		cat $filename | tail -n +$riterator | head -n 1 > temp #get the riterator-th displaced row into temp
+		
+		while [ $rowadd -le $rowsize ] #for each item in the row...
+		do
+			sumadd=$(cat temp | cut -f $rowadd) #adds the rowadd'th field of the row in temp to sum
+			sum=$((sum+sumadd))
+			rowadd=$((rowadd+1))
+		done
+		mean=$(((sum+(rowsize/2))/rowsize)) #calculates ROUNDED mean
+	
+		#median time!
+		if (( $rowsize % 2 != 0 )) #if #rows is odd..
+		then
+			midpoint=$(((rowsize/2)+1)) #set logical midoint
+
+			#Following command finds median as a series of pilelined commands:
+			#1. Opens $filename
+			#2. Gets riterator-th displaced row from tail
+			#3. Gets top row of that (essentially counds down riterator rows from the top and gets that row)		
+			#4. Turns row into column
+			#5. Sorts column
+			#6. Turns column into row
+			#7. Cuts out midpoint-th field of the row (the median)
+			median=$(cat $filename | tail -n +$riterator | head -n 1 | tr '\t' '\n' | sort -n | tr '\n' '\t' | cut -f $midpoint)
+			echo "$mean     $median" #output formatted info for the row in question
+		else
+			midpoint=$((rowsize/2)) #else first midpoint is at pos rowsize/2
+			midtwo=$(((rowsize/2)+1)) #...and second is at pos rowsize/2+1
+			
+			#Identical to above command, except second one cuts at a different position in the row
+			try1=$(cat $filename | tail -n +$riterator | head -n 1 | tr '\t' '\n' | sort -n | tr '\n' '\t' | cut -f $midpoint)
+			try2=$(cat $filename | tail -n +$riterator | head -n 1 | tr '\t' '\n' | sort -n | tr '\n' '\t' | cut -f $midtwo)
+
+
+			#compare results; return the greater of try1 and try2
+			compresult=$(expr $try1 \< $try2)
+			if [ $compresult -eq 1 ] #if try1 < try2
+			then
+				median=$try2 #return try2
+			else
+				median=$try1 #else return try1
+			fi
+			
+			echo "$mean       $median" #output formatted data
+			
+		fi	
+
+		riterator=$((riterator+1)) #iterate iterator
+	done
+elif [ $cflag -eq 1 ] #columns!
+then
+
+#	echo "===========" #make things pretty!
+#	echo "   Cols    "
+#	echo "==========="
+	echo "Averages:"
+
+	citerator=1 #iterator variable
+	numcols=$(cat $filename | head -n 1 | wc -w) #sets # columns
+	colsize=$(cat $filename | cut -f 1 | wc -w) #sets size of columns
+
+
+
+	while (( citerator <= numcols && numcols != 0 && colsize != 0)) #for each (nonzero/nonempty) column
+	do
+
+		#average time!
+		mean=0 #average
+		sum=0 #sum
+		summand=0 #something to add to the sum
+		addedcol=1 #column to add from in temp; not in $filename
+		cat $filename | cut -f $citerator | tr '\n' '\t' > temp #cut column into temp; turn it into a row to ease manipulation in next step
+
+		while [ $addedcol -le $colsize ] #iterate throgh the temp file's fields
+		do
+			summand=$(cat temp | cut -f $addedcol) #add each field to the sum
+			sum=$((sum+summand))
+			addedcol=$((addedcol+1)) #increase examined column
+		done
+		mean=$(((sum+(colsize/2))/colsize)) #calculates ROUNDED mean
+		echo -n "$mean     "
+		citerator=$((citerator+1))
+	done
+
+	citerator=1
+	echo
+	echo "Median"
+
+	while (( citerator <= numcols && numcols != 0 && colsize != 0 )) #for each column
+	do
+
+		mean=0 #average
+		sum=0 #sum
+		summand=0 #something to add to the sum
+		addedcol=1 #column to add from in temp; not in $filename
+		#median time!
+		if (( $colsize % 2 != 0 )) #if columns have odd # elements
+		then
+			midpoint=$(((colsize/2)+1)) #set logical midpoint
+
+
+			#operation does these things in order:
+			#1. Opens filename
+			#2. Cuts out the citerator-th column
+			#3. Sorts that column
+			#4. Turns it into a row
+			#5. Cuts out the number in position midpoint
+			median=$(cat $filename | cut -f $citerator | sort -n | tr '\n' '\t' | cut -f $midpoint)
+
+
+			echo -n "$median     " #output mean and median
+	
+		else #otherwise # elements in column is even
+			midpoint=$((colsize/2))
+			midtwo=$((midpoint+1))
+			#set two points to compare which is greater, output as median
+			#proecss is identical to above, but second time looks at second "midpoint"
+			try1=$(cat $filename | cut -f $citerator | sort -n | tr '\n' '\t' | cut -f $midpoint)
+			try2=$(cat $filename | cut -f $citerator | sort -n | tr '\n' '\t' | cut -f $midtwo)
+			
+			#compares results of try1 and try2
+			compresult=$(expr $try1 \< $try2)
+			if [ $compresult -eq 1 ]
+			then
+				median=$try2 #if try1 < try2, output try2 
+			else
+				median=$try1 #if try1 > try2, output try1
+			fi
+			echo -n "$median     "
+		
+		fi
+
+		citerator=$((citerator+1)) #iterate iterator
+		
+	done
+echo
+fi
+
+
+#if temp file exists, remove it!
+if [ -e temp ]
+then
+	rm -f temp
+fi

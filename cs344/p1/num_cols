@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#file gets number of columns in a test file
+filename=list
+numcols=$(cat $filename | head -n 1 | wc -w)
+echo "there are $numcols columns in file $filename" 

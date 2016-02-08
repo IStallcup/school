@@ -1,0 +1,63 @@
+Isaac Stallcup
+CS 261 Summer 2015
+Section 001
+Assignment 1
+
+1. Why are the functions' runtimes so different?
+
+
+Recursive functions take dramatically more resources to run; instead of populating an
+array though a for loop then returning a singular value the way an iterative process does,
+the recursion creates more and more function calls for each higher Fibonacci number.
+For each call a copy of n must be created in memory, taking more run time than simply 
+iterating a for loop a certain amount of times.
+
+For example, the fourth Fibonacci number creates in my process 8 function calls, and 
+the fifth creates 14. So to list the first five numbers, the program calls fibonacciRecursive
+first 14 times, then 8, etc. These add up very quickly, and even though the computer executes
+these calls very quickly when asked to list the first 40 Fibonacci numbers the difference
+in runtimes approaches four seconds.
+
+Comparatively, the iterative process takes an almost insignificant amount of time, taking
+the calculation of over a thousand Fibonacci numbers (or repetitions of the program, as due
+to integer overflow it cannot go above ~50) for the program to register more than a
+millionth of a second of runtime.
+
+
+
+
+2. Can you think of a way to improve the runtime of the recursive version, while maintaining
+most of the elegance of the solution? (you DO NOT need to implement it)
+
+
+One way would be to create in memory an array, then fill it with values of the Fibonacci sequence
+as you generate then when finding the largest number desired. The recursive function is
+structured so that when asked to recursively calculate 4 Fibonacci numbers, it starts with
+the 4th.
+
+In calculating the 4th Fibonacci number, it starts by calling fibonacciRecursive(3) and 
+fibonacciRecursive(2). fibonacciRecursive(3) calls fibonacciRecursive(2) and fibonacciRecursive(1).
+This means at some point in the function restRecursiveFibonacci, every Fibonacci number with
+an index lesser than or equal to the highest desired number is calculated, and the most
+efficient way of speeding the recursive process would be to store these when they are calculated
+and avoid repeating numbers we have already calculated.
+
+
+
+
+
+3. What indentation/bracketing style did you choose for this assignment and why? (consult
+the resources page for a link on this)
+
+
+I first learned C++ over the summer between freshman and sophomore year from an exceedingly
+helpful website learncpp.com, and though I did not know it at the time I was being taught to
+write with the Allman style of bracketing and indenting. As I learned more and took classes
+at OSU, I was exposed to different bracketing styles, but the way I wrote made the most
+sense to me; so when for this assignment I saw that my style of writing code was already
+a style of indenting I decided to stick with it.
+
+
+
+
+

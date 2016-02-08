@@ -1,0 +1,28 @@
+strings in assembly
+-also cover programming, debugging in linux
+-string = contiguous bytes in memory
+-no boundaries, length indicators
+-defined by values you put in registers
+-ESI - source string register
+-EDI - dest.  string register
+-STOSB: store string by byte
+	-must be set: EDI destination string
+	-ECX number of times you are going to store value in AL to string
+	-AL must have value to store to string
+	-rep repeats STOSB until ECX is zero
+	-direction of EDI incrememting can be set with direction flag
+	-not using rep, must manually dec ECX
+	-rep can be single stepped with REP MOVSB
+	
+-LOOP: used for complex repetition
+	-can replace jumping patterns
+
+-IMUL:
+	-similar to MUL but introduces more mistakes.
+
+-MOVSB:
+	-moves bytes from ESI is copied to EDI
+	-number bytes placed in ECX register
+	-Addresses in ESI, EDI adjusted by one
+	-copies strings from ESI's start to EDI's start
+	-also exists MOVSW, MOVSD.

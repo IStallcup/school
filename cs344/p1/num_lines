@@ -1,0 +1,4 @@
+#!/bin/bash
+
+numlines=$(wc -l list | tr -d ' list')
+echo $numlines

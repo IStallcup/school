@@ -1,0 +1,22 @@
+#!/bin/bash
+
+filename="makedir"
+
+pid="$$"
+
+DIR="stallcui.rooms.$pid"
+
+echo "DIR=$DIR"
+
+mkdir $DIR
+
+ls
+
+if [ -d "$DIR" ]
+then
+	echo "made it!"
+else
+	echo "oops"
+fi
+
+rmdir $DIR

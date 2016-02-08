@@ -1,0 +1,112 @@
+     1                                  	extern printf
+     2                                  	extern scanf
+     3                                  	
+     4                                  section .data
+     5                                  
+     6 00000000 4E616D653A09094973-     	myname:		db "Name:		Isaac Stallcup", 10, 0
+     7 00000009 616163205374616C6C-
+     8 00000012 6375700A00         
+     9                                  	len_myname:	equ $ - myname
+    10                                  	
+    11 00000017 50726F6772616D3A09-     	myprog:		db "Program:	acalc.asm", 10, 0
+    12 00000020 6163616C632E61736D-
+    13 00000029 0A00               
+    14                                  	
+    15 0000002B 506C6561736520696E-     	askin:		db "Please input two integers", 10, 0
+    16 00000034 7075742074776F2069-
+    17 0000003D 6E7465676572730A00 
+    18                                  	
+    19 00000046 256420256400            	prompt:		db "%d %d", 0
+    20                                  	
+    21 0000004C 496E7465676572733A-     	showint:	db "Integers: %d %d", 10, 0
+    22 00000055 2025642025640A00   
+    23                                  	
+    24 0000005D 526573756C743A2025-     	showres:	db "Result: %d", 10, 0
+    25 00000066 640A00             
+    26                                  	
+    27 00000069 476F6F646279652E0A-     	disend:		db "Goodbye.", 10, 0
+    28 00000072 00                 
+    29                                  
+    30 00000073 616464202564206D69-     	answer:		db "add %d minus %d mult %d quotient %d remainder %d", 10, 0
+    31 0000007C 6E7573202564206D75-
+    32 00000085 6C742025642071756F-
+    33 0000008E 7469656E7420256420-
+    34 00000097 72656D61696E646572-
+    35 000000A0 2025640A00         
+    36                                  	
+    37                                  	
+    38                                  	
+    39                                  section .bss
+    40                                  
+    41 00000000 <res 00000004>          	integer1:	resd 1
+    42 00000004 <res 00000004>          	integer2:	resd 1
+    43 00000008 <res 00000004>          	add:	resd 1
+    44 0000000C <res 00000004>          	minus:	resd 1
+    45 00000010 <res 00000004>          	mult:	resd 1
+    46 00000014 <res 00000004>          	div:	resd 1
+    47 00000018 <res 00000004>          	remainder:	resd 1
+    48                                  	
+    49                                  section .text
+    50                                  
+    51                                  	global main
+    52                                  	
+    53                                  	main:
+    54 00000000 90                      		nop
+    55 00000001 55                      		push ebp
+    56 00000002 89E5                    		mov ebp, esp
+    57                                  		
+    58 00000004 68[00000000]            		push dword myname
+    59 00000009 E8(00000000)            		call printf
+    60 0000000E 81C408000000            		add esp, 8
+    61                                  		
+    62 00000014 68[17000000]            		push dword myprog
+    63 00000019 E8(00000000)            		call printf
+    64 0000001E 81C408000000            		add esp, 8
+    65                                  		
+    66 00000024 68[2B000000]            		push dword askin
+    67 00000029 E8(00000000)            		call printf
+    68 0000002E 81C408000000            		add esp, 8
+    69                                  		
+    70 00000034 68[04000000]            		push dword integer2
+    71 00000039 68[00000000]            		push dword integer1
+    72 0000003E 68[46000000]            		push dword prompt
+    73 00000043 E8(00000000)            		call scanf
+    74 00000048 81C408000000            		add esp, 8
+    75                                  		
+    76 0000004E FF35[04000000]          		push dword [integer2]
+    77 00000054 FF35[00000000]          		push dword [integer1]
+    78 0000005A 68[4C000000]            		push dword showint
+    79 0000005F E8(00000000)            		call printf
+    80 00000064 81C408000000            		add esp, 8
+    81                                  		
+    82 0000006A A1[00000000]            		mov eax, [integer1]
+    83 0000006F 0305[04000000]          		add eax, [integer2]
+    84 00000075 A3[08000000]            		mov [add], eax
+    85                                  		
+    86 0000007A A1[00000000]            		mov eax, [integer1]
+    87 0000007F 2B05[04000000]          		sub eax, [integer2]
+    88 00000085 A3[0C000000]            		mov [minus], eax
+    89                                  		
+    90 0000008A A1[00000000]            		mov eax, [integer1]
+    91 0000008F F725[04000000]          		mul dword [integer2]
+    92 00000095 A3[10000000]            		mov [mult], eax
+    93                                  		
+    94 0000009A A1[00000000]            		mov eax, [integer1]
+    95 0000009F F735[04000000]          		div dword [integer2]
+    96 000000A5 A3[14000000]            		mov [div], eax
+    97 000000AA 8915[18000000]          		mov [remainder], edx
+    98                                  		
+    99 000000B0 FF35[18000000]          		push dword [remainder]
+   100 000000B6 FF35[14000000]          		push dword [div]
+   101 000000BC FF35[10000000]          		push dword [mult]
+   102 000000C2 FF35[0C000000]          		push dword [minus]
+   103 000000C8 FF35[08000000]          		push dword [add]
+   104 000000CE 68[73000000]            		push dword answer
+   105 000000D3 E8(00000000)            		call printf
+   106 000000D8 81C418000000            		add esp, 24 ;isaac you dork. Dword is how many bytes?
+   107                                  		
+   108 000000DE 89EC                    		mov esp, ebp
+   109 000000E0 5D                      		pop ebp
+   110                                  		
+   111 000000E1 B800000000              		mov eax, 0
+   112 000000E6 C3                      		ret

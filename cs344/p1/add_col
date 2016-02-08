@@ -1,0 +1,48 @@
+#!/bin/bash
+
+#if [ -e temp ]
+#then
+#	echo "removing file temp..."
+#	rm -f temp
+#fi
+
+
+numlines=$(wc -l list)
+numlines=$(echo $numlines | tr -d ' list')
+
+i=1
+
+numlines=$((numlines+1))
+
+while [ $i -lt $numlines ]
+do
+	cat list | cut -f $i >> temp
+	echo '.' >> temp
+	i=$((i+1))
+done
+
+numlines=$((numlines-1))
+
+exec 3<&0
+exec 0<temp
+
+sum=0
+
+while read -n 2 input
+do
+	echo "$input EOL "
+	if [ "$input" = "." ]
+	then
+		echo "sum = $sum"
+		sum=0
+	else sum=$((sum+input))
+	fi
+done
+
+exec 0<&3
+
+if [ -e temp ]
+then
+	echo "removing file temp..."
+	rm -f temp
+fi

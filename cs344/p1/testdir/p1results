@@ -1,0 +1,314 @@
+--------------------------------------------------------------------------
+Creating file1 file2 file3 file4 file5
+
+
+total 40
+-rw-rw----. 1 stallcui upg56728  259 Jan 25 22:44 file1
+-rw-rw----. 1 stallcui upg56728   49 Jan 25 22:44 file2
+-rw-rw----. 1 stallcui upg56728    3 Jan 25 22:44 file3
+-rw-rw----. 1 stallcui upg56728    0 Jan 25 22:44 file4
+-rw-rw----. 1 stallcui upg56728 5831 Jan 25 22:44 file5
+-rwxrwx---. 1 stallcui upg56728 6226 Jan 25 22:44 stats
+
+
+--------------------------------------------------------------------------
+File 1 Statistics by Rows: 1 point per correct number: 18
+
+file readable
+Average Median
+94     93
+86     84
+74     81
+74     80
+80     81
+64     61
+55     54
+54     53
+100     100
+
+
+--------------------------------------------------------------------------
+Check for Temporary Files: 5 points if no temp files
+
+file1
+file2
+file3
+file4
+file5
+stats
+
+
+--------------------------------------------------------------------------
+File 1 Statistics by Cols: 1 point per correct number: 18
+
+file readable
+Averages:
+75     58     76     72     82     78     71     69     100     
+Median
+80     57     83     73     88     79     80     71     100     
+
+
+--------------------------------------------------------------------------
+Check for Temporary Files: 5 points if no temp files
+
+file1
+file2
+file3
+file4
+file5
+stats
+
+
+--------------------------------------------------------------------------
+File 2 Statistics by Rows: 1 point per correct number: 8
+
+file readable
+Average Median
+94       95
+91       97
+71       73
+94       94
+
+
+--------------------------------------------------------------------------
+File 2 Statistics by Cols: 1 point per correct number: 8
+
+file readable
+Averages:
+85     86     83     96     
+Median
+95     94     93     99     
+
+
+--------------------------------------------------------------------------
+File 3 Statistics by Rows: 1 point per correct number: 2
+
+file readable
+Average Median
+17     17
+
+
+--------------------------------------------------------------------------
+File 3 Statistics by Cols: 1 point per correct number: 2
+
+file readable
+Averages:
+17     
+Median
+17     
+
+
+--------------------------------------------------------------------------
+File 4 Statistics by Rows: lose 3 points for error or any number
+
+file readable
+Average Median
+
+
+--------------------------------------------------------------------------
+File 4 Statistics by Cols: lose 3 points for error or any number
+
+file readable
+Averages:
+
+Median
+
+
+
+--------------------------------------------------------------------------
+File 5 Statistics by Cols: 1 point per number: 4
+
+file readable
+Averages:
+24950     49900     
+Median
+25000     50000     
+
+
+--------------------------------------------------------------------------
+Check for Temporary Files: 5 points if no temp files
+
+file1
+file2
+file3
+file4
+file5
+stats
+
+
+--------------------------------------------------------------------------
+Good Syntax
+
+Standard Input on Rows: 3 points for exit value 0
+Average Median
+Exit Value: 0
+Error Message:
+tr: missing operand
+Try `tr --help' for more information.
+
+Standard Input on Cols: 3 points for exit value 0
+Averages:
+
+Median
+
+Exit Value: 0
+Error Message:
+
+Option -cols: 3 points for exit value 0
+file readable
+Averages:
+85     86     83     96     
+Median
+95     94     93     99     
+Exit Value: 0
+Error Message:
+
+Option -rrrrrr: 3 points for exit value 0
+file readable
+Average Median
+94       95
+91       97
+71       73
+94       94
+Exit Value: 0
+Error Message:
+
+Option -cccccc: 3 points for exit value 0
+file readable
+Averages:
+85     86     83     96     
+Median
+95     94     93     99     
+Exit Value: 0
+Error Message:
+
+Option -r: 3 points for exit value 0
+file readable
+Average Median
+94       95
+91       97
+71       73
+94       94
+Exit Value: 0
+Error Message:
+
+
+--------------------------------------------------------------------------
+Bad Syntax
+
+Too Few Arguments: 1 point for usage text, 2 points for exit value 1
+Exit Value: 1
+Error Message:
+Usage: stats { -r | -c } [filename]
+
+Too Many Arguments: 1 point for usage text, 2 points for exit value 1
+Exit Value: 1
+Error Message:
+Usage: stats { -r | -c } [filename]
+
+Wrong Format: 1 point for usage text, 2 points for exit value 1
+Exit Value: 1
+Error Message:
+Usage: stats { -r | -c } [filename]
+
+Bad Option: 1 point for usage text, 2 points for exit value 1
+Exit Value: 1
+Error Message:
+Usage: stats { -r | -c } [filename]
+
+
+--------------------------------------------------------------------------
+File Not Readable: 2 points for error msg, 2 points for program halting
+
+
+Exit Value: 1
+Error Message:
+file not readable
+
+
+
+--------------------------------------------------------------------------
+Check for Temporary Files: 5 points for no temp files
+
+file1
+file2
+file3
+file4
+file5
+stats
+
+
+--------------------------------------------------------------------------
+Simultaneous Runs
+
+
+Before Finishing
+file1
+file2
+file3
+file4
+file5
+simrun1.out
+simrun2.out
+simrun3.out
+stats
+
+
+Run 1 Output: 5 points for succesful run 1
+Average Median
+tr: missing operand
+Try `tr --help' for more information.
+
+Run 2 Output: 5 points for succesful run 2
+Average Median
+tr: missing operand
+Try `tr --help' for more information.
+
+Run 3 Output: 5 points for succesful run 3
+Average Median
+tr: missing operand
+Try `tr --help' for more information.
+
+
+After Finishing: 5 points if no temp file
+file1
+file2
+file3
+file4
+file5
+stats
+
+
+Trap Signals
+
+
+Before Kill
+file1
+file2
+file3
+file4
+file5
+stats
+
+  PID TTY          TIME CMD
+ 4368 pts/189  00:00:00 ps
+10238 pts/189  00:00:00 tcsh
+17900 pts/189  00:00:00 bash
+30844 pts/189  00:00:00 p1gradingscript
+
+
+After Kill: 8 points if no temp files
+file1
+file2
+file3
+file4
+file5
+stats
+
+  PID TTY          TIME CMD
+ 4373 pts/189  00:00:00 ps
+10238 pts/189  00:00:00 tcsh
+17900 pts/189  00:00:00 bash
+30844 pts/189  00:00:00 p1gradingscript
+
+

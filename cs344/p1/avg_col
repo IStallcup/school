@@ -1,0 +1,30 @@
+#!/bin/bash
+
+rm -f temp
+
+filename=$1
+colnum=1
+addedcol=1
+numcols=$(cat $filename | head -n 1 | wc -w)
+colsize=$(cat $filename | cut -f 1 | wc -w)
+
+while [ $colnum -le $numcols ]
+do
+	cat $filename | cut -f $colnum | tr '\n' '\t' > temp
+	sum=0
+	summand=0
+	addedcol=1 #somewhat unneccessary first time loop iterates
+	while [ $addedcol -le $colsize ]
+	do
+		summand=$(cat temp | cut -f $addedcol)
+		sum=$((sum+summand))
+		addedcol=$((addedcol+1))
+	done
+	echo "sum of column $colnum is $sum"
+	colnum=$((colnum+1))
+done
+
+if [ -e temp ]
+then
+	rm -f temp
+fi

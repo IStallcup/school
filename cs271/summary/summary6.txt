@@ -1,0 +1,5 @@
+Summary 6
+
+Monday - Floating point, floating point slideshow
+Wednesday - Extension on assignment 4, reverse array without using functions.
+Friday - Floating point, Reverse Polish Notation, how to calculate it.

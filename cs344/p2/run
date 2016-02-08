@@ -1,0 +1,13 @@
+#!/bin/bash
+
+sourcefile=$1
+filename=$2
+
+create $1 $2
+$2
+i=0
+while [ $i -le 6 ]
+do
+	cat room$i
+	i=$((i+1))
+done
