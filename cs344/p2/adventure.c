@@ -8,6 +8,7 @@
 
 void setConnections(FILE* room, char roomNames[7][6], int roomNum)
 {
+	printf("start setConnections for room# %d\n",roomNum);
 	/* placeholder to store which connections have been made */
 	int connections[7] = {-1,-1,-1,-1,-1,-1,-1};	
 	/* iterators */
@@ -84,6 +85,13 @@ void setType(FILE* room, int roomNum)
 void createRoom(FILE* room,char roomNames[7][6],int roomNum,char dirName[32],
 		char pathsToRooms[7][38])
 {
+	int i;
+	for (i = 0; i < 7; ++i)
+	{
+		printf("%s\n",pathsToRooms[i]);
+	}
+	
+	printf("createRoom for room %d\n",roomNum);
 	char pathToRoom[38];
 	strcpy(pathToRoom,dirName);
 	strcat(pathToRoom,roomNames[roomNum]);
@@ -162,6 +170,7 @@ int printRoom(FILE* room, char inBuff[64], char workingName[6],
 			strcpy(workingConnections[i],inBuff);
 		else if (inBuff[0] == 'E')
 		{
+			fclose(room);
 			return 10;
 		}
 		else break;
@@ -235,6 +244,7 @@ void playGame(FILE* room, char roomNames[7][6], char pathsToRooms[7][38])
 
 int main()
 {
+	printf("start of program flow\n");
 	/* get pid */
 	int pid = getpid();
 	/* will hold name of directory */
@@ -247,7 +257,7 @@ int main()
 	srand(time(NULL)); /* seed random # generation */
 
 	/* sorry not sexy :( */
-	char allNames[10][6] = {"","room1","room2",
+	char allNames[10][6] = {"room0","room1","room2",
 			/*create array of all rooms*/
 				"room3","room4","room5","room6","room7","room8","room9"};
 	char roomNames[7][6]; /*create array that will contain used rooms */
@@ -257,6 +267,7 @@ int main()
 	chooseRooms(allNames,roomNames); /* choose which 7 rooms will be used */
 	for (roomNum = 0; roomNum < 7; ++roomNum)
 	{
+		printf("loop to create rooms #%d\n",roomNum);
 		createRoom(room,roomNames,roomNum,dirName,pathsToRooms);
 	}
 	playGame(room,roomNames,pathsToRooms);
