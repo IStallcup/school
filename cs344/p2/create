@@ -1,7 +1,0 @@
-#!/bin/bash
-
-sourcefile=$1
-filename=$2
-
-gcc "$sourcefile" -o "$filename"
-$filename

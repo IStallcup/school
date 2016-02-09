@@ -76,10 +76,7 @@ void createRoom(FILE* room, char roomNames[7][6], int roomNum)
 	fclose(room);
 }
 
-void printRoom(FILE* room, char roomNames[7][6], int roomNum)
-{
-	
-}
+void printRoom(FILE* room, char roomNames[7][6], int roomNum){}
 
 void chooseRooms(char allNames[10][6], char roomNames[7][6])
 {

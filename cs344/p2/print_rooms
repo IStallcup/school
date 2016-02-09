@@ -4,6 +4,10 @@ i=0
 
 while [ $i -le 9 ]
 do
-	cat ./room$i
+	if [ -e ./room$i ]
+	then
+		echo "file room$i"
+		cat ./room$i
+	fi
 	i=$((i+1))
 done
