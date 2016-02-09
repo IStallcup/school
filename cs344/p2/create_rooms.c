@@ -64,11 +64,7 @@ void setConnections(FILE* room, char roomNames[7][6], int roomNum)
 	/* new loop to actually output formatting to rooms */
 	int k;
 	for (k = 0; k < numConnections; ++k)
-	{
-		/*printf("outputting to room %s: %s\n",
-				roomNames[roomNum],roomNames[connections[k]]);*/
-		fprintf(room,"CONNECTION %d:%s\n",k+1,roomNames[connections[k]]);
-	}
+	fprintf(room,"CONNECTION %d:%s\n",k+1,roomNames[connections[k]]);
 }
 
 void setType(FILE* room, int roomNum)
