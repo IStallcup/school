@@ -10,7 +10,7 @@ void setConnections(FILE* room, char roomNames[7][6], int roomNum)
 {
 	printf("start setConnections for room# %d\n",roomNum);
 	/* placeholder to store which connections have been made */
-	int connections[7] = {-1,-1,-1,-1,-1,-1,-1};	
+	int connections[7] = {-1,-1,-1,-1,-1,-1,-1};
 	/* iterators */
 	int i, j;
 	/* sets # connections between 3 and 6 */
@@ -28,7 +28,7 @@ void setConnections(FILE* room, char roomNames[7][6], int roomNum)
 /* this while loop goes through the array connections,
  * which holds the rooms already connected to the working
  * room, and checks the selected randConnection against
- * each element; if it finds a match, it resets 
+ * each element; if it finds a match, it resets
  * randConnection and starts over. If it reaches the end
  * (i.e. if the room is not already connected) it adds it
  * to connections. */
@@ -42,12 +42,12 @@ void setConnections(FILE* room, char roomNames[7][6], int roomNum)
 				/* again ensure that room chosen is not the working room */
 				while (randConnection == roomNum)
 					randConnection = rand() % 7;
-		/* set i to -1, so that the end of the 
+		/* set i to -1, so that the end of the
 		 * loop iterates it to 0 (start loop over again) */
 				i = -1;
 			}
 
-		/* if i has already been reset, this if statement fails. 
+		/* if i has already been reset, this if statement fails.
 		 * Otherwise, if the i-th element of connections is empty
 		 * (that is if we have checked all the connections so far)
 		 * then add randConnection to the connections array and halt loop */
@@ -61,7 +61,7 @@ void setConnections(FILE* room, char roomNames[7][6], int roomNum)
 			++i;
 		}
 	}
-	
+
 	/* new loop to actually output formatting to rooms */
 	int k;
 	for (k = 0; k < numConnections; ++k)
@@ -85,13 +85,7 @@ void setType(FILE* room, int roomNum)
 void createRoom(FILE* room,char roomNames[7][6],int roomNum,char dirName[32],
 		char pathsToRooms[7][38])
 {
-	int i;
-	for (i = 0; i < 7; ++i)
-	{
-		printf("%s\n",pathsToRooms[i]);
-	}
-	
-	printf("createRoom for room %d\n",roomNum);
+
 	char pathToRoom[38];
 	strcpy(pathToRoom,dirName);
 	strcat(pathToRoom,roomNames[roomNum]);
@@ -119,7 +113,7 @@ void chooseRooms(char allNames[10][6], char roomNames[7][6])
 		for (j = 0; j < i; j++)
 		/* iterate from 0 to i; checks the chosenRooms array */
 		{
-			if (chosenRooms[j] == roomChoice) 
+			if (chosenRooms[j] == roomChoice)
 			/*if our currently chosen room has already been selected... */
 			{
 				roomChoice = rand() % 10; /* try again! */
@@ -152,33 +146,35 @@ int printRoom(FILE* room, char inBuff[64], char workingName[6],
 	   int workingRoom, char roomNames[7][6], int numSteps,
 	   char stepPath[64][6])
 {
+	/* iterator */
 	int i;
 	/*printf("working room# is %d\n",workingRoom);*/
 	/*printf("working room is %s\n",pathsToRooms[workingRoom]);*/
 	room = fopen(pathsToRooms[workingRoom],"r");
-	fscanf(room,"%s",inBuff);
-	fscanf(room,"%s",inBuff);
-	fscanf(room,"%s",inBuff);
-	strcpy(workingName,inBuff);
-	strcpy(stepPath[numSteps],inBuff);
+	fscanf(room,"%s",inBuff); /* gets ROOM */
+	fscanf(room,"%s",inBuff); /* gets NAME: */
+	fscanf(room,"%s",inBuff); /* gets actual name of working room */
+	strcpy(workingName,inBuff); /* puts buffer into workingName */
+	strcpy(stepPath[numSteps],inBuff); /* adds buffer into path taken */
 	for (i = 0; i < 7; i++)
 	{
-		fscanf(room,"%s",inBuff);
-		fscanf(room,"%s",inBuff);
-		fscanf(room,"%s",inBuff);
+		fscanf(room,"%s",inBuff); /* gets CONNECTION */
+		fscanf(room,"%s",inBuff); /* gets NAME: */
+		fscanf(room,"%s",inBuff); /* gets actual name of connection/third field */
 		if (inBuff[0] != 'S' && inBuff[0] != 'E' && inBuff[0] != 'M')
-			strcpy(workingConnections[i],inBuff);
+			strcpy(workingConnections[i],inBuff); /* if buffer is not a room type */
 		else if (inBuff[0] == 'E')
 		{
 			fclose(room);
-			return 10;
+			return 10; /* return 10; value says that we are done */
 		}
-		else break;
+		else break; /* otherwise stop loop */
 	}
 	fclose(room);
 	int numConnections = i;
 	printf("CURRENT LOCATION: %s\n",workingName);
 	printf("POSSIBLE CONNECTIONS: ");
+	/* prints possible connections with appropriate punctuation */
 	for (i = 0; i < numConnections; ++i)
 	{
 		if (i == (numConnections - 1))
@@ -191,6 +187,10 @@ int printRoom(FILE* room, char inBuff[64], char workingName[6],
 	{
 		printf("WHERE TO? >");
 		scanf("%s",inBuff);
+		/* loop iterates through each connection to working room, and
+		 * checks the connection to the destination room; if no successes,
+		 * then it errors out and asks for input again. If it finds success,
+		 * it continues on. */
 		for (i = 0; i < numConnections; ++i)
 		{
 			if (strcmp(inBuff,workingConnections[i]) == 0)
@@ -218,6 +218,7 @@ int printRoom(FILE* room, char inBuff[64], char workingName[6],
 
 void playGame(FILE* room, char roomNames[7][6], char pathsToRooms[7][38])
 {
+	/* variable setup */
 	int i;
 	int workingRoom = 0;
 	char inBuff[64];
@@ -227,18 +228,20 @@ void playGame(FILE* room, char roomNames[7][6], char pathsToRooms[7][38])
 	char stepPath[64][6];
 	while (workingRoom != 10)
 	{
+		/* play the game */
 		workingRoom = printRoom(room, inBuff, workingName,
 		   	workingConnections, pathsToRooms, workingRoom,roomNames,
 			numSteps,stepPath);
 		numSteps++;
 	}
 
+	/* victory message */
 	printf("YOU HAVE FOUND THE END ROOM, CONGRATULATIONS!\n");
 	printf("YOU TOOK %d STEPS. YOUR PATH TO VICTORY WAS:\n",numSteps-1);
 	for (i = 1; i < numSteps; i++)
 	{
 		printf("%s\n",stepPath[i]);
-	}	
+	}
 
 }
 
