@@ -8,7 +8,6 @@
 
 void setConnections(FILE* room, char roomNames[7][6], int roomNum)
 {
-	printf("start setConnections for room# %d\n",roomNum);
 	/* placeholder to store which connections have been made */
 	int connections[7] = {-1,-1,-1,-1,-1,-1,-1};
 	/* iterators */
@@ -247,7 +246,6 @@ void playGame(FILE* room, char roomNames[7][6], char pathsToRooms[7][38])
 
 int main()
 {
-	printf("start of program flow\n");
 	/* get pid */
 	int pid = getpid();
 	/* will hold name of directory */
@@ -270,7 +268,6 @@ int main()
 	chooseRooms(allNames,roomNames); /* choose which 7 rooms will be used */
 	for (roomNum = 0; roomNum < 7; ++roomNum)
 	{
-		printf("loop to create rooms #%d\n",roomNum);
 		createRoom(room,roomNames,roomNum,dirName,pathsToRooms);
 	}
 	playGame(room,roomNames,pathsToRooms);
