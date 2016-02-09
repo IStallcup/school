@@ -198,7 +198,7 @@ int printRoom(FILE* room, char inBuff[64], char workingName[6],
 				break;
 			}
 			else if (i == (numConnections - 1))
-				printf("I don't know how to %s.\n",inBuff);
+				printf("HUH? I DON'T UNDERSTAND THAT ROOM. TRY AGAIN.\n");
 		}
 	}
 	/*printf("going to %s\n",workingConnections[i]);*/
