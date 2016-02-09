@@ -67,7 +67,7 @@ void setConnections(FILE* room, char roomNames[7][6], int roomNum)
 	{
 		/*printf("outputting to room %s: %s\n",
 				roomNames[roomNum],roomNames[connections[k]]);*/
-		fprintf(room,"CONNECTION %d:%s\n",k+1,roomNames[connections[k]]);
+		fprintf(room,"CONNECTION %d: %s\n",k+1,roomNames[connections[k]]);
 	}
 }
 
@@ -78,10 +78,11 @@ void setType(FILE* room, int roomNum)
  *  this structure allows for rooms one and seven to have appropriate
  *  types and the others to be mid rooms. */
 		"MID_ROOM","MID_ROOM","MID_ROOM","MID_ROOM","END_ROOM"};
-	fprintf(room,"ROOM TYPE:%s\n",roomTypes[roomNum]);
+	fprintf(room,"ROOM TYPE: %s\n",roomTypes[roomNum]);
 }
 
-void createRoom(FILE* room,char roomNames[7][6],int roomNum,char dirName[32])
+void createRoom(FILE* room,char roomNames[7][6],int roomNum,char dirName[32],
+		char pathsToRooms[7][38])
 {
 	char pathToRoom[38];
 	strcpy(pathToRoom,dirName);
@@ -90,11 +91,12 @@ void createRoom(FILE* room,char roomNames[7][6],int roomNum,char dirName[32])
 	/*open perscribed room */
 	room = fopen(pathToRoom,"w+");
 	/*output name of room to room*/
-	fprintf(room, "ROOM NAME:%s\n",roomNames[roomNum]);
+	fprintf(room, "ROOM NAME: %s\n",roomNames[roomNum]);
 	/*setConnections(room,roomNames,roomNum);*/
 	setConnections(room,roomNames,roomNum);
 	setType(room,roomNum);
 	fclose(room);
+	strcpy(pathsToRooms[roomNum],pathToRoom);
 }
 
 void chooseRooms(char allNames[10][6], char roomNames[7][6])
@@ -123,6 +125,114 @@ void chooseRooms(char allNames[10][6], char roomNames[7][6])
 	}
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int printRoom(FILE* room, char inBuff[64], char workingName[6],
+	   char workingConnections[6][6], char pathsToRooms[7][38],
+	   int workingRoom, char roomNames[7][6], int numSteps,
+	   char stepPath[64][6])
+{
+	int i;
+	/*printf("working room# is %d\n",workingRoom);*/
+	/*printf("working room is %s\n",pathsToRooms[workingRoom]);*/
+	room = fopen(pathsToRooms[workingRoom],"r");
+	fscanf(room,"%s",inBuff);
+	fscanf(room,"%s",inBuff);
+	fscanf(room,"%s",inBuff);
+	strcpy(workingName,inBuff);
+	strcpy(stepPath[numSteps],inBuff);
+	for (i = 0; i < 7; i++)
+	{
+		fscanf(room,"%s",inBuff);
+		fscanf(room,"%s",inBuff);
+		fscanf(room,"%s",inBuff);
+		if (inBuff[0] != 'S' && inBuff[0] != 'E' && inBuff[0] != 'M')
+			strcpy(workingConnections[i],inBuff);
+		else if (inBuff[0] == 'E')
+		{
+			return 10;
+		}
+		else break;
+	}
+	fclose(room);
+	int numConnections = i;
+	printf("CURRENT LOCATION: %s\n",workingName);
+	printf("POSSIBLE CONNECTIONS: ");
+	for (i = 0; i < numConnections; ++i)
+	{
+		if (i == (numConnections - 1))
+			printf("%s.\n",workingConnections[i]);
+		else
+			printf("%s,",workingConnections[i]);
+	}
+	int successFlag = 0;
+	while (successFlag == 0)
+	{
+		printf("WHERE TO? >");
+		scanf("%s",inBuff);
+		for (i = 0; i < numConnections; ++i)
+		{
+			if (strcmp(inBuff,workingConnections[i]) == 0)
+			{
+				successFlag = 1;
+				break;
+			}
+			else if (i == (numConnections - 1))
+				printf("I don't know how to %s.\n",inBuff);
+		}
+	}
+	/*printf("going to %s\n",workingConnections[i]);*/
+	int l;
+	for (l = 0; l < 6; ++l)
+	{
+		int compResult = strcmp(workingConnections[i],roomNames[l]);
+	/*	printf("index %d	%s vs. %s: %d\n",l,workingConnections[i],roomNames[l],compResult); */
+		if (compResult == 0)
+			break;
+	}
+	/*printf("i sends to %s\n",pathsToRooms[i]);*/
+	/*printf("l sends to %s\n",pathsToRooms[l]);*/
+	return l;
+}
+
+void playGame(FILE* room, char roomNames[7][6], char pathsToRooms[7][38])
+{
+	int i;
+	int workingRoom = 0;
+	char inBuff[64];
+	char workingName[6];
+	char workingConnections[6][6];
+	int numSteps = 0;
+	char stepPath[64][6];
+	while (workingRoom != 10)
+	{
+		workingRoom = printRoom(room, inBuff, workingName,
+		   	workingConnections, pathsToRooms, workingRoom,roomNames,
+			numSteps,stepPath);
+		numSteps++;
+	}
+
+	printf("YOU HAVE FOUND THE END ROOM, CONGRATULATIONS!\n");
+	printf("YOU TOOK %d STEPS. YOUR PATH TO VICTORY WAS:\n",numSteps-1);
+	for (i = 1; i < numSteps; i++)
+	{
+		printf("%s\n",stepPath[i]);
+	}	
+
+}
+
 int main()
 {
 	/* get pid */
@@ -135,16 +245,20 @@ int main()
 	mkdir(dirName,0755);
 
 	srand(time(NULL)); /* seed random # generation */
-	char allNames[10][6] = {"room0","room1","room2",
+
+	/* sorry not sexy :( */
+	char allNames[10][6] = {"","room1","room2",
 			/*create array of all rooms*/
 				"room3","room4","room5","room6","room7","room8","room9"};
 	char roomNames[7][6]; /*create array that will contain used rooms */
+	char pathsToRooms[7][38];
 	int roomNum; /* iterator to keep track of which room we're on */
 	FILE* room;
 	chooseRooms(allNames,roomNames); /* choose which 7 rooms will be used */
 	for (roomNum = 0; roomNum < 7; ++roomNum)
 	{
-		createRoom(room,roomNames,roomNum,dirName);
+		createRoom(room,roomNames,roomNum,dirName,pathsToRooms);
 	}
+	playGame(room,roomNames,pathsToRooms);
 	return 0;
 }
