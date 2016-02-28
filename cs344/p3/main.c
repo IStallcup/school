@@ -66,9 +66,17 @@ int main()
 	
 		argv = getcmd(argv);
 
+		//builtin: exit
+		//exits program by breaking loop
 		if (strcmp(*argv,"exit") == 0)
 				break;
-
+		//builtin: cd
+		//changes directories
+		else if (strcmp(*argv,"cd") == 0)
+		{
+			chdir(argv[1]); //add error checking...?
+		}
+		else
 		switch(childPid = fork())
 		{
 			case -1:
