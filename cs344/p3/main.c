@@ -76,6 +76,12 @@ int main()
 		{
 			chdir(argv[1]); //add error checking...?
 		}
+		//builtin: status
+		//will require support of background processes first
+		else if (strcmp(*argv,"status") == 0)
+		{
+			printf("smallsh:status is go\n");
+		}
 		else
 		switch(childPid = fork())
 		{
