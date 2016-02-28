@@ -1,6 +1,8 @@
+#include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 #include <unistd.h>
 
 char** tokcmd(char** cmdline,size_t max_size)
@@ -14,29 +16,33 @@ char** tokcmd(char** cmdline,size_t max_size)
 		argc++;
 		argTok[argc] = strtok(NULL," \n"); //arguments
 	}
-	printf("argc=%d\n",argc);
+
 	//testing area
+	/*printf("argc=%d\n",argc);
 	int i;
 	for (i = 0; i < argc; i++)
 	{
 		printf("argTok[%d]=%s\n",i,argTok[i]);
-	}
+	}*/
+
+
+	free(argTok);
 	return argTok;
 }
 
 char** getcmd(char** argv)
 {
 	size_t max_size = 512;
-	char** cmdline = malloc(sizeof(char*)*max_size);
 	getline(argv,&max_size,stdin);
-	argv =  tokcmd(argv,max_size);
+	argv = tokcmd(argv,max_size);
 	int i;
-	for (i = 0; i < max_size; i++)
+	/*for (i = 0; i < max_size; i++)
 	{
 		if (argv[i])
 			printf("argv[%d]=%s\n",i,argv[i]);
 		else break;
 	}
+	fflush(stdout);*/
 	return argv;
 }
 
@@ -45,29 +51,43 @@ int main()
 	printf("\n");
 	printf("Welcome to smallsh, the smaller shell.\n");
 	printf("\n");
-	printf(": ");
+	
 	pid_t childPid;
 
 	char** argv = malloc(sizeof(char*)*512);
 
-	argv = getcmd(argv);
+	int status;
 
-	switch(childPid = fork())
+	while(1)
 	{
-		case -1:
-			perror("Error in forking to child after input.\n");
-			exit(-1);
-			break;
-		case 0:
-			if (-1 == execvp(*argv,argv))
-			{
-				perror("Error in execvp.\n");
+			
+		fflush(stdout);
+		printf(": ");
+	
+		argv = getcmd(argv);
+
+		if (strcmp(*argv,"exit") == 0)
+				break;
+
+		switch(childPid = fork())
+		{
+			case -1:
+				perror("Error in forking to child after input.\n");
 				exit(-1);
-			} //re-enable when input parsing works
-			break;
-		default:
-			waitpid(childPid);
-			break;
+				break;
+			case 0:
+				if (-1 == execvp(*argv,argv))
+				{
+					perror("Command failed.\nsmallsh:");
+					exit(-1);
+				}
+				fflush(stdout);
+				break;
+			default:
+				waitpid(childPid,&status,0);
+				break;
+		}
 	}
+	free(*argv);
 	return 0;
 }
