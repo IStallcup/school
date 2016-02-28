@@ -74,7 +74,28 @@ int main()
 		//changes directories
 		else if (strcmp(*argv,"cd") == 0)
 		{
-			chdir(argv[1]); //add error checking...?
+			switch(childPid = fork())
+			{
+				case -1:
+					perror("smallsh: fork failed\n");
+					exit(1);
+					break;
+				case 0:
+					if (-1 == chdir(argv[1]))
+					{
+						exit(2);
+					}
+					break;
+				default:
+					waitpid(childPid,&status,0);
+					if (WIFEXITED(status))
+					{
+						printf("smallsh: cd failed with status %d\n"
+								,WEXITSTATUS(status));
+					}
+			}
+
+
 		}
 		//builtin: status
 		//will require support of background processes first
@@ -86,14 +107,14 @@ int main()
 		switch(childPid = fork())
 		{
 			case -1:
-				perror("Error in forking to child after input.\n");
-				exit(-1);
+				perror("smallsh: fork failed\n");
+				exit(1);
 				break;
 			case 0:
 				if (-1 == execvp(*argv,argv))
 				{
-					perror("Command failed.\nsmallsh:");
-					exit(-1);
+					perror("smallsh");
+					exit(2);
 				}
 				fflush(stdout);
 				break;
