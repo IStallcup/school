@@ -1,3 +1,4 @@
+#include <fcntl.h>
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -46,6 +47,32 @@ char** getcmd(char** argv)
 	return argv;
 }
 
+int isRedirect(char* arg)
+{
+	if (strcmp(arg,"|") == 0)
+		return 1;
+	else if (strcmp(arg,"<") == 0)
+		return 2;
+	else if (strcmp(arg,">") == 0)
+		return 3;
+	else return 0;
+}
+
+int fdchg(char** argv, size_t max_size)
+{
+	int argNum,redType;
+	printf("start fdchg\n");
+	for (argNum = 0; argNum < max_size; ++argNum)
+	{
+		redType = isRedirect(argv[argNum]);
+		printf("Look@%s\n",argv[argNum]);
+		if (redType == 0)
+			printf("not a redirection character:%s\n",argv[argNum]);
+		else printf("%s is a redirection character\n",argv[argNum]);
+	}
+	return 0;
+}
+
 int main()
 {	
 	printf("\n");
@@ -53,8 +80,8 @@ int main()
 	printf("\n");
 	
 	pid_t childPid;
-
-	char** argv = malloc(sizeof(char*)*512);
+	size_t max_size = 512;
+	char** argv = malloc(sizeof(char*)*max_size);
 
 	int status;
 
@@ -65,6 +92,9 @@ int main()
 		printf(": ");
 	
 		argv = getcmd(argv);
+
+
+		//replace this with a function? we'll see
 
 		//builtin: exit
 		//exits program by breaking loop
