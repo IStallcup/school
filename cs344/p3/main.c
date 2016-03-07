@@ -6,11 +6,6 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-void catch_arnold(int signo) //as in Schwarzenegger
-{
-	printf("found signterm\n");
-}
-
 char** tokcmd(char** cmdline,size_t max_size)
 {
 	int argc = 0;
@@ -44,7 +39,6 @@ int isbkgrnd(char** argv, char* amp, size_t max_size)
 		if (strcmp(argv[argNum],amp) == 0)
 		{
 			//printf("%s = &\n",argv[argNum]);
-			argv[argNum] = NULL;
 			return 1;
 		}
 	}
@@ -75,46 +69,46 @@ int chgfd(char** argv, size_t max_size)
 		//printf("rType = %d\n",fd_old);
 		if(fd_old == 0)
 		{
-			path = argv[argNum+1];
-			/*printf("path=%s\n",path);
+			path = argv[argNum-1];
+			printf("path=%s\n",path);
 			printf("< detected\n");
-			printf("stdin is now from file %s\n",argv[argNum-1]);*/
+			printf("stdin is now from file %s\n",argv[argNum-1]);
 			fd_new = open(path,O_RDONLY);
 			if(fd_new == -1)
 			{
-				fprintf(stderr, "smallsh: cannot open file for input\n");
+				fprintf(stderr, "Error in file open\n");
 				close(fd_new);
-				return 1;
+				exit(1);
 			}
-			if (dup2(fd_new,fd_old) == -1)
+			else if (dup2(fd_new,fd_old) == -1)
 			{
 				fprintf(stderr,"Error in dup2\n");
 				close(fd_new);
-				return 1;
+				exit(1);
 			}
 			close(fd_new);
 			argv[argNum] = NULL;
-			argv[argNum+1] = NULL;
+			argv[argNum-1] = NULL;
 
 		}
-		else if (fd_old == 1) //writing
+		else if (fd_old == 1)
 		{
 			path = argv[argNum+1];
 			printf("path=%s\n",path);
-			/*printf("> detected\n");
-			printf("stdout is now to file %s\n",argv[argNum+1]);*/
-			fd_new = open(path,O_WRONLY|O_CREAT|O_TRUNC,0777);
+			printf("> detected\n");
+			printf("stdout is now to file %s\n",argv[argNum+1]);
+			fd_new = open(path,O_WRONLY);
 			if(fd_new == -1)
 			{
-				fprintf(stderr, "stdout redirect: error in file open\n");
+				fprintf(stderr, "Error in file open\n");
 				close(fd_new);
-				return 1;
+				exit(1);
 			}
-			if (dup2(fd_new,fd_old) == -1)
+			else if (dup2(fd_new,fd_old) == -1)
 			{
 				fprintf(stderr,"Error in dup2\n");
 				close(fd_new);
-				return 1;
+				exit(1);
 			}
 			close(fd_new);
 			argv[argNum] = NULL;
@@ -130,21 +124,13 @@ int main()
 	printf("Welcome to smallsh, the smaller shell.\n");
 	printf("\n");
 	
-	int wpid;
 	pid_t childPid;
 	size_t max_size = 512;
 	char** argv = malloc(sizeof(char*)*max_size);
 
 	int status;
-	struct sigaction termination;
-	termination.sa_handler = catch_arnold;
-	termination.sa_flags = 0;
-	sigfillset(&(termination.sa_mask));
-	sigaction(SIGTERM, &termination, NULL);
 	int background;
 
-	int *exitstatus;
-	char* homedirec;
 	while(1)
 	{
 		background = 0;	
@@ -166,14 +152,6 @@ int main()
 		//changes directories
 		//needs to appropriately kill child/parent processes
 		else if (strcmp(*argv,"cd") == 0)
-		{
-			homedirec = getenv("HOME");
-			if(-1 == chdir(argv[1]))
-				chdir(homedirec);	
-		}
-
-
-		   /*	if (strcmp(*argv,"cd") == 0)
 		{
 			switch(childPid = fork())
 			{
@@ -197,14 +175,12 @@ int main()
 			}
 
 
-		}*/
+		}
 		//builtin: status
 		//will require support of background processes first
 		else if (strcmp(*argv,"status") == 0)
 		{
-			if(WIFEXITED(status))
-				printf("exited with status %d\n",exitstatus);
-			else printf("termsig = \n",WTERMSIG(status));
+			printf("smallsh:status is go\n");
 		}
 		else
 		switch(childPid = fork())
@@ -215,52 +191,17 @@ int main()
 				break;
 			case 0:
 				//need to edit args for background, redirections
-				if (1 == chgfd(argv,max_size))
-					break;
+				chgfd(argv,max_size);	
 				if (-1 == execvp(*argv,argv))
 				{
 					perror(*argv);
-					exit(1);
+					exit(2);
 				}
 				break;
 			default:
-				//printf("parent\n");
-				if (background != 0)
-				{
-					printf("bPid=%d\n",childPid);
-					break;
-				}
-				else
-				{
-					//printf("not background process\n");
-					do{
-						waitpid(childPid,&status,WUNTRACED);
-			//WUNTRACED gives status of stopped children 
-					}
-					while(!WIFEXITED(status) 
-					   && !WIFSIGNALED(status));
-				//may or may not be important?
-					exitstatus = WEXITSTATUS(status);
-				}
-					//tracing
-					if (WIFSIGNALED(status))
-						printf("signalled\n");
-					if (WTERMSIG(status))
-						printf("terminated\n");
+				printf("parent\n");
+				waitpid(childPid,&status,0);
 				break;
-		}
-		
-		wpid = waitpid(-1,&status,WNOHANG);
-		while(wpid > 0)
-		{
-			printf("backgroud process complete, pid=%d\n",wpid);
-			if(WIFEXITED(status)) //exit status OK
-				printf("exit status: %d\n",WIFEXITED(status));
-			else //other signals are assumed to be terminating
-				printf("terminating signal: %d\n",WTERMSIG(status));
-
-			wpid = waitpid(-1,&status,WNOHANG);
-		
 		}
 	}
 	return 0;
