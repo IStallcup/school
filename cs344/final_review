@@ -1,0 +1,26 @@
+Final Review - Isaac Stallcup
+
+Final: On Canvas
+  Available from Monday @ Midnight to Wednesday @ Midnight
+  All multiple choice
+  2 hour time limit
+  open to everything but your friends
+  have a terminal to os-class, web browser open
+  bulk of final is on material covered on projects
+
+Lecture 1
+  Stable, dense commands, widely used
+  Goals of Operating Systems:
+    See slide
+  Program: Stored algorithm or plan of execution
+  Process: Program loaded into memory
+  Thread: Line of execution
+
+Lecture 2
+User Commands vs. System Calls
+  Commands: cd, write, ls
+  System Calls: your process is interrupted, control is given to OS to do stuff
+  C library functions another category
+
+Lecture 3
+Know common UNIX commands
