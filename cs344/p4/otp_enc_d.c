@@ -79,6 +79,7 @@ int main(int argc, char* argv[])
 {
 	int sockfd,newsockfd,portno,n;
 	socklen_t clilen; //what does this do?
+	pid_t cPid;
 	char buffer[256];
 	char *cryptb;
 	struct sockaddr_in serv_addr, cli_addr;
@@ -106,38 +107,44 @@ int main(int argc, char* argv[])
 	if (bind(sockfd, (struct sockaddr *) &serv_addr,
 				sizeof(serv_addr)) < 0)
 		error("ERROR on binding");
+	
 	//listen to up to **5** connections
 	listen(sockfd,5);
-	//set length of client address
-	clilen = sizeof(cli_addr);
-	//fd to be accepting input on
-	newsockfd = accept(sockfd,(struct sockaddr *) &cli_addr, &clilen);
-	//error checking
-	if (newsockfd < 0)
-		error("ERROR on accept");
-	bzero(buffer,256); //zero the buffer
-	//read 255 characters from the socket at newsockfd (client),
-	//into buffer, stores result of read call in n
-	n = read(newsockfd,buffer,255);
-	//error checking on read
-	if (n < 0)
-		error("ERROR reading from socket"); //perhaps specify socket?
-	//DO ENCRYPTING OR DECRPYTING HERE once you've read the message! NBD?
+
+	while(1)
+	{
+		//set length of client address
+		clilen = sizeof(cli_addr);
+		//fd to be accepting input on
+		newsockfd = accept(sockfd,(struct sockaddr *) &cli_addr, &clilen);
+		//error checking
+		if (newsockfd < 0)
+			error("ERROR on accept");
+		bzero(buffer,256); //zero the buffer
+		//read 255 characters from the socket at newsockfd (client),
+		//into buffer, stores result of read call in n
+		n = read(newsockfd,buffer,255);
+		//error checking on read
+		if (n < 0)
+			error("ERROR reading from socket"); //perhaps specify socket?
+		//DO ENCRYPTING OR DECRPYTING HERE once you've read the message! NBD?
+		
+		printf("Let's do some cryptography!\n");
+		printf("string read in is %s\n",buffer);
 	
-	printf("Let's do some cryptography!\n");
-	printf("string read in is %s\n",buffer);
-
-	cryptb = crypt(buffer);
-
-	//write encrypted message back to connected process
-	//note: change "buffer" to whatever your result of encryption is
-	n = write(newsockfd,buffer,sizeof(buffer));
-   	//NB #arg is # **BYTES** allowed
-	if (n < 0)
-		error("ERROR writing to socket");
-	//close up connections
-	close(newsockfd);
-	close(sockfd);
+		cryptb = crypt(buffer);
+	
+		//write encrypted message back to connected process
+		//note: change "buffer" to whatever your result of encryption is
+		n = write(newsockfd,buffer,sizeof(buffer));
+   		//NB #arg is # **BYTES** allowed
+		if (n < 0)
+			error("ERROR writing to socket");
+		//close up connections
+		close(newsockfd);
+		close(sockfd);
+		printf("--end of daemon loop--\n");
+	}
 	return 0;
 	
 }
