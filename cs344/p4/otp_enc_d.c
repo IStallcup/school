@@ -59,10 +59,12 @@ char* crypt(char* input)
 		r = (i - 64 + k - 64)%27;
 		
 		//trace statements here
+		/*
 		printf("src char: %c,%d,%d\t",i,i,i-64);
 		printf("key char: %c,%d,%d\t",k,k,k-64);
 		printf("res char: %c,%d,%d\t",r+64,r+64,r);	
 		printf("\n");
+		*/
 		//end trace statements
 		
 		fprintf(stdout,"%c",r+64);
@@ -77,7 +79,8 @@ char* crypt(char* input)
 
 int main(int argc, char* argv[])
 {
-	int sockfd,newsockfd,portno,n;
+	int sockfd,newsockfd,portno,n,status;
+	int yes = 1;
 	socklen_t clilen; //what does this do?
 	pid_t cPid;
 	char buffer[256];
@@ -97,6 +100,9 @@ int main(int argc, char* argv[])
 		error("ERROR opening socket");
 		//brewster's error code; does what expected? maybe
 	
+	if (setsockopt(sockfd,SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int)) < 0)
+		error("ERROR setting socket");
+
 	bzero((char*) &serv_addr, sizeof(serv_addr)); //put zeroes in server addy
 	portno = atoi(argv[1]); //set port # from FIRST arg; correct here but care
 	//set up listening on a port
@@ -110,9 +116,12 @@ int main(int argc, char* argv[])
 	
 	//listen to up to **5** connections
 	listen(sockfd,5);
+	
+	//trace statement
 
 	while(1)
 	{
+		printf("Beginning loop\n");
 		//set length of client address
 		clilen = sizeof(cli_addr);
 		//fd to be accepting input on
@@ -120,26 +129,38 @@ int main(int argc, char* argv[])
 		//error checking
 		if (newsockfd < 0)
 			error("ERROR on accept");
-		bzero(buffer,256); //zero the buffer
-		//read 255 characters from the socket at newsockfd (client),
-		//into buffer, stores result of read call in n
-		n = read(newsockfd,buffer,255);
-		//error checking on read
-		if (n < 0)
-			error("ERROR reading from socket"); //perhaps specify socket?
-		//DO ENCRYPTING OR DECRPYTING HERE once you've read the message! NBD?
-		
-		printf("Let's do some cryptography!\n");
-		printf("string read in is %s\n",buffer);
-	
-		cryptb = crypt(buffer);
-	
-		//write encrypted message back to connected process
-		//note: change "buffer" to whatever your result of encryption is
-		n = write(newsockfd,buffer,sizeof(buffer));
-   		//NB #arg is # **BYTES** allowed
-		if (n < 0)
-			error("ERROR writing to socket");
+		switch(cPid = fork())
+		{
+			case 0:
+				printf("in child\n");
+				bzero(buffer,256); //zero the buffer
+				//read 255 characters from the socket at newsockfd (client),
+				//into buffer, stores result of read call in n
+				n = read(newsockfd,buffer,255);
+				//error checking on read
+				if (n < 0)
+					error("ERROR reading from socket");
+				
+				printf("Let's do some cryptography!\n");
+				printf("string read in is %s\n",buffer);
+			
+				cryptb = crypt(buffer);
+			
+				//write encrypted message back to connected process
+				n = write(newsockfd,buffer,sizeof(buffer));
+   				//NB #arg is # **BYTES** allowed
+				if (n < 0)
+					error("ERROR writing to socket");
+				break;
+			default:
+				printf("in parent\n");
+				do
+				{
+					waitpid(cPid,&status,WUNTRACED);
+				}
+				while (!WIFEXITED(status) && !WIFSIGNALED(status));
+				break;
+		}
 		//close up connections
 		close(newsockfd);
 		close(sockfd);
