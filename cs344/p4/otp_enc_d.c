@@ -16,7 +16,7 @@ char* crypt(char* input)
 {
 	char *buffer;
 	char *text;
-	char k,i;
+	int k,i,r;
 	buffer = strtok(input," \n");
 	printf("file to encode=%s\n",buffer);
 
@@ -42,7 +42,9 @@ char* crypt(char* input)
 			printf("src: end of file");
 			break;
 		}
-		printf("src char: %c,%d,%d\t",i,i,i-64);
+		if (i == ' ')
+			i = 91;
+		//add space case here
 
 		k = fgetc(KEY); 
 		if (k == EOF)
@@ -50,10 +52,21 @@ char* crypt(char* input)
 			printf("key: end of file");
 			break;
 		}
-		//replace with different loop structure as this hits EOF
-		printf("key char: %c,%d,%d\t",k,k,k-64);
+		if (k == ' ')
+			k = 91;
+		//add space case here
 
+		r = (i - 64 + k - 64)%27;
+		
+		//trace statements here
+		printf("src char: %c,%d,%d\t",i,i,i-64);
+		printf("key char: %c,%d,%d\t",k,k,k-64);
+		printf("res char: %c,%d,%d\t",r+64,r+64,r);	
 		printf("\n");
+		//end trace statements
+		
+		fprintf(stdout,"%c",r+64);
+
 	} while	(k != EOF && i != EOF);
 
 	fclose(SRC);
@@ -118,7 +131,8 @@ int main(int argc, char* argv[])
 
 	//write encrypted message back to connected process
 	//note: change "buffer" to whatever your result of encryption is
-	n = write(newsockfd,buffer,sizeof(buffer)); //NB #arg is # **BYTES** allowed
+	n = write(newsockfd,buffer,sizeof(buffer));
+   	//NB #arg is # **BYTES** allowed
 	if (n < 0)
 		error("ERROR writing to socket");
 	//close up connections
