@@ -63,9 +63,9 @@ char* encrypt(char* input)
 		r = (i - 64 + k - 64)%27;
 		
 		//trace statements here
-		printf("src char: %c,%d,%d\t",i,i,i-64);
-		printf("key char: %c,%d,%d\t",k,k,k-64);
-		printf("res char: %c,%d,%d\t",r+64,r+64,r);	
+	//	printf("src char: %c,%d,%d\t",i,i,i-64);
+	//	printf("key char: %c,%d,%d\t",k,k,k-64);
+	//	printf("res char: %c,%d,%d\t",r+64,r+64,r);	
 		//end trace statements
 		if (r == 0)
 		{
@@ -75,7 +75,7 @@ char* encrypt(char* input)
 		{	
 			text[tpos] = r+64;
 		}
-		printf("\n");
+	//	printf("\n");
 		
 		tpos++;
 
