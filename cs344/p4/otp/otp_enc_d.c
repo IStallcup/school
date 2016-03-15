@@ -44,7 +44,13 @@ char* encrypt(char* input)
 		if (i == EOF || i == '\n')
 		{
 //			printf("src: end of file");
+			k = fgetc(KEY);
 			break;
+		}
+		else if ((i < 65 && i != 32) || (i > 90))
+		{
+			fprintf(stderr,"bad file!\n");
+			exit(1);
 		}
 		if (i == ' ')
 			i = 64;
@@ -53,7 +59,10 @@ char* encrypt(char* input)
 		k = fgetc(KEY); 
 		if (k == EOF)
 		{
-//			printf("key: end of file");
+//			fprintf(stderr,"key: end of file");
+			i = fgetc(SRC);
+			if (i != EOF && i != '\n')
+				error("ERROR key too short");
 			break;
 		}
 		if (k == ' ')
