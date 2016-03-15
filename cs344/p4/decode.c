@@ -22,7 +22,7 @@ int main(int arcg, char* argv[])
 		e = (t - 64 + k - 64)%27;
 		printf("%c,%d,%d\n",e+64,e,e+64);
 	
-		d = (e+27-(k-64))+64;
+		d = (e+27-(k-64))+64; //+27 is not correct
 		printf("%c,%d,%d\n",d,d,d-64);
 		printf("\n\n");
 	}

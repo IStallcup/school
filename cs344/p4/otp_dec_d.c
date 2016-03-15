@@ -13,7 +13,7 @@ void error(const char *msg)
 	exit(1);
 }
 
-char* encrypt(char* input)
+char* decrypt(char* input)
 {
 	char *buffer;
 	char text[256];
@@ -21,23 +21,13 @@ char* encrypt(char* input)
 	bzero(text,245);
 	int k,i,r,tpos;
 	buffer = strtok(input," \n");
-//	printf("file to encode=%s\n",buffer);
-
-	//careful, this might be a bad idea
 	FILE* SRC = fopen(buffer,"r");
 	if (SRC == NULL)
 		error("ERROR otp_enc_d opening src");
-
-
 	buffer = strtok(NULL," \n");
-//	printf("key file=%s\n",buffer);
-	
 	FILE* KEY = fopen(buffer,"r");
-
 	if (KEY == NULL)
 		error("ERROR otp_enc_d opening key");
-	//set position in text to 0
-	tpos = 0;
 	do //while key is not empty and while file is not empty
 	{
 		i = fgetc(SRC);
@@ -60,7 +50,12 @@ char* encrypt(char* input)
 			k = 64;
 		//add space case here
 
-		r = (i - 64 + k - 64)%27;
+		r = (i - 64 - k - 64);
+		if (r < 0)
+			r += 27;
+		else if (r == 0)
+			text[tpos] = ' ';
+		else text[tpos] = r+64;
 		
 		//trace statements here
 		printf("src char: %c,%d,%d\t",i,i,i-64);
@@ -157,7 +152,7 @@ int main(int argc, char* argv[])
 //				printf("Let's do some cryptography!\n");
 //				printf("string read in is %s\n",buffer);
 			
-				cryptb = encrypt(buffer);
+				cryptb = decrypt(buffer);
 //				printf("cryptb = %s\n",cryptb);	
 				//write encrypted message back to connected process
 				n = write(newsockfd,cryptb,sizeof(char)*strlen(cryptb));
