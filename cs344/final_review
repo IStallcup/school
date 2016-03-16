@@ -21,6 +21,156 @@ User Commands vs. System Calls
   Commands: cd, write, ls
   System Calls: your process is interrupted, control is given to OS to do stuff
   C library functions another category
-
-Lecture 3
 Know common UNIX commands
+Shell scripts entered as if you were just typing it, with looping and variables
+What is a shell?
+  OS interface
+Shell scripts join commands/variables with $
+Know stuff about UNIX redirection/pipes
+
+Lecture 3 N/A
+
+Lecture 4 N/A
+
+Lecture 5
+stdout/in/err default location: terminal
+Know hard vs. symbolic links
+Permissions
+  User/Group/Others
+  Read/Write/Execute
+umask = default system on permissions
+
+Lecture 6
+Contains diagram of hardware/OS interface
+Segments of memory:
+  Heap
+  Stack
+  "Data"
+  Program Code
+  Globals
+Know GCC syntax
+Conditions for data races
+  Related to mutex from later lectures
+locking files
+Therac
+
+Lecture 7
+Everything is a file
+Opening, closing files
+reading/writing updates file pointer as it goes
+
+Lecture 8
+Strings = char array with null terminator character on end
+Know common string functions
+  strcmp, strlen, strcpy, strcat
+Printing out array contents in decimal form is good debugging tool
+Declaring strings:
+  char* STRNAME = "STUFF" //declares string literal; can't change it!!
+  char* STRNAME[SIZE] = "STUFF" //declares actual array; can change
+strok = evil motherfucker, use at own risk
+  but necessary
+
+Lecture 9
+Know UNIX proccess life cycle
+  starts with its memory address set to 0
+Zombies: child dies without parent waiting for it
+  waiting for child = reaping
+Background processes function similarly
+OS has no background, that's a shell thing
+background processes may have output/input redirected, but the effect is the
+    user's experience is not interrupted
+fork(): look for slide #11 in this lecture
+  understand fork() process, or have this slide open ;)
+remember to wait with WNOHANG
+exec() destroys current process
+
+Lecture 10
+Know ps command
+Orphan zombies:
+  parent dies to
+  adopted/reaped by init process
+  top tells you what's going on
+  job #s are alternate handles to PIDs
+
+Lecture 11
+REGEX
+grep
+  filters, look at slide #17
+
+Lecture 12 Not on final
+
+Lecture 13 - Signals
+Main use: tell you something has gone fucky
+ALso informational (i.e. child has died)
+SIGCHLD signal = important
+kill command just sends signals
+slide #27 - using all the signal shit
+Blocking turns signals off; know which functions block (read/write)
+
+Lecture 14 N/A
+
+Lecture 15
+IPC
+Daemons
+TCP vs UDP
+  UDP sender sends connectionless , gives no fucks about reciever
+  TCP creates and maintains connections; connection-oriented, creates and
+      maintains reliability of processes
+  TPC also reorders packets, retransmits lost packets, etc.
+Signal order: SYN [client] - SYN/ACK [server] - ACK [client]
+telnet = tool for using etxt based protocols
+Network model slide #14
+IPv6 tons of addys
+
+Lecture 16
+Socket Programming
+Related to File Descriptors
+Computer has 1 IP addy
+Each process is beholden to this addy
+Ports can differentiate between processes in a single system
+ports can have >1 connection
+5-tuples help differentiate between ports
+sending & receiving & listening form ports (p4)
+
+Lecture 17
+Servers
+>1 port, can spin off new sockets, etc.
+Can set up new ports
+Every new connection = new socket
+
+Iterative vs. Concurrent process servers
+  Iterative does one thing at a time (no threading, no true multitasking)
+  Concurrent can switch between processes, multiple ways of doing this
+    Apparent (not threads) vs. Real (uses threads)
+    Apparent can use fork() [slow] or select [complicated as FUCK but fast]
+
+Lecture 18
+Security
+Dual-mode hardware, monitor vs. user mode
+  can't do stuff in monitor mode
+  memory protection, registers controlling access @ hardware level
+  strong security = useless but strong
+  longer passwords = good
+awk examples
+  cool (subjective opinion...) associative arrays
+python
+  best
+  can be used to schedule tasks (purty cool)
+debugging
+  trace statements
+  step
+  how to proceed
+
+Lecture 20
+Threads
+Kernel is the core of software
+scheduler distributes CPU time
+kernel threads vs. user threads
+  kernel threads controlled by system
+    blocks affect only those individual processes
+  user threads emulated by programs
+    everything blocks when a user thread blocks
+UNIX threads
+  created, destroyed through some code (in slides)
+  mutexes, locks
+  trylock
