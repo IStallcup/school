@@ -1,0 +1,23 @@
+#!/bin/bash
+
+TOTALFAIL=$1
+
+FILE=randomdump2.out
+
+grep "tests" $FILE
+echo "# tests failing # cards in hand has changed"
+grep "FAILED ASSERTION: # cards in hand has changed" $FILE -c
+echo "# tests failing # buys is same"
+grep "FAILED ASSERTION: # buys is same" $FILE -c
+echo "# tests failing discarded cards has changed"
+grep "FAILED ASSERTION: discarded cards has changed" $FILE -c
+echo "# tests failing number of coins changed"
+grep "FAILED ASSERTION: number of coins changed" $FILE -c
+echo "testing line 1018 of dominion.c..."
+echo "# tests failing estate added to discard"
+grep "FAILED ASSERTION: estate added to discard" $FILE -c
+#find line 1018 of dominion.c.gcov, cut the 7-9th characters (# times tested)
+echo "# times suspect line run:"
+FAILS=$(grep "1018:" dominion.c.gcov | cut -c7-9)
+
+./tarantula $FAILS 2238  

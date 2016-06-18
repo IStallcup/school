@@ -1,0 +1,9 @@
+#!/bin/bash
+
+FILE=randomdump1.out
+
+grep "tests" $FILE
+echo "# tests failing # cards in hand has changed"
+grep "FAILED ASSERTION: # cards in hand has changed" $FILE -c
+echo "# tests failing # cards in deck has changed"
+grep "FAILED ASSERTION: # cards in deck has changed" $FILE -c

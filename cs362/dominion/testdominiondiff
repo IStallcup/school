@@ -1,0 +1,5365 @@
+1,5364d0
+< assertion succeeded: seedchkargs: # args input = 1
+< assertion succeeded: seedchkargs: input != 0, is #
+< r = 13
+< r = 7
+< r = 8
+< r = 19
+< r = 25
+< r = 22
+< r = 10
+< r = 21
+< r = 24
+< r = 11
+< # players = 2
+< ~~~~ROUND 0~~~~
+< Player 0's hand:
+< #  Card
+< 0  Estate       
+< 1  Estate       
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Estate       
+< 1  Estate       
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      10   
+< 1   Estate        2      8    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      46   
+< 5   Silver        3      40   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      8    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      10   
+< 22  Embargo       2      10   
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      10   
+< 
+< Player 0's discard: 
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Estate       
+< 1  Estate       
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Copper       
+< 3  Estate       
+< 4  Copper       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Estate       
+< 1  Estate       
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      10   
+< 1   Estate        2      8    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      46   
+< 5   Silver        3      40   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      8    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      10   
+< 22  Embargo       2      10   
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      10   
+< 
+< bought card 1
+< Player 1's discard: 
+< #  Card
+< 0  Estate        
+< 
+< turn over
+< ~~~~ROUND 1~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Copper       
+< 3  Copper       
+< 4  Estate       
+< 
+< Player 0's deck: 
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Copper       
+< 3  Copper       
+< 4  Estate       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      10   
+< 1   Estate        2      7    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      46   
+< 5   Silver        3      40   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      8    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      10   
+< 22  Embargo       2      10   
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      10   
+< 
+< bought card 10
+< Player 0's discard: 
+< #  Card
+< 0  Estate        
+< 1  Estate        
+< 2  Copper        
+< 3  Copper        
+< 4  Copper        
+< 5  Gardens       
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 1's deck: 
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      10   
+< 1   Estate        2      7    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      46   
+< 5   Silver        3      40   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      10   
+< 22  Embargo       2      10   
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      10   
+< 
+< bought card 22
+< Player 1's discard: 
+< #  Card
+< 0  Estate        
+< 1  Estate        
+< 2  Estate        
+< 3  Copper        
+< 4  Copper        
+< 5  Copper        
+< 6  Embargo       
+< 
+< turn over
+< ~~~~ROUND 2~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Estate       
+< 3  Estate       
+< 4  Copper       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Copper       
+< 3  Copper       
+< 4  Gardens      
+< 5  Estate       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Estate       
+< 3  Estate       
+< 4  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      10   
+< 1   Estate        2      7    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      46   
+< 5   Silver        3      40   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      10   
+< 22  Embargo       2      9    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      10   
+< 
+< Player 0's discard: 
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Estate       
+< 1  Estate       
+< 2  Estate       
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Copper       
+< 1  Embargo      
+< 2  Copper       
+< 3  Copper       
+< 4  Estate       
+< 5  Copper       
+< 6  Copper       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Estate       
+< 1  Estate       
+< 2  Estate       
+< 3  Copper       
+< 4  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      10   
+< 1   Estate        2      7    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      46   
+< 5   Silver        3      40   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      10   
+< 22  Embargo       2      9    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      10   
+< 
+< bought card 1
+< Player 1's discard: 
+< #  Card
+< 0  Estate        
+< 
+< turn over
+< ~~~~ROUND 3~~~~
+< Player 0's hand:
+< #  Card
+< 0  Estate       
+< 1  Gardens      
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Copper       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Estate       
+< 1  Gardens      
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< numActionsHand = 1
+< #   Card          Cost   Copies
+< 0   Curse         0      10   
+< 1   Estate        2      6    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      46   
+< 5   Silver        3      40   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      10   
+< 22  Embargo       2      9    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      10   
+< 
+< bought card 4
+< Player 0's discard: 
+< #  Card
+< 0  Copper        
+< 1  Copper        
+< 2  Estate        
+< 3  Estate        
+< 4  Copper        
+< 5  Copper        
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Estate       
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Copper       
+< 1  Embargo      
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Estate       
+< 3  Copper       
+< 4  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      10   
+< 1   Estate        2      6    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      45   
+< 5   Silver        3      40   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      10   
+< 22  Embargo       2      9    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      10   
+< 
+< bought card 0
+< Player 1's discard: 
+< #  Card
+< 0  Estate        
+< 1  Estate        
+< 2  Estate        
+< 3  Estate        
+< 4  Copper        
+< 5  Copper        
+< 6  Curse         
+< 
+< turn over
+< ~~~~ROUND 4~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Gardens      
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Copper       
+< 3  Estate       
+< 4  Estate       
+< 5  Copper       
+< 6  Copper       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Gardens      
+< 3  Copper       
+< 4  Copper       
+< 
+< numActionsHand = 1
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      6    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      45   
+< 5   Silver        3      40   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      10   
+< 22  Embargo       2      9    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      10   
+< 
+< bought card 1
+< Player 0's discard: 
+< #  Card
+< 0  Estate        
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Embargo      
+< 1  Copper       
+< 2  Copper       
+< 3  Copper       
+< 4  Estate       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Curse        
+< 1  Estate       
+< 2  Copper       
+< 3  Estate       
+< 4  Estate       
+< 5  Copper       
+< 6  Estate       
+< 7  Copper       
+< 8  Copper       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Embargo      
+< 1  Copper       
+< 2  Copper       
+< 3  Copper       
+< 4  Estate       
+< 
+< numActionsHand = 1
+< JUST PLAYED THE CARD
+< # coins is 5
+< updateCoins
+< # coins is 5
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      5    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      45   
+< 5   Silver        3      40   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      10   
+< 22  Embargo       2      9    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      10   
+< 
+< bought card 4
+< Player 1's discard: 
+< #  Card
+< 0  Copper        
+< 
+< turn over
+< ~~~~ROUND 5~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Estate       
+< 3  Estate       
+< 4  Copper       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Estate       
+< 3  Estate       
+< 4  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      5    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      44   
+< 5   Silver        3      40   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      10   
+< 22  Embargo       2      9    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      10   
+< 
+< bought card 1
+< Player 0's discard: 
+< #  Card
+< 0  Estate        
+< 1  Copper        
+< 2  Estate        
+< 3  Gardens       
+< 4  Copper        
+< 5  Copper        
+< 6  Estate        
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Estate       
+< 3  Copper       
+< 4  Estate       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Curse        
+< 1  Estate       
+< 2  Copper       
+< 3  Estate       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Estate       
+< 3  Copper       
+< 4  Estate       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      4    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      44   
+< 5   Silver        3      40   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      10   
+< 22  Embargo       2      9    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      10   
+< 
+< bought card 5
+< Player 1's discard: 
+< #  Card
+< 0  Copper        
+< 1  Estate        
+< 2  Copper        
+< 3  Copper        
+< 4  Copper        
+< 5  Silver        
+< 
+< turn over
+< ~~~~ROUND 6~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Estate       
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Estate       
+< 1  Estate       
+< 2  Copper       
+< 3  Copper       
+< 4  Estate       
+< 5  Copper       
+< 6  Estate       
+< 7  Copper       
+< 8  Gardens      
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Estate       
+< 3  Copper       
+< 4  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      4    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      44   
+< 5   Silver        3      39   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      10   
+< 22  Embargo       2      9    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      10   
+< 
+< bought card 1
+< Player 0's discard: 
+< #  Card
+< 0  Estate        
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 2  Estate       
+< 3  Curse        
+< 4  Estate       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Estate       
+< 1  Silver       
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 5  Copper       
+< 6  Estate       
+< 7  Copper       
+< 8  Copper       
+< 9  Copper       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 2  Estate       
+< 3  Curse        
+< 4  Estate       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      3    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      44   
+< 5   Silver        3      39   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      10   
+< 22  Embargo       2      9    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      10   
+< 
+< Player 1's discard: 
+< 
+< turn over
+< ~~~~ROUND 7~~~~
+< Player 0's hand:
+< #  Card
+< 0  Gardens      
+< 1  Copper       
+< 2  Estate       
+< 3  Copper       
+< 4  Estate       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Estate       
+< 1  Estate       
+< 2  Copper       
+< 3  Copper       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Gardens      
+< 1  Copper       
+< 2  Estate       
+< 3  Copper       
+< 4  Estate       
+< 
+< numActionsHand = 1
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      3    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      44   
+< 5   Silver        3      39   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      10   
+< 22  Embargo       2      9    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      10   
+< 
+< Player 0's discard: 
+< #  Card
+< 0  Estate        
+< 1  Copper        
+< 2  Copper        
+< 3  Estate        
+< 4  Copper        
+< 5  Copper        
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Copper       
+< 3  Estate       
+< 4  Copper       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Estate       
+< 1  Silver       
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Copper       
+< 3  Estate       
+< 4  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      3    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      44   
+< 5   Silver        3      39   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      10   
+< 22  Embargo       2      9    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      10   
+< 
+< bought card 5
+< Player 1's discard: 
+< #  Card
+< 0  Estate        
+< 1  Copper        
+< 2  Estate        
+< 3  Curse         
+< 4  Estate        
+< 5  Silver        
+< 
+< turn over
+< ~~~~ROUND 8~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Estate       
+< 3  Estate       
+< 4  Copper       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Gardens      
+< 3  Copper       
+< 4  Estate       
+< 5  Estate       
+< 6  Estate       
+< 7  Copper       
+< 8  Estate       
+< 9  Copper       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Estate       
+< 3  Estate       
+< 4  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      3    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      44   
+< 5   Silver        3      38   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      10   
+< 22  Embargo       2      9    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      10   
+< 
+< Player 0's discard: 
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Copper       
+< 3  Silver       
+< 4  Estate       
+< 
+< Player 1's deck: 
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Copper       
+< 3  Silver       
+< 4  Estate       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      3    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      44   
+< 5   Silver        3      38   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      10   
+< 22  Embargo       2      9    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      10   
+< 
+< bought card 1
+< Player 1's discard: 
+< #  Card
+< 0  Estate        
+< 1  Copper        
+< 2  Estate        
+< 3  Curse         
+< 4  Estate        
+< 5  Silver        
+< 6  Copper        
+< 7  Copper        
+< 8  Copper        
+< 9  Estate        
+< 10 Copper        
+< 11 Estate        
+< 
+< turn over
+< ~~~~ROUND 9~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Copper       
+< 3  Estate       
+< 4  Estate       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Gardens      
+< 3  Copper       
+< 4  Estate       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Copper       
+< 3  Estate       
+< 4  Estate       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      44   
+< 5   Silver        3      38   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      10   
+< 22  Embargo       2      9    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      10   
+< 
+< bought card 22
+< Player 0's discard: 
+< #  Card
+< 0  Copper        
+< 1  Copper        
+< 2  Estate        
+< 3  Estate        
+< 4  Copper        
+< 5  Embargo       
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Silver       
+< 3  Curse        
+< 4  Copper       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Estate       
+< 1  Estate       
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 5  Copper       
+< 6  Estate       
+< 7  Silver       
+< 8  Estate       
+< 9  Copper       
+< 10 Estate       
+< 11 Copper       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Silver       
+< 3  Curse        
+< 4  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      44   
+< 5   Silver        3      38   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      10   
+< 22  Embargo       2      8    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      10   
+< 
+< bought card 25
+< Player 1's discard: 
+< #  Card
+< 0  Sea Hag       
+< 
+< turn over
+< ~~~~ROUND 10~~~~
+< Player 0's hand:
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 2  Gardens      
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 0's deck: 
+< 
+< Player 0's hand:
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 2  Gardens      
+< 3  Copper       
+< 4  Copper       
+< 
+< numActionsHand = 1
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      44   
+< 5   Silver        3      38   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      10   
+< 22  Embargo       2      8    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      9    
+< 
+< bought card 4
+< Player 0's discard: 
+< #  Card
+< 0  Copper        
+< 1  Copper        
+< 2  Estate        
+< 3  Estate        
+< 4  Copper        
+< 5  Embargo       
+< 6  Copper        
+< 7  Estate        
+< 8  Copper        
+< 9  Estate        
+< 10 Estate        
+< 11 Copper        
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Copper       
+< 3  Estate       
+< 4  Silver       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Estate       
+< 1  Estate       
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 5  Copper       
+< 6  Estate       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Copper       
+< 3  Estate       
+< 4  Silver       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      43   
+< 5   Silver        3      38   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      10   
+< 22  Embargo       2      8    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      9    
+< 
+< bought card 21
+< Player 1's discard: 
+< #  Card
+< 0  Sea Hag       
+< 1  Copper        
+< 2  Estate        
+< 3  Silver        
+< 4  Curse         
+< 5  Copper        
+< 6  Cutpurse      
+< 
+< turn over
+< ~~~~ROUND 11~~~~
+< Player 0's hand:
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 2  Estate       
+< 3  Embargo      
+< 4  Copper       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Estate       
+< 1  Estate       
+< 2  Gardens      
+< 3  Copper       
+< 4  Estate       
+< 5  Copper       
+< 6  Copper       
+< 7  Copper       
+< 8  Copper       
+< 9  Copper       
+< 10 Copper       
+< 11 Estate       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 2  Estate       
+< 3  Embargo      
+< 4  Copper       
+< 
+< numActionsHand = 1
+< JUST PLAYED THE CARD
+< # coins is 4
+< updateCoins
+< # coins is 4
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      43   
+< 5   Silver        3      38   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      9    
+< 22  Embargo       2      8    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      9    
+< 
+< bought card 5
+< Player 0's discard: 
+< #  Card
+< 0  Silver        
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Estate       
+< 1  Estate       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      43   
+< 5   Silver        3      37   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      9    
+< 22  Embargo       2      8    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      9    
+< 
+< bought card 21
+< Player 1's discard: 
+< #  Card
+< 0  Sea Hag       
+< 1  Copper        
+< 2  Estate        
+< 3  Silver        
+< 4  Curse         
+< 5  Copper        
+< 6  Cutpurse      
+< 7  Copper        
+< 8  Estate        
+< 9  Copper        
+< 10 Estate        
+< 11 Silver        
+< 12 Cutpurse      
+< 
+< turn over
+< ~~~~ROUND 12~~~~
+< Player 0's hand:
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Estate       
+< 1  Estate       
+< 2  Gardens      
+< 3  Copper       
+< 4  Estate       
+< 5  Copper       
+< 6  Copper       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      43   
+< 5   Silver        3      37   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      10   
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      8    
+< 22  Embargo       2      8    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      9    
+< 
+< bought card 13
+< Player 0's discard: 
+< #  Card
+< 0  Silver        
+< 1  Estate        
+< 2  Copper        
+< 3  Estate        
+< 4  Copper        
+< 5  Smithy        
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Estate       
+< 1  Estate       
+< 2  Cutpurse     
+< 3  Copper       
+< 4  Estate       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Curse        
+< 3  Copper       
+< 4  Cutpurse     
+< 5  Copper       
+< 6  Estate       
+< 7  Copper       
+< 8  Copper       
+< 9  Copper       
+< 10 Sea Hag      
+< 11 Copper       
+< 12 Estate       
+< 13 Silver       
+< 14 Silver       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Estate       
+< 1  Estate       
+< 2  Cutpurse     
+< 3  Copper       
+< 4  Estate       
+< 
+< numActionsHand = 1
+< PLAYING CUTPURSE NOW
+< OK: # coins was 1, now 3
+< hand 0 is empty
+< hand has 1 in it
+< hand has 2 in it
+< hand has 3 in it
+< hand has 4 in it
+< hand has 5 in it
+< found copper at pos 0 by player 0
+< post: # coins was 1, now 3
+< JUST PLAYED THE CARD
+< # coins is 3
+< updateCoins
+< # coins is 3
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      43   
+< 5   Silver        3      37   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      8    
+< 22  Embargo       2      8    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      9    
+< 
+< bought card 22
+< Player 1's discard: 
+< #  Card
+< 0  Embargo       
+< 
+< turn over
+< ~~~~ROUND 13~~~~
+< Player 0's hand:
+< #  Card
+< 0  Estate       
+< 1  Estate       
+< 2  Silver       
+< 3  Estate       
+< 4  Estate       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 5  Smithy       
+< 6  Copper       
+< 7  Copper       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Estate       
+< 1  Estate       
+< 2  Silver       
+< 3  Estate       
+< 4  Estate       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      43   
+< 5   Silver        3      37   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      8    
+< 22  Embargo       2      7    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      9    
+< 
+< bought card 22
+< Player 0's discard: 
+< #  Card
+< 0  Embargo       
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Silver       
+< 1  Silver       
+< 2  Estate       
+< 3  Copper       
+< 4  Sea Hag      
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Curse        
+< 3  Copper       
+< 4  Cutpurse     
+< 5  Copper       
+< 6  Estate       
+< 7  Copper       
+< 8  Copper       
+< 9  Copper       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Silver       
+< 1  Silver       
+< 2  Estate       
+< 3  Copper       
+< 4  Sea Hag      
+< 
+< numActionsHand = 1
+< JUST PLAYED THE CARD
+< # coins is 5
+< updateCoins
+< # coins is 5
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      43   
+< 5   Silver        3      37   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      8    
+< 22  Embargo       2      6    
+< 24  Salvager      4      10   
+< 25  Sea Hag       4      9    
+< 
+< bought card 24
+< Player 1's discard: 
+< #  Card
+< 0  Embargo       
+< 1  Estate        
+< 2  Estate        
+< 3  Estate        
+< 4  Copper        
+< 5  Salvager      
+< 
+< turn over
+< ~~~~ROUND 14~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Copper       
+< 3  Estate       
+< 4  Copper       
+< 
+< Player 0's deck: 
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Copper       
+< 3  Estate       
+< 4  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      43   
+< 5   Silver        3      37   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      7    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      8    
+< 22  Embargo       2      6    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      9    
+< 
+< bought card 10
+< Player 0's discard: 
+< #  Card
+< 0  Embargo       
+< 1  Estate        
+< 2  Estate        
+< 3  Silver        
+< 4  Estate        
+< 5  Estate        
+< 6  Estate        
+< 7  Gardens       
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Copper       
+< 3  Estate       
+< 4  Copper       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Curse        
+< 3  Copper       
+< 4  Cutpurse     
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Copper       
+< 3  Estate       
+< 4  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      43   
+< 5   Silver        3      37   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      6    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      8    
+< 22  Embargo       2      6    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      9    
+< 
+< bought card 5
+< Player 1's discard: 
+< #  Card
+< 0  Embargo       
+< 1  Estate        
+< 2  Estate        
+< 3  Estate        
+< 4  Copper        
+< 5  Salvager      
+< 6  Silver        
+< 7  Silver        
+< 8  Estate        
+< 9  Copper        
+< 10 Sea Hag       
+< 11 Silver        
+< 
+< turn over
+< ~~~~ROUND 15~~~~
+< Player 0's hand:
+< #  Card
+< 0  Estate       
+< 1  Gardens      
+< 2  Copper       
+< 3  Embargo      
+< 4  Copper       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Estate       
+< 3  Silver       
+< 4  Estate       
+< 5  Estate       
+< 6  Estate       
+< 7  Copper       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Estate       
+< 1  Gardens      
+< 2  Copper       
+< 3  Embargo      
+< 4  Copper       
+< 
+< numActionsHand = 2
+< trying to play a card
+< trying to play card 3
+< JUST PLAYED THE CARD
+< # coins is 4
+< updateCoins
+< # coins is 4
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      43   
+< 5   Silver        3      36   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      6    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      8    
+< 22  Embargo       2      6    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      9    
+< 
+< bought card 5
+< Player 0's discard: 
+< #  Card
+< 0  Silver        
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Cutpurse     
+< 1  Copper       
+< 2  Curse        
+< 3  Estate       
+< 4  Copper       
+< 
+< Player 1's deck: 
+< 
+< Player 1's hand:
+< #  Card
+< 0  Cutpurse     
+< 1  Copper       
+< 2  Curse        
+< 3  Estate       
+< 4  Copper       
+< 
+< numActionsHand = 1
+< PLAYING CUTPURSE NOW
+< OK: # coins was 2, now 4
+< hand 0 is empty
+< hand has 1 in it
+< hand has 2 in it
+< hand has 3 in it
+< hand has 4 in it
+< hand has 5 in it
+< found copper at pos 0 by player 0
+< post: # coins was 2, now 4
+< JUST PLAYED THE CARD
+< # coins is 4
+< updateCoins
+< # coins is 4
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      43   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      6    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      8    
+< 22  Embargo       2      6    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      9    
+< 
+< bought card 22
+< Player 1's discard: 
+< #  Card
+< 0  Embargo       
+< 1  Estate        
+< 2  Estate        
+< 3  Estate        
+< 4  Copper        
+< 5  Salvager      
+< 6  Silver        
+< 7  Silver        
+< 8  Estate        
+< 9  Copper        
+< 10 Sea Hag       
+< 11 Silver        
+< 12 Copper        
+< 13 Copper        
+< 14 Copper        
+< 15 Estate        
+< 16 Copper        
+< 17 Embargo       
+< 
+< turn over
+< ~~~~ROUND 16~~~~
+< Player 0's hand:
+< #  Card
+< 0  Estate       
+< 1  Estate       
+< 2  Copper       
+< 3  Silver       
+< 4  Copper       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Estate       
+< 1  Gardens      
+< 2  Copper       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Estate       
+< 1  Estate       
+< 2  Copper       
+< 3  Silver       
+< 4  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      43   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      6    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      8    
+< 22  Embargo       2      5    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      9    
+< 
+< bought card 10
+< Player 0's discard: 
+< #  Card
+< 0  Gardens       
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Silver       
+< 1  Silver       
+< 2  Silver       
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 2  Embargo      
+< 3  Estate       
+< 4  Curse        
+< 5  Copper       
+< 6  Estate       
+< 7  Sea Hag      
+< 8  Estate       
+< 9  Copper       
+< 10 Copper       
+< 11 Embargo      
+< 12 Estate       
+< 13 Estate       
+< 14 Copper       
+< 15 Salvager     
+< 16 Copper       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Silver       
+< 1  Silver       
+< 2  Silver       
+< 3  Copper       
+< 4  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      43   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      8    
+< 22  Embargo       2      5    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      9    
+< 
+< bought card 4
+< Player 1's discard: 
+< #  Card
+< 0  Copper        
+< 
+< turn over
+< ~~~~ROUND 17~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Gardens      
+< 2  Estate       
+< 3  Estate       
+< 4  Copper       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Silver       
+< 1  Gardens      
+< 2  Estate       
+< 3  Copper       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Gardens      
+< 2  Estate       
+< 3  Estate       
+< 4  Copper       
+< 
+< numActionsHand = 1
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      42   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      8    
+< 22  Embargo       2      5    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      9    
+< 
+< bought card 22
+< Player 0's discard: 
+< #  Card
+< 0  Embargo       
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Salvager     
+< 2  Copper       
+< 3  Estate       
+< 4  Estate       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 2  Embargo      
+< 3  Estate       
+< 4  Curse        
+< 5  Copper       
+< 6  Estate       
+< 7  Sea Hag      
+< 8  Estate       
+< 9  Copper       
+< 10 Copper       
+< 11 Embargo      
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Salvager     
+< 2  Copper       
+< 3  Estate       
+< 4  Estate       
+< 
+< numActionsHand = 1
+< JUST PLAYED THE CARD
+< # coins is 6
+< updateCoins
+< # coins is 6
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      42   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      10   
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      8    
+< 22  Embargo       2      4    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      9    
+< 
+< bought card 7
+< bought card 4
+< Player 1's discard: 
+< #  Card
+< 0  Copper        
+< 1  Silver        
+< 2  Silver        
+< 3  Silver        
+< 4  Copper        
+< 5  Copper        
+< 6  Adventurer    
+< 7  Copper        
+< 
+< turn over
+< ~~~~ROUND 18~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Gardens      
+< 3  Silver       
+< 4  Copper       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Embargo      
+< 1  Gardens      
+< 2  Copper       
+< 3  Estate       
+< 4  Estate       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Gardens      
+< 3  Silver       
+< 4  Copper       
+< 
+< numActionsHand = 1
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      41   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      8    
+< 22  Embargo       2      4    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      9    
+< 
+< bought card 4
+< Player 0's discard: 
+< #  Card
+< 0  Copper        
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Embargo      
+< 1  Copper       
+< 2  Copper       
+< 3  Estate       
+< 4  Sea Hag      
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 2  Embargo      
+< 3  Estate       
+< 4  Curse        
+< 5  Copper       
+< 6  Estate       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Embargo      
+< 1  Copper       
+< 2  Copper       
+< 3  Estate       
+< 4  Sea Hag      
+< 
+< numActionsHand = 2
+< trying to play a card
+< trying to play card 4
+< JUST PLAYED THE CARD
+< # coins is 2
+< updateCoins
+< # coins is 2
+< #   Card          Cost   Copies
+< 0   Curse         0      9    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      40   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      8    
+< 22  Embargo       2      4    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      9    
+< 
+< bought card 0
+< Player 1's discard: 
+< #  Card
+< 0  Copper        
+< 1  Silver        
+< 2  Silver        
+< 3  Silver        
+< 4  Copper        
+< 5  Copper        
+< 6  Adventurer    
+< 7  Copper        
+< 8  Copper        
+< 9  Estate        
+< 10 Copper        
+< 11 Curse         
+< 
+< turn over
+< ~~~~ROUND 19~~~~
+< Player 0's hand:
+< #  Card
+< 0  Gardens      
+< 1  Embargo      
+< 2  Estate       
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Silver       
+< 1  Copper       
+< 2  Copper       
+< 3  Gardens      
+< 
+< Player 0's hand:
+< #  Card
+< 0  Gardens      
+< 1  Embargo      
+< 2  Estate       
+< 3  Copper       
+< 4  Copper       
+< 
+< numActionsHand = 2
+< trying to play a card
+< trying to play card 2
+< trying to play card 3
+< trying to play card 4
+< trying to play card 3
+< trying to play card 4
+< trying to play card 2
+< trying to play card 1
+< JUST PLAYED THE CARD
+< # coins is 4
+< updateCoins
+< # coins is 4
+< #   Card          Cost   Copies
+< 0   Curse         0      8    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      40   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      8    
+< 22  Embargo       2      4    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      9    
+< 
+< bought card 4
+< Player 0's discard: 
+< #  Card
+< 0  Copper        
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 2  Curse        
+< 3  Estate       
+< 4  Embargo      
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 2  Curse        
+< 3  Estate       
+< 4  Embargo      
+< 
+< numActionsHand = 1
+< JUST PLAYED THE CARD
+< # coins is 3
+< updateCoins
+< # coins is 3
+< #   Card          Cost   Copies
+< 0   Curse         0      8    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      39   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      8    
+< 22  Embargo       2      4    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      9    
+< 
+< Player 1's discard: 
+< #  Card
+< 0  Copper        
+< 1  Silver        
+< 2  Silver        
+< 3  Silver        
+< 4  Copper        
+< 5  Copper        
+< 6  Adventurer    
+< 7  Copper        
+< 8  Copper        
+< 9  Estate        
+< 10 Copper        
+< 11 Curse         
+< 12 Embargo       
+< 13 Copper        
+< 14 Copper        
+< 15 Estate        
+< 16 Sea Hag       
+< 
+< turn over
+< ~~~~ROUND 20~~~~
+< Player 0's hand:
+< #  Card
+< 0  Gardens      
+< 1  Copper       
+< 2  Copper       
+< 3  Silver       
+< 4  Estate       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Gardens      
+< 3  Copper       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Gardens      
+< 1  Copper       
+< 2  Copper       
+< 3  Silver       
+< 4  Estate       
+< 
+< numActionsHand = 1
+< #   Card          Cost   Copies
+< 0   Curse         0      8    
+< 1   Estate        2      2    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      39   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      8    
+< 22  Embargo       2      4    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      9    
+< 
+< bought card 1
+< Player 0's discard: 
+< #  Card
+< 0  Estate        
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Copper       
+< 3  Curse        
+< 4  Estate       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Estate       
+< 3  Estate       
+< 4  Embargo      
+< 5  Curse        
+< 6  Estate       
+< 7  Copper       
+< 8  Silver       
+< 9  Silver       
+< 10 Copper       
+< 11 Copper       
+< 12 Adventurer   
+< 13 Copper       
+< 14 Silver       
+< 15 Sea Hag      
+< 16 Copper       
+< 17 Copper       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Copper       
+< 3  Curse        
+< 4  Estate       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      8    
+< 1   Estate        2      1    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      39   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      8    
+< 22  Embargo       2      4    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      9    
+< 
+< bought card 0
+< Player 1's discard: 
+< #  Card
+< 0  Curse         
+< 
+< turn over
+< ~~~~ROUND 21~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Gardens      
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Estate       
+< 1  Gardens      
+< 2  Copper       
+< 3  Estate       
+< 4  Silver       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Gardens      
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< numActionsHand = 1
+< #   Card          Cost   Copies
+< 0   Curse         0      7    
+< 1   Estate        2      1    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      39   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      8    
+< 22  Embargo       2      4    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      9    
+< 
+< bought card 21
+< Player 0's discard: 
+< #  Card
+< 0  Cutpurse      
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Sea Hag      
+< 3  Silver       
+< 4  Copper       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Estate       
+< 3  Estate       
+< 4  Embargo      
+< 5  Curse        
+< 6  Estate       
+< 7  Copper       
+< 8  Silver       
+< 9  Silver       
+< 10 Copper       
+< 11 Copper       
+< 12 Adventurer   
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Sea Hag      
+< 3  Silver       
+< 4  Copper       
+< 
+< numActionsHand = 1
+< JUST PLAYED THE CARD
+< # coins is 5
+< updateCoins
+< # coins is 5
+< #   Card          Cost   Copies
+< 0   Curse         0      7    
+< 1   Estate        2      1    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      39   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      7    
+< 22  Embargo       2      4    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      9    
+< 
+< bought card 1
+< Player 1's discard: 
+< #  Card
+< 0  Curse         
+< 1  Copper        
+< 2  Estate        
+< 3  Copper        
+< 4  Curse         
+< 5  Estate        
+< 6  Estate        
+< 
+< turn over
+< ~~~~ROUND 22~~~~
+< Player 0's hand:
+< #  Card
+< 0  Gardens      
+< 1  Estate       
+< 2  Copper       
+< 3  Copper       
+< 4  Cutpurse     
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Gardens      
+< 3  Copper       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Gardens      
+< 1  Estate       
+< 2  Copper       
+< 3  Copper       
+< 4  Cutpurse     
+< 
+< numActionsHand = 2
+< trying to play a card
+< trying to play card 0
+< trying to play card 2
+< trying to play card 2
+< trying to play card 1
+< trying to play card 1
+< trying to play card 2
+< trying to play card 2
+< trying to play card 4
+< PLAYING CUTPURSE NOW
+< OK: # coins was 2, now 4
+< hand 1 is empty
+< hand has 1 in it
+< hand has 2 in it
+< hand has 3 in it
+< hand has 4 in it
+< hand has 5 in it
+< found copper at pos 1 by player 1
+< post: # coins was 2, now 4
+< JUST PLAYED THE CARD
+< # coins is 4
+< updateCoins
+< # coins is 4
+< #   Card          Cost   Copies
+< 0   Curse         0      7    
+< 1   Estate        2      0    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      39   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      7    
+< 22  Embargo       2      4    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      9    
+< 
+< bought card 25
+< Player 0's discard: 
+< #  Card
+< 0  Sea Hag       
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Curse        
+< 3  Embargo      
+< 4  Estate       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Estate       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Curse        
+< 3  Embargo      
+< 4  Estate       
+< 
+< numActionsHand = 1
+< JUST PLAYED THE CARD
+< # coins is 3
+< updateCoins
+< # coins is 3
+< #   Card          Cost   Copies
+< 0   Curse         0      7    
+< 1   Estate        2      0    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      39   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      7    
+< 22  Embargo       2      4    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      8    
+< 
+< bought card 4
+< Player 1's discard: 
+< #  Card
+< 0  Curse         
+< 1  Copper        
+< 2  Estate        
+< 3  Copper        
+< 4  Curse         
+< 5  Estate        
+< 6  Estate        
+< 7  Copper        
+< 8  Copper        
+< 9  Sea Hag       
+< 10 Silver        
+< 11 Copper        
+< 12 Copper        
+< 
+< turn over
+< ~~~~ROUND 23~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Gardens      
+< 2  Copper       
+< 3  Copper       
+< 4  Gardens      
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Copper       
+< 1  Sea Hag      
+< 2  Copper       
+< 3  Estate       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Gardens      
+< 2  Copper       
+< 3  Copper       
+< 4  Gardens      
+< 
+< numActionsHand = 2
+< trying to play a card
+< trying to play card 0
+< trying to play card 2
+< trying to play card 0
+< trying to play card 0
+< trying to play card 0
+< trying to play card 0
+< trying to play card 0
+< trying to play card 0
+< trying to play card 1
+< trying to play card 4
+< trying to play card 1
+< trying to play card 2
+< trying to play card 3
+< trying to play card 1
+< trying to play card 4
+< trying to play card 1
+< trying to play card 3
+< trying to play card 3
+< trying to play card 4
+< trying to play card 0
+< trying to play card 3
+< trying to play card 3
+< trying to play card 2
+< trying to play card 3
+< trying to play card 1
+< trying to play card 4
+< trying to play card 3
+< trying to play card 2
+< trying to play card 1
+< trying to play card 3
+< trying to play card 4
+< trying to play card 0
+< trying to play card 1
+< trying to play card 1
+< trying to play card 3
+< trying to play card 4
+< trying to play card 0
+< trying to play card 1
+< trying to play card 4
+< trying to play card 1
+< trying to play card 3
+< trying to play card 4
+< trying to play card 4
+< trying to play card 3
+< trying to play card 3
+< trying to play card 3
+< trying to play card 2
+< trying to play card 0
+< trying to play card 0
+< trying to play card 4
+< trying to play card 4
+< trying to play card 1
+< trying to play card 0
+< trying to play card 4
+< trying to play card 1
+< trying to play card 0
+< trying to play card 3
+< trying to play card 0
+< trying to play card 1
+< trying to play card 2
+< trying to play card 1
+< trying to play card 0
+< trying to play card 4
+< trying to play card 1
+< trying to play card 1
+< trying to play card 4
+< trying to play card 3
+< trying to play card 1
+< trying to play card 1
+< trying to play card 1
+< trying to play card 1
+< trying to play card 3
+< trying to play card 4
+< trying to play card 4
+< trying to play card 1
+< trying to play card 2
+< trying to play card 1
+< trying to play card 1
+< trying to play card 3
+< trying to play card 4
+< trying to play card 2
+< trying to play card 0
+< trying to play card 2
+< trying to play card 0
+< trying to play card 0
+< trying to play card 2
+< trying to play card 1
+< trying to play card 0
+< trying to play card 4
+< trying to play card 0
+< trying to play card 4
+< trying to play card 4
+< trying to play card 4
+< trying to play card 4
+< trying to play card 1
+< trying to play card 2
+< trying to play card 1
+< trying to play card 1
+< trying to play card 3
+< trying to play card 4
+< #   Card          Cost   Copies
+< 0   Curse         0      7    
+< 1   Estate        2      0    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      38   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      7    
+< 22  Embargo       2      4    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      8    
+< 
+< bought card 0
+< Player 0's discard: 
+< #  Card
+< 0  Curse         
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 2  Copper       
+< 3  Copper       
+< 4  Estate       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Estate       
+< 3  Copper       
+< 4  Curse        
+< 5  Copper       
+< 6  Copper       
+< 7  Sea Hag      
+< 8  Estate       
+< 9  Curse        
+< 10 Silver       
+< 11 Copper       
+< 12 Curse        
+< 13 Estate       
+< 14 Estate       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 2  Copper       
+< 3  Copper       
+< 4  Estate       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      6    
+< 1   Estate        2      0    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      38   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      7    
+< 22  Embargo       2      4    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      8    
+< 
+< bought card 0
+< Player 1's discard: 
+< #  Card
+< 0  Curse         
+< 
+< turn over
+< ~~~~ROUND 24~~~~
+< Player 0's hand:
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 2  Sea Hag      
+< 3  Copper       
+< 4  Gardens      
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Gardens      
+< 1  Copper       
+< 2  Curse        
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 2  Sea Hag      
+< 3  Copper       
+< 4  Gardens      
+< 
+< numActionsHand = 2
+< trying to play a card
+< trying to play card 3
+< trying to play card 1
+< trying to play card 2
+< JUST PLAYED THE CARD
+< # coins is 2
+< updateCoins
+< # coins is 2
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      38   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      7    
+< 22  Embargo       2      4    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      8    
+< 
+< Player 0's discard: 
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Silver       
+< 2  Curse        
+< 3  Estate       
+< 4  Sea Hag      
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Estate       
+< 3  Copper       
+< 4  Curse        
+< 5  Copper       
+< 6  Copper       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Silver       
+< 2  Curse        
+< 3  Estate       
+< 4  Sea Hag      
+< 
+< numActionsHand = 1
+< JUST PLAYED THE CARD
+< # coins is 3
+< updateCoins
+< # coins is 3
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      38   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      7    
+< 22  Embargo       2      4    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      8    
+< 
+< bought card 4
+< Player 1's discard: 
+< #  Card
+< 0  Curse         
+< 1  Estate        
+< 2  Copper        
+< 3  Copper        
+< 4  Copper        
+< 5  Estate        
+< 6  Estate        
+< 7  Copper        
+< 
+< turn over
+< ~~~~ROUND 25~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Gardens      
+< 2  Copper       
+< 3  Sea Hag      
+< 4  Gardens      
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Copper       
+< 1  Gardens      
+< 2  Estate       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Gardens      
+< 2  Copper       
+< 3  Sea Hag      
+< 4  Gardens      
+< 
+< numActionsHand = 3
+< trying to play a card
+< trying to play card 0
+< trying to play card 4
+< trying to play card 3
+< JUST PLAYED THE CARD
+< # coins is 2
+< updateCoins
+< # coins is 2
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      37   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      7    
+< 22  Embargo       2      4    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      8    
+< 
+< bought card 22
+< Player 0's discard: 
+< #  Card
+< 0  Embargo       
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Sea Hag      
+< 1  Curse        
+< 2  Copper       
+< 3  Sea Hag      
+< 4  Estate       
+< 5  Estate       
+< 6  Silver       
+< 7  Curse        
+< 8  Estate       
+< 9  Copper       
+< 10 Copper       
+< 11 Copper       
+< 12 Estate       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      37   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      7    
+< 22  Embargo       2      3    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      8    
+< 
+< bought card 25
+< Player 1's discard: 
+< #  Card
+< 0  Sea Hag       
+< 
+< turn over
+< ~~~~ROUND 26~~~~
+< Player 0's hand:
+< #  Card
+< 0  Estate       
+< 1  Gardens      
+< 2  Copper       
+< 3  Gardens      
+< 4  Gardens      
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Sea Hag      
+< 1  Embargo      
+< 2  Copper       
+< 3  Copper       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Estate       
+< 1  Gardens      
+< 2  Copper       
+< 3  Gardens      
+< 4  Gardens      
+< 
+< numActionsHand = 3
+< trying to play a card
+< trying to play card 4
+< trying to play card 1
+< trying to play card 2
+< trying to play card 3
+< trying to play card 4
+< trying to play card 2
+< trying to play card 2
+< trying to play card 0
+< trying to play card 2
+< trying to play card 4
+< trying to play card 2
+< trying to play card 4
+< trying to play card 0
+< trying to play card 3
+< trying to play card 0
+< trying to play card 3
+< trying to play card 4
+< trying to play card 4
+< trying to play card 2
+< trying to play card 0
+< trying to play card 3
+< trying to play card 3
+< trying to play card 1
+< trying to play card 4
+< trying to play card 2
+< trying to play card 0
+< trying to play card 4
+< trying to play card 2
+< trying to play card 2
+< trying to play card 2
+< trying to play card 1
+< trying to play card 4
+< trying to play card 3
+< trying to play card 2
+< trying to play card 0
+< trying to play card 2
+< trying to play card 3
+< trying to play card 4
+< trying to play card 3
+< trying to play card 1
+< trying to play card 2
+< trying to play card 0
+< trying to play card 2
+< trying to play card 1
+< trying to play card 4
+< trying to play card 0
+< trying to play card 4
+< trying to play card 4
+< trying to play card 2
+< trying to play card 3
+< trying to play card 4
+< trying to play card 3
+< trying to play card 1
+< trying to play card 1
+< trying to play card 1
+< trying to play card 0
+< trying to play card 0
+< trying to play card 1
+< trying to play card 3
+< trying to play card 0
+< trying to play card 1
+< trying to play card 1
+< trying to play card 1
+< trying to play card 3
+< trying to play card 4
+< trying to play card 4
+< trying to play card 2
+< trying to play card 3
+< trying to play card 2
+< trying to play card 2
+< trying to play card 3
+< trying to play card 3
+< trying to play card 0
+< trying to play card 3
+< trying to play card 4
+< trying to play card 0
+< trying to play card 1
+< trying to play card 2
+< trying to play card 0
+< trying to play card 1
+< trying to play card 3
+< trying to play card 2
+< trying to play card 4
+< trying to play card 3
+< trying to play card 4
+< trying to play card 4
+< trying to play card 4
+< trying to play card 2
+< trying to play card 2
+< trying to play card 0
+< trying to play card 4
+< trying to play card 2
+< trying to play card 3
+< trying to play card 0
+< trying to play card 3
+< trying to play card 1
+< trying to play card 3
+< trying to play card 2
+< trying to play card 4
+< trying to play card 1
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      37   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      7    
+< 22  Embargo       2      3    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< Player 0's discard: 
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 2  Copper       
+< 3  Copper       
+< 4  Estate       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Sea Hag      
+< 1  Curse        
+< 2  Copper       
+< 3  Sea Hag      
+< 4  Estate       
+< 5  Estate       
+< 6  Silver       
+< 7  Curse        
+< 
+< Player 1's hand:
+< #  Card
+< 0  Estate       
+< 1  Copper       
+< 2  Copper       
+< 3  Copper       
+< 4  Estate       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      37   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      7    
+< 22  Embargo       2      3    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 4
+< Player 1's discard: 
+< #  Card
+< 0  Sea Hag       
+< 1  Copper        
+< 2  Estate        
+< 3  Copper        
+< 4  Copper        
+< 5  Copper        
+< 6  Copper        
+< 
+< turn over
+< ~~~~ROUND 27~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Embargo      
+< 3  Sea Hag      
+< 4  Copper       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Gardens      
+< 1  Estate       
+< 2  Gardens      
+< 3  Gardens      
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Embargo      
+< 3  Sea Hag      
+< 4  Copper       
+< 
+< numActionsHand = 2
+< trying to play a card
+< trying to play card 0
+< trying to play card 0
+< trying to play card 4
+< trying to play card 4
+< trying to play card 4
+< trying to play card 0
+< trying to play card 2
+< JUST PLAYED THE CARD
+< # coins is 5
+< updateCoins
+< # coins is 5
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      36   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      10   
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      7    
+< 22  Embargo       2      3    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 11
+< Player 0's discard: 
+< #  Card
+< 0  Mine          
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Curse        
+< 1  Silver       
+< 2  Estate       
+< 3  Estate       
+< 4  Sea Hag      
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Sea Hag      
+< 1  Curse        
+< 2  Copper       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Curse        
+< 1  Silver       
+< 2  Estate       
+< 3  Estate       
+< 4  Sea Hag      
+< 
+< numActionsHand = 1
+< JUST PLAYED THE CARD
+< # coins is 2
+< updateCoins
+< # coins is 2
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      36   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      7    
+< 22  Embargo       2      3    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 22
+< Player 1's discard: 
+< #  Card
+< 0  Sea Hag       
+< 1  Copper        
+< 2  Estate        
+< 3  Copper        
+< 4  Copper        
+< 5  Copper        
+< 6  Copper        
+< 7  Estate        
+< 8  Copper        
+< 9  Copper        
+< 10 Copper        
+< 11 Estate        
+< 12 Embargo       
+< 
+< turn over
+< ~~~~ROUND 28~~~~
+< Player 0's hand:
+< #  Card
+< 0  Gardens      
+< 1  Sea Hag      
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Copper       
+< 1  Mine         
+< 
+< Player 0's hand:
+< #  Card
+< 0  Gardens      
+< 1  Sea Hag      
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< numActionsHand = 2
+< trying to play a card
+< trying to play card 2
+< trying to play card 1
+< JUST PLAYED THE CARD
+< # coins is 3
+< updateCoins
+< # coins is 3
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      36   
+< 5   Silver        3      35   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      7    
+< 22  Embargo       2      2    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 5
+< Player 0's discard: 
+< #  Card
+< 0  Silver        
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Silver       
+< 2  Estate       
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Curse        
+< 1  Copper       
+< 2  Estate       
+< 3  Copper       
+< 4  Copper       
+< 5  Copper       
+< 6  Copper       
+< 7  Estate       
+< 8  Sea Hag      
+< 9  Sea Hag      
+< 10 Estate       
+< 11 Sea Hag      
+< 12 Embargo      
+< 13 Estate       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Silver       
+< 2  Estate       
+< 3  Copper       
+< 4  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      8    
+< 3   Province      8      8    
+< 4   Copper        0      36   
+< 5   Silver        3      34   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      5    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      7    
+< 22  Embargo       2      2    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 10
+< Player 1's discard: 
+< #  Card
+< 0  Gardens       
+< 
+< turn over
+< ~~~~ROUND 29~~~~
+< Player 0's hand:
+< #  Card
+< 0  Mine         
+< 1  Copper       
+< 2  Copper       
+< 3  Gardens      
+< 4  Copper       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Copper       
+< 1  Sea Hag      
+< 2  Silver       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Mine         
+< 1  Copper       
+< 2  Copper       
+< 3  Gardens      
+< 4  Copper       
+< 
+< numActionsHand = 2
+< trying to play a card
+< trying to play card 2
+< trying to play card 1
+< trying to play card 2
+< trying to play card 4
+< trying to play card 0
+< trying to play card 4
+< trying to play card 0
+< trying to play card 4
+< trying to play card 4
+< trying to play card 4
+< trying to play card 4
+< trying to play card 1
+< trying to play card 4
+< trying to play card 1
+< trying to play card 1
+< trying to play card 4
+< trying to play card 0
+< trying to play card 0
+< trying to play card 3
+< trying to play card 3
+< trying to play card 2
+< trying to play card 2
+< trying to play card 0
+< trying to play card 1
+< trying to play card 3
+< trying to play card 4
+< trying to play card 0
+< trying to play card 4
+< trying to play card 0
+< trying to play card 0
+< trying to play card 4
+< trying to play card 1
+< trying to play card 3
+< trying to play card 3
+< trying to play card 0
+< trying to play card 0
+< JUST PLAYED THE CARD
+< # coins is 3
+< updateCoins
+< # coins is 3
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      7    
+< 3   Province      8      8    
+< 4   Copper        0      36   
+< 5   Silver        3      34   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      4    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      7    
+< 22  Embargo       2      2    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 5
+< Player 0's discard: 
+< #  Card
+< 0  Silver        
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Estate       
+< 1  Embargo      
+< 2  Sea Hag      
+< 3  Estate       
+< 4  Sea Hag      
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Curse        
+< 1  Copper       
+< 2  Estate       
+< 3  Copper       
+< 4  Copper       
+< 5  Copper       
+< 6  Copper       
+< 7  Estate       
+< 8  Sea Hag      
+< 
+< Player 1's hand:
+< #  Card
+< 0  Estate       
+< 1  Embargo      
+< 2  Sea Hag      
+< 3  Estate       
+< 4  Sea Hag      
+< 
+< numActionsHand = 3
+< trying to play a card
+< trying to play card 2
+< JUST PLAYED THE CARD
+< # coins is 0
+< updateCoins
+< # coins is 0
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      7    
+< 3   Province      8      8    
+< 4   Copper        0      36   
+< 5   Silver        3      33   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      4    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      7    
+< 22  Embargo       2      2    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< Player 1's discard: 
+< #  Card
+< 0  Gardens       
+< 1  Copper        
+< 2  Silver        
+< 3  Estate        
+< 4  Copper        
+< 5  Copper        
+< 
+< turn over
+< ~~~~ROUND 30~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Duchy        
+< 2  Copper       
+< 3  Gardens      
+< 4  Copper       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Silver       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Duchy        
+< 2  Copper       
+< 3  Gardens      
+< 4  Copper       
+< 
+< numActionsHand = 1
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      7    
+< 3   Province      8      8    
+< 4   Copper        0      36   
+< 5   Silver        3      33   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      4    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      7    
+< 22  Embargo       2      2    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 22
+< Player 0's discard: 
+< #  Card
+< 0  Embargo       
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Sea Hag      
+< 1  Estate       
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Curse        
+< 1  Copper       
+< 2  Estate       
+< 3  Copper       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Sea Hag      
+< 1  Estate       
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< numActionsHand = 1
+< JUST PLAYED THE CARD
+< # coins is 3
+< updateCoins
+< # coins is 3
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      7    
+< 3   Province      8      8    
+< 4   Copper        0      36   
+< 5   Silver        3      33   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      4    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      7    
+< 22  Embargo       2      1    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< Player 1's discard: 
+< #  Card
+< 0  Gardens       
+< 1  Copper        
+< 2  Silver        
+< 3  Estate        
+< 4  Copper        
+< 5  Copper        
+< 6  Estate        
+< 7  Embargo       
+< 8  Sea Hag       
+< 9  Estate        
+< 10 Sea Hag       
+< 
+< turn over
+< ~~~~ROUND 31~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Duchy        
+< 3  Copper       
+< 4  Gardens      
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Copper       
+< 1  Embargo      
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Duchy        
+< 3  Copper       
+< 4  Gardens      
+< 
+< numActionsHand = 1
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      7    
+< 3   Province      8      8    
+< 4   Copper        0      36   
+< 5   Silver        3      33   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      4    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      7    
+< 22  Embargo       2      1    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 22
+< Player 0's discard: 
+< #  Card
+< 0  Embargo       
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Copper       
+< 3  Curse        
+< 4  Sea Hag      
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Copper       
+< 1  Silver       
+< 2  Copper       
+< 3  Sea Hag      
+< 4  Copper       
+< 5  Estate       
+< 6  Estate       
+< 7  Gardens      
+< 8  Copper       
+< 9  Sea Hag      
+< 10 Copper       
+< 11 Estate       
+< 12 Estate       
+< 13 Copper       
+< 14 Embargo      
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Copper       
+< 3  Curse        
+< 4  Sea Hag      
+< 
+< numActionsHand = 1
+< JUST PLAYED THE CARD
+< # coins is 2
+< updateCoins
+< # coins is 2
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      7    
+< 3   Province      8      8    
+< 4   Copper        0      36   
+< 5   Silver        3      33   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      4    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      7    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< Player 1's discard: 
+< 
+< turn over
+< ~~~~ROUND 32~~~~
+< Player 0's hand:
+< #  Card
+< 0  Embargo      
+< 1  Copper       
+< 2  Gardens      
+< 3  Copper       
+< 4  Gardens      
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Duchy        
+< 1  Copper       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Embargo      
+< 1  Copper       
+< 2  Gardens      
+< 3  Copper       
+< 4  Gardens      
+< 
+< numActionsHand = 3
+< trying to play a card
+< trying to play card 1
+< trying to play card 3
+< trying to play card 2
+< trying to play card 1
+< trying to play card 4
+< trying to play card 4
+< trying to play card 0
+< JUST PLAYED THE CARD
+< # coins is 4
+< updateCoins
+< # coins is 4
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      7    
+< 3   Province      8      8    
+< 4   Copper        0      36   
+< 5   Silver        3      33   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      4    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      7    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 21
+< Player 0's discard: 
+< #  Card
+< 0  Cutpurse      
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Embargo      
+< 1  Copper       
+< 2  Estate       
+< 3  Estate       
+< 4  Copper       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Copper       
+< 1  Silver       
+< 2  Copper       
+< 3  Sea Hag      
+< 4  Copper       
+< 5  Estate       
+< 6  Estate       
+< 7  Gardens      
+< 8  Copper       
+< 9  Sea Hag      
+< 
+< Player 1's hand:
+< #  Card
+< 0  Embargo      
+< 1  Copper       
+< 2  Estate       
+< 3  Estate       
+< 4  Copper       
+< 
+< numActionsHand = 1
+< JUST PLAYED THE CARD
+< # coins is 4
+< updateCoins
+< # coins is 4
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      7    
+< 3   Province      8      8    
+< 4   Copper        0      36   
+< 5   Silver        3      33   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      4    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      6    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 21
+< Player 1's discard: 
+< #  Card
+< 0  Copper        
+< 1  Estate        
+< 2  Copper        
+< 3  Curse         
+< 4  Sea Hag       
+< 5  Cutpurse      
+< 
+< turn over
+< ~~~~ROUND 33~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Duchy        
+< 2  Copper       
+< 3  Cutpurse     
+< 4  Copper       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Gardens      
+< 1  Gardens      
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Duchy        
+< 2  Copper       
+< 3  Cutpurse     
+< 4  Copper       
+< 
+< numActionsHand = 1
+< PLAYING CUTPURSE NOW
+< OK: # coins was 3, now 5
+< hand 1 is empty
+< hand has 1 in it
+< hand has 2 in it
+< hand has 3 in it
+< hand has 4 in it
+< hand has 5 in it
+< found copper at pos 1 by player 1
+< post: # coins was 3, now 5
+< JUST PLAYED THE CARD
+< # coins is 5
+< updateCoins
+< # coins is 5
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      7    
+< 3   Province      8      8    
+< 4   Copper        0      36   
+< 5   Silver        3      33   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      4    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      5    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 2
+< Player 0's discard: 
+< #  Card
+< 0  Duchy         
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Sea Hag      
+< 2  Copper       
+< 3  Silver       
+< 4  Copper       
+< 
+< Player 1's deck: 
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Sea Hag      
+< 2  Copper       
+< 3  Silver       
+< 4  Copper       
+< 
+< numActionsHand = 1
+< JUST PLAYED THE CARD
+< # coins is 5
+< updateCoins
+< # coins is 5
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      8    
+< 4   Copper        0      36   
+< 5   Silver        3      33   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      4    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      5    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 21
+< Player 1's discard: 
+< #  Card
+< 0  Copper        
+< 1  Estate        
+< 2  Copper        
+< 3  Curse         
+< 4  Sea Hag       
+< 5  Cutpurse      
+< 6  Copper        
+< 7  Copper        
+< 8  Estate        
+< 9  Estate        
+< 10 Cutpurse      
+< 
+< turn over
+< ~~~~ROUND 34~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Duchy        
+< 3  Duchy        
+< 4  Copper       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Copper       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Duchy        
+< 3  Duchy        
+< 4  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      8    
+< 4   Copper        0      36   
+< 5   Silver        3      33   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      4    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      4    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< Player 0's discard: 
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Sea Hag      
+< 2  Copper       
+< 3  Silver       
+< 4  Cutpurse     
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Copper       
+< 1  Sea Hag      
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 5  Curse        
+< 6  Estate       
+< 7  Estate       
+< 8  Estate       
+< 9  Cutpurse     
+< 10 Copper       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Sea Hag      
+< 2  Copper       
+< 3  Silver       
+< 4  Cutpurse     
+< 
+< numActionsHand = 2
+< trying to play a card
+< trying to play card 4
+< PLAYING CUTPURSE NOW
+< OK: # coins was 4, now 6
+< hand 0 is empty
+< hand has 1 in it
+< hand has 2 in it
+< hand has 3 in it
+< hand has 4 in it
+< hand has 5 in it
+< found copper at pos 0 by player 0
+< post: # coins was 4, now 6
+< JUST PLAYED THE CARD
+< # coins is 6
+< updateCoins
+< # coins is 6
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      8    
+< 4   Copper        0      36   
+< 5   Silver        3      33   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      4    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      4    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 5
+< Player 1's discard: 
+< #  Card
+< 0  Silver        
+< 
+< turn over
+< ~~~~ROUND 35~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 
+< Player 0's deck: 
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      8    
+< 4   Copper        0      36   
+< 5   Silver        3      32   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      4    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      4    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< Player 0's discard: 
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Cutpurse     
+< 2  Estate       
+< 3  Estate       
+< 4  Estate       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Copper       
+< 1  Sea Hag      
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 5  Curse        
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Cutpurse     
+< 2  Estate       
+< 3  Estate       
+< 4  Estate       
+< 
+< numActionsHand = 1
+< PLAYING CUTPURSE NOW
+< OK: # coins was 1, now 3
+< hand 0 is empty
+< hand has 1 in it
+< hand has 1 in it
+< hand has 1 in it
+< hand has 1 in it
+< hand has 1 in it
+< found copper at pos 0 by player 0
+< post: # coins was 1, now 3
+< JUST PLAYED THE CARD
+< # coins is 3
+< updateCoins
+< # coins is 3
+< #   Card          Cost   Copies
+< 0   Curse         0      5    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      8    
+< 4   Copper        0      36   
+< 5   Silver        3      32   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      4    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      4    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 0
+< Player 1's discard: 
+< #  Card
+< 0  Silver        
+< 1  Copper        
+< 2  Sea Hag       
+< 3  Copper        
+< 4  Silver        
+< 5  Curse         
+< 
+< turn over
+< ~~~~ROUND 36~~~~
+< Player 0's hand:
+< 
+< Player 0's deck: 
+< 
+< Player 0's hand:
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      4    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      8    
+< 4   Copper        0      36   
+< 5   Silver        3      32   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      4    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      4    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< Player 0's discard: 
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Curse        
+< 1  Copper       
+< 2  Copper       
+< 3  Copper       
+< 4  Sea Hag      
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Copper       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Curse        
+< 1  Copper       
+< 2  Copper       
+< 3  Copper       
+< 4  Sea Hag      
+< 
+< numActionsHand = 1
+< JUST PLAYED THE CARD
+< # coins is 3
+< updateCoins
+< # coins is 3
+< #   Card          Cost   Copies
+< 0   Curse         0      4    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      8    
+< 4   Copper        0      36   
+< 5   Silver        3      32   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      4    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      4    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 4
+< Player 1's discard: 
+< #  Card
+< 0  Silver        
+< 1  Copper        
+< 2  Sea Hag       
+< 3  Copper        
+< 4  Silver        
+< 5  Curse         
+< 6  Copper        
+< 7  Estate        
+< 8  Estate        
+< 9  Estate        
+< 10 Copper        
+< 
+< turn over
+< ~~~~ROUND 37~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 
+< Player 0's deck: 
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      4    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      8    
+< 4   Copper        0      35   
+< 5   Silver        3      32   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      4    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      4    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 4
+< Player 0's discard: 
+< #  Card
+< 0  Copper        
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Copper       
+< 3  Estate       
+< 4  Estate       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Curse        
+< 1  Copper       
+< 2  Sea Hag      
+< 3  Silver       
+< 4  Curse        
+< 5  Copper       
+< 6  Copper       
+< 7  Copper       
+< 8  Sea Hag      
+< 9  Copper       
+< 10 Silver       
+< 11 Copper       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Estate       
+< 2  Copper       
+< 3  Estate       
+< 4  Estate       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      4    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      8    
+< 4   Copper        0      34   
+< 5   Silver        3      32   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      4    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      4    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 4
+< Player 1's discard: 
+< #  Card
+< 0  Copper        
+< 
+< turn over
+< ~~~~ROUND 38~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 
+< Player 0's deck: 
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      4    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      8    
+< 4   Copper        0      33   
+< 5   Silver        3      32   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      4    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      4    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 0
+< Player 0's discard: 
+< #  Card
+< 0  Curse         
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Silver       
+< 2  Copper       
+< 3  Sea Hag      
+< 4  Copper       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Curse        
+< 1  Copper       
+< 2  Sea Hag      
+< 3  Silver       
+< 4  Curse        
+< 5  Copper       
+< 6  Copper       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Silver       
+< 2  Copper       
+< 3  Sea Hag      
+< 4  Copper       
+< 
+< numActionsHand = 1
+< JUST PLAYED THE CARD
+< # coins is 5
+< updateCoins
+< # coins is 5
+< #   Card          Cost   Copies
+< 0   Curse         0      3    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      8    
+< 4   Copper        0      33   
+< 5   Silver        3      32   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      4    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      4    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 10
+< Player 1's discard: 
+< #  Card
+< 0  Copper        
+< 1  Copper        
+< 2  Estate        
+< 3  Copper        
+< 4  Estate        
+< 5  Estate        
+< 6  Gardens       
+< 
+< turn over
+< ~~~~ROUND 39~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Curse        
+< 3  Copper       
+< 
+< Player 0's deck: 
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Curse        
+< 3  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      3    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      8    
+< 4   Copper        0      33   
+< 5   Silver        3      32   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      3    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      4    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 5
+< Player 0's discard: 
+< #  Card
+< 0  Silver        
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Curse        
+< 3  Silver       
+< 4  Sea Hag      
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Curse        
+< 1  Copper       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Curse        
+< 3  Silver       
+< 4  Sea Hag      
+< 
+< numActionsHand = 1
+< JUST PLAYED THE CARD
+< # coins is 4
+< updateCoins
+< # coins is 4
+< #   Card          Cost   Copies
+< 0   Curse         0      3    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      8    
+< 4   Copper        0      33   
+< 5   Silver        3      31   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      3    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      4    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 0
+< Player 1's discard: 
+< #  Card
+< 0  Copper        
+< 1  Copper        
+< 2  Estate        
+< 3  Copper        
+< 4  Estate        
+< 5  Estate        
+< 6  Gardens       
+< 7  Copper        
+< 8  Silver        
+< 9  Copper        
+< 10 Sea Hag       
+< 11 Copper        
+< 12 Curse         
+< 
+< turn over
+< ~~~~ROUND 40~~~~
+< Player 0's hand:
+< #  Card
+< 0  Curse        
+< 1  Silver       
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Copper       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Curse        
+< 1  Silver       
+< 2  Copper       
+< 3  Copper       
+< 4  Copper       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      2    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      8    
+< 4   Copper        0      33   
+< 5   Silver        3      31   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      3    
+< 11  Mine          5      9    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      4    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 11
+< Player 0's discard: 
+< #  Card
+< 0  Mine          
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Curse        
+< 2  Curse        
+< 3  Copper       
+< 4  Estate       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Estate       
+< 1  Silver       
+< 2  Curse        
+< 3  Copper       
+< 4  Copper       
+< 5  Copper       
+< 6  Estate       
+< 7  Copper       
+< 8  Copper       
+< 9  Sea Hag      
+< 10 Copper       
+< 11 Silver       
+< 12 Copper       
+< 13 Gardens      
+< 14 Sea Hag      
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Curse        
+< 2  Curse        
+< 3  Copper       
+< 4  Estate       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      2    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      8    
+< 4   Copper        0      33   
+< 5   Silver        3      31   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      3    
+< 11  Mine          5      8    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      4    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< Player 1's discard: 
+< 
+< turn over
+< ~~~~ROUND 41~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Copper       
+< 3  Silver       
+< 4  Mine         
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Copper       
+< 1  Curse        
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Copper       
+< 3  Silver       
+< 4  Mine         
+< 
+< numActionsHand = 1
+< #   Card          Cost   Copies
+< 0   Curse         0      2    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      8    
+< 4   Copper        0      33   
+< 5   Silver        3      31   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      3    
+< 11  Mine          5      8    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      4    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 5
+< Player 0's discard: 
+< #  Card
+< 0  Silver        
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Sea Hag      
+< 1  Gardens      
+< 2  Copper       
+< 3  Silver       
+< 4  Copper       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Estate       
+< 1  Silver       
+< 2  Curse        
+< 3  Copper       
+< 4  Copper       
+< 5  Copper       
+< 6  Estate       
+< 7  Copper       
+< 8  Copper       
+< 9  Sea Hag      
+< 
+< Player 1's hand:
+< #  Card
+< 0  Sea Hag      
+< 1  Gardens      
+< 2  Copper       
+< 3  Silver       
+< 4  Copper       
+< 
+< numActionsHand = 2
+< trying to play a card
+< trying to play card 1
+< trying to play card 2
+< trying to play card 2
+< trying to play card 1
+< trying to play card 4
+< trying to play card 4
+< trying to play card 2
+< trying to play card 4
+< trying to play card 3
+< trying to play card 4
+< trying to play card 1
+< trying to play card 1
+< trying to play card 2
+< trying to play card 2
+< trying to play card 0
+< JUST PLAYED THE CARD
+< # coins is 4
+< updateCoins
+< # coins is 4
+< #   Card          Cost   Copies
+< 0   Curse         0      2    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      8    
+< 4   Copper        0      33   
+< 5   Silver        3      30   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      3    
+< 11  Mine          5      8    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      4    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 5
+< Player 1's discard: 
+< #  Card
+< 0  Copper        
+< 1  Curse         
+< 2  Curse         
+< 3  Copper        
+< 4  Estate        
+< 5  Silver        
+< 
+< turn over
+< ~~~~ROUND 42~~~~
+< Player 0's hand:
+< #  Card
+< 0  Silver       
+< 1  Copper       
+< 2  Copper       
+< 3  Mine         
+< 4  Mine         
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Copper       
+< 1  Silver       
+< 
+< Player 0's hand:
+< #  Card
+< 0  Silver       
+< 1  Copper       
+< 2  Copper       
+< 3  Mine         
+< 4  Mine         
+< 
+< numActionsHand = 2
+< trying to play a card
+< trying to play card 2
+< trying to play card 0
+< trying to play card 4
+< trying to play card 2
+< trying to play card 2
+< trying to play card 1
+< trying to play card 2
+< trying to play card 2
+< trying to play card 4
+< trying to play card 0
+< trying to play card 3
+< trying to play card 4
+< JUST PLAYED THE CARD
+< # coins is 4
+< updateCoins
+< # coins is 4
+< #   Card          Cost   Copies
+< 0   Curse         0      2    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      7    
+< 4   Copper        0      33   
+< 5   Silver        3      29   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      3    
+< 11  Mine          5      8    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      4    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 0
+< Player 0's discard: 
+< #  Card
+< 0  Curse         
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Sea Hag      
+< 1  Copper       
+< 2  Copper       
+< 3  Estate       
+< 4  Copper       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Estate       
+< 1  Silver       
+< 2  Curse        
+< 3  Copper       
+< 4  Copper       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Sea Hag      
+< 1  Copper       
+< 2  Copper       
+< 3  Estate       
+< 4  Copper       
+< 
+< numActionsHand = 1
+< JUST PLAYED THE CARD
+< # coins is 3
+< updateCoins
+< # coins is 3
+< #   Card          Cost   Copies
+< 0   Curse         0      1    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      7    
+< 4   Copper        0      33   
+< 5   Silver        3      29   
+< 6   Gold          6      30   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      3    
+< 11  Mine          5      8    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      4    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< Player 1's discard: 
+< #  Card
+< 0  Copper        
+< 1  Curse         
+< 2  Curse         
+< 3  Copper        
+< 4  Estate        
+< 5  Silver        
+< 6  Sea Hag       
+< 7  Gardens       
+< 8  Copper        
+< 9  Silver        
+< 10 Copper        
+< 
+< turn over
+< ~~~~ROUND 43~~~~
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Province     
+< 2  Silver       
+< 3  Mine         
+< 4  Mine         
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Curse        
+< 
+< Player 0's hand:
+< #  Card
+< 0  Copper       
+< 1  Province     
+< 2  Silver       
+< 3  Mine         
+< 4  Mine         
+< 
+< numActionsHand = 2
+< trying to play a card
+< trying to play card 2
+< trying to play card 3
+< trying to play card 2
+< trying to play card 2
+< trying to play card 3
+< trying to play card 3
+< JUST PLAYED THE CARD
+< # coins is 3
+< updateCoins
+< # coins is 3
+< #   Card          Cost   Copies
+< 0   Curse         0      1    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      7    
+< 4   Copper        0      33   
+< 5   Silver        3      29   
+< 6   Gold          6      29   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      3    
+< 11  Mine          5      8    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      4    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 4
+< Player 0's discard: 
+< #  Card
+< 0  Copper        
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Curse        
+< 3  Silver       
+< 4  Estate       
+< 
+< Player 1's deck: 
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Copper       
+< 2  Curse        
+< 3  Silver       
+< 4  Estate       
+< 
+< numActionsHand = 0
+< #   Card          Cost   Copies
+< 0   Curse         0      1    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      7    
+< 4   Copper        0      32   
+< 5   Silver        3      29   
+< 6   Gold          6      29   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      3    
+< 11  Mine          5      8    
+< 13  Smithy        4      9    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      4    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 13
+< Player 1's discard: 
+< #  Card
+< 0  Copper        
+< 1  Curse         
+< 2  Curse         
+< 3  Copper        
+< 4  Estate        
+< 5  Silver        
+< 6  Sea Hag       
+< 7  Gardens       
+< 8  Copper        
+< 9  Silver        
+< 10 Copper        
+< 11 Sea Hag       
+< 12 Copper        
+< 13 Copper        
+< 14 Estate        
+< 15 Copper        
+< 16 Smithy        
+< 
+< turn over
+< ~~~~ROUND 44~~~~
+< Player 0's hand:
+< #  Card
+< 0  Curse        
+< 1  Province     
+< 2  Copper       
+< 3  Copper       
+< 4  Mine         
+< 
+< Player 0's deck: 
+< #  Card
+< 0  Gold         
+< 
+< Player 0's hand:
+< #  Card
+< 0  Curse        
+< 1  Province     
+< 2  Copper       
+< 3  Copper       
+< 4  Mine         
+< 
+< numActionsHand = 1
+< #   Card          Cost   Copies
+< 0   Curse         0      1    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      7    
+< 4   Copper        0      32   
+< 5   Silver        3      29   
+< 6   Gold          6      29   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      3    
+< 11  Mine          5      8    
+< 13  Smithy        4      8    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      4    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 0
+< Player 0's discard: 
+< #  Card
+< 0  Curse         
+< 
+< turn over
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Sea Hag      
+< 2  Estate       
+< 3  Copper       
+< 4  Silver       
+< 
+< Player 1's deck: 
+< #  Card
+< 0  Copper       
+< 1  Gardens      
+< 2  Curse        
+< 3  Smithy       
+< 4  Curse        
+< 5  Copper       
+< 6  Silver       
+< 7  Sea Hag      
+< 8  Copper       
+< 9  Curse        
+< 10 Copper       
+< 11 Copper       
+< 12 Estate       
+< 13 Copper       
+< 14 Copper       
+< 15 Silver       
+< 16 Estate       
+< 
+< Player 1's hand:
+< #  Card
+< 0  Copper       
+< 1  Sea Hag      
+< 2  Estate       
+< 3  Copper       
+< 4  Silver       
+< 
+< numActionsHand = 1
+< JUST PLAYED THE CARD
+< # coins is 4
+< updateCoins
+< # coins is 4
+< #   Card          Cost   Copies
+< 0   Curse         0      0    
+< 1   Estate        2      0    
+< 2   Duchy         5      6    
+< 3   Province      8      7    
+< 4   Copper        0      32   
+< 5   Silver        3      29   
+< 6   Gold          6      29   
+< 7   Adventurer    6      9    
+< 8   Council Room  5      10   
+< 10  Gardens       4      3    
+< 11  Mine          5      8    
+< 13  Smithy        4      8    
+< 19  Tribute       5      10   
+< 21  Cutpurse      4      4    
+< 22  Embargo       2      0    
+< 24  Salvager      4      9    
+< 25  Sea Hag       4      7    
+< 
+< bought card 25
+< Player 1's discard: 
+< #  Card
+< 0  Sea Hag       
+< 
+< turn over
+< GAME IS OVER!

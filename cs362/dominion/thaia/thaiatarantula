@@ -1,0 +1,61 @@
+usage: handler SEED [randomtest1results] [randomtest2results] [randomtest3results]
+seed = 3
+
+File 'dominion.c'
+Lines executed:25.31% of 565
+Creating 'dominion.c.gcov'
+
+~~~~~~~~~~~TEST 1~~~~~~~~~~~
+# tests run for card 1: 746
+# failures detected card 1: 0
+# successes for card 1: 746
+checking # cards in hand...
+# tests failing card to hand 0
+checking # cards in deck...
+# tests failing changed deck 0
+
+File 'dominion.c'
+Lines executed:27.96% of 565
+Creating 'dominion.c.gcov'
+
+~~~~~~~~~~~TEST 2~~~~~~~~~~~
+# tests run for card 2:      746
+# failures detected card 2:  391
+# successes for card 2:      355
+checking # cards in hand...
+# tests failing card to hand 0
+checking # buys increase...
+# tests failing # buys is    0
+checking discarded estate...
+# tests failing discard      0
+checking coins...
+# tests failing numer coins  380
+~!non-failing test case!~
+      line run 380 times
+      line passed 0 times
+      suspiciousness = 1.000000
+~|end failing test case|~
+checking estate -> hand...
+# tests failing gain estate  11
+~!non-failing test case!~
+      line run 0 times
+      line passed 0 times
+      suspiciousness = 1.000000
+~|end failing test case|~
+
+File 'dominion.c'
+Lines executed:24.96% of 565
+Creating 'dominion.c.gcov'
+
+~~~~~~~~~~~TEST 3~~~~~~~~~~~
+# tests run for adventurer: 746
+# failures detected adventurer: 6
+# successes for adventurer: 740
+checking # cards in hand...
+# tests failing card to hand 0
+checking # cards in deck...
+# tests failing deck changed 0
+checking # coins in hand...
+# tests failing coin in hand 0
+checking # coins in dscd...
+# tests failing change dscd  0

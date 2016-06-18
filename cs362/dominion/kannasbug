@@ -1,0 +1,31 @@
+#!/bin/bash
+
+make -s all
+
+cd kannas
+
+./st-card1 > card1.out
+echo "card test 1 failures:"
+grep "FAILED ASSERTION" card1.out
+./st-card2 > card2.out
+echo "card test 2 failures:"
+grep "FAILED ASSERTION" card2.out
+./st-card3 > card3.out
+echo "card test 3 failures:"
+grep "FAILED ASSERTION" card3.out
+./st-card4 > card4.out
+echo "card test 4 failures:"
+grep "FAILED ASSERTION" card4.out
+
+./st-rand1 3 > rand1.out
+echo "random test 1 failures:"
+grep "FAILED ASSERTION" rand1.out -c
+grep "tests" rand1.out
+./st-rand2 3 > rand2.out
+echo "random test 2 failures:"
+grep "FAILED ASSERTION" rand2.out -c
+grep "tests" rand2.out
+./st-randa 3 > randa.out
+echo "random test adv failures:"
+grep "FAILED ASSERTION" randa.out -c
+grep "tests" randa.out

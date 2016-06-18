@@ -1,0 +1,77 @@
+Isaac Stallcup
+CS 362 Spring 2016
+Assignment 1 - Refactoring details
+
+council room: refactored functino play_council_room
+
+To refactor, I created a function play_council_room 
+(with return type int for error checking). It is
+called in the appropriate place in cardEffect. I then
+examined the current implementation of council
+room in order to determine which parameters to pass
+to the play_council_room function; these were
+currentPlayer, a pointer to the gameState state, 
+and handPos. I then implemented drawing four cards
+(again with error checking in order to handle
+errors in drawCard). I then increased the number
+of buys in the turn, then discarded the council
+room card via the discardCard function, and returned
+success. In cardEffect, I created a new variable to 
+store the result of play_council_room, and in
+cardEffect I return failure if success is not 0
+(the default success value of play_council_room),
+and otherwise return 0 as in the original functionality
+of the switch statement.
+
+smithy: refactored function play_smithy
+
+To refactor smithy, I again first examined the
+variables needed in the existing smithy functionality.
+They are currentPlayer, state, and handPos. Smithy
+draws three cards, then discards the card from the
+hand; I used existing draw and discard functions to
+complete this functionality, again with error checking
+for drawCard as in the council room function.
+Finally, I performed similar error checking as in
+council room.
+
+village: refactored function play_village
+
+To refactor village, first I looked at the functionality
+in cardEffect (+1 card, +2 actions) and then which
+parameters were needed (currentPlayer, pointer to 
+gameState state, handPos) and copied them into
+the new function. I used existing functionality
+to draw a card (with error checking as in the
+other functions), increased the number of actions,
+and discarded the card before returning 0. Finally,
+I used the same error checking scheme in cardEffect
+as in the other refactorings.
+
+
+salvager: refactored function play_salvager
+
+I determined a new function has to be passed the vars
+choice1, a pointer to state, currentPlayer and handPos.
+Salvager then gives +1 buy, and if choice1, gives
+coins equal to a chosen card's cost that is then trashed.
+This means that the function will need to discard the chosen
+card as well as the salvager card. Using the built-in 
+functionalities for discarding, getting coins, and increasing
+the nubmer of buys, I wrote the play_salvager function,
+then called it in  the appropriate part of the switch statement
+in cardEffect.
+
+steward: refactored function play_steward
+
+I first determined the arugments needed to pass to the
+play_steward function; these are choice1, currentPlayer, a
+pointer to state, choice2, choice3, and handPos. Then, as the
+function of the steward is to either draw 2 cards, gain 2
+coins, or trash 2 cards from your hand, I implemented each
+feature based on the choice1 variable's value with the existing
+interface for drawing cards, gaining coins and trashing cards.
+I did this in an error checking implemetnation similar to that 
+of previous refactored functions, both within the function
+(with drawCard) and in the switch statement in cardEffect, where
+the call to play_steward is located.
