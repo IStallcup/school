@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<!-- remember to specify your text inputs!!!!!!!!! -->
+
+<!--clear button is reset-->
+
+<!-- structure as table -->
+<!-- form outside table inside-->
+<!-- line: -->
+<form action="http://web.engr.oregonstate.edu/~schutfoj/cs290/process.php">
+	<fieldset>
+		<legend>Photo Details</legend>
+	<table>
+		<tr> <!--title-->
+			<td colspan="2">
+				Title:<br>
+				<input type="text" name="title">
+			</td>
+		</tr>
+		<tr> <!--description-->
+			<td colspan="2">
+				Description:<br>
+				<input type="text" name="description">
+			</td>
+		</tr>
+		<tr> <!--Continent, Copyright-->
+			<td> <!--continent-->
+				Continent<br>
+				<select name="continent">
+					<option value="choose continent">Choose continent</option>
+					<option value="Africa">Africa</option>
+					<option value="Antarctica">Antarctica</option>
+					<option value="Australia & Ocenania">Australia and Oceania</option>
+					<option value="Europe">Europe</option>
+					<option value="North America">North America</option>
+					<option value="South America">South America</option>
+				</select>
+			</td>
+			<td> <!--copyright-->
+				Copyright?<br>
+				<input type="radio" name="copyright" value="All rights reserved" checked>All rights reserved<br>
+				<input type="radio" name="copyright" value="Creative Commons">Creative Commons<br>
+			</td>
+		</tr>
+		<tr> <!--Country, Creative Commons Types-->
+			<td>
+				Country<br>
+				<select name="country">
+					<option value="Choose country">Choose country</option>
+					<option value="United States">United States</option>
+					<option value="Choose country">Canada</option>
+				</select>
+			</td>
+			<td>
+				Creative Commons Types<br>
+				<input type="checkbox" name="commons" value="Attribution">Attribution</br>
+				<input type="checkbox" name="commons" value="Noncommercial">Noncommercial</br>
+				<input type="checkbox" name="commons" value="No Derivative Works">No Derivative Works</br>
+				<input type="checkbox" name="commons" value="Share Alike">Share Alike</br>
+			</td>
+		</tr>
+		<tr> <!-- city -->
+			<td>
+				City:<br>
+				<input type="text">
+			</td>
+		</tr>
+		<tr> <!-- license -->
+			<td>
+				I accept the software license<input type="checkbox" name="license" value="yes"><br>
+			</td>
+		</tr>
+		<tr> <!-- rate, date -->
+			<td>
+				Rate this photo:<br>
+				<input type="text" name="rate this photo">
+			</td>
+			<td>
+				Date Taken:<br>
+				<input type="date" name="date taken"> 
+			</td>
+		</tr>
+		<tr> <!-- color, time -->
+			<td>
+				Color collection:<br>
+				<input type="color" name="color collection">
+			</td>
+			<td>
+				Time taken:<br>
+				<input type="time" name="time">
+			</td>
+		</tr>
+		<!-- submit button: action="http://web.engr.oregonstate.edu/~schutfoj/cs290/process.php"-->
+	</table>
+	<button type="submit">Submit Query</button>
+	</fieldset>
+</form>
+
+</body>
+
+</html>
