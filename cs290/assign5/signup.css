@@ -1,0 +1,31 @@
+form
+{
+	background-color: white;
+	padding: 1em;
+}
+
+h2
+{
+	margin: 0;
+}
+
+table
+{
+	text-align: left;
+}
+
+table td
+{
+	padding-top: 1em;
+	padding-right: 1em;
+}
+
+button[type=submit]
+{
+	height: 200%;
+}
+
+input[name=email], input[name=username]
+{
+	width: 100%;
+}

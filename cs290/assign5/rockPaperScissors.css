@@ -1,0 +1,170 @@
+html
+{
+	background-color: gray;
+	font-family: sans-serif;
+	margin: auto;
+	width: 90%;
+}
+
+h1
+{
+	background-color: white;
+	padding: .25em;
+}
+
+nav
+{
+	background-color: black;
+	font-size: 125%;
+}
+
+nav ul
+{
+	padding: 1.25em;
+	padding-left: .25em;
+	padding-right: .25em;
+}
+
+nav ul li
+{
+	display: inline;
+}
+
+td#highlight
+{
+	background-color: #FFF566;
+	color: black;
+}
+
+nav ul li#highlight a
+{
+	background-color: #FFF566;
+	color: black;
+}
+
+nav ul li#highlight a:hover
+{
+	background-color: white;
+	color: black;
+}
+
+nav ul li a
+{
+	text-decoration: none;
+	margin: 0;
+	padding: 1em;
+	color: white;
+}
+
+nav ul li a:hover
+{
+	color: black;
+	background-color: white;
+}
+
+table
+{
+	text-align: center;
+}
+
+input[type=image]
+{
+	width: 8em;
+}
+
+img
+{
+	width: 8em;
+	opacity: 1;
+	background-color: white; 
+	/*for png of scissors; want white backgruond*/
+}
+
+img#yours
+{
+	border: solid 5px magenta;	
+}
+
+img#comps
+{
+	border: solid 5px lime;
+}
+
+div#container
+{
+	padding: 1.25em;
+	padding-top: .25em;
+	background-color: white;
+}
+
+div#container *
+{
+	margin-top: 1em;
+}
+
+div#container h2
+{
+	margin-bottom: 0;
+}
+
+div#error
+{
+	background-color: #E87979;
+	width: 12.5%;
+	font-size: 125%;
+}
+
+div#points
+{
+	border: solid 1px black;
+	width: 15%;
+	padding: .5em;
+	background-color: #FFF566;
+	font-size: 150%;
+}
+
+input[type="button"]
+{
+	width: 5em;
+	height: 2em;
+}
+
+div#results
+{
+	font-size: 110%;
+	background-color: #FFF566;
+	padding: .5em;
+	border: solid 1px black;
+	width: 5.5%;
+}
+
+div#wins
+{
+	border: solid 1px black;
+	width: 21%;
+	text-align: center;
+}
+
+footer
+{
+	background-color: black;
+	color: white;
+	padding: 1em;
+	margin-top: 1em;
+	margin-left: 0;
+}
+
+#login
+{
+	color: white;
+	float: right;
+	padding-right: 1em;
+}
+
+#loginerror
+{
+	background-color: red;
+	padding: 1em;
+	color: white;
+	font-size: 1.25em;
+}

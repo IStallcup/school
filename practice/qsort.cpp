@@ -2,12 +2,12 @@
 #include <fstream>
 #include <deque>
 #include <algorithm>
+#include "dequeHelpers.h"
 
-#define DEBUG 0
 
 using namespace std;
 
-void printDqe(deque<int> data)
+/*void printDqe(deque<int> data)
 {
 	if (data.empty())
 		return;
@@ -34,6 +34,25 @@ void buildDqe(deque<int>* data)
 		}
 	}
 	input.close();
+}*/
+
+deque<int>smartPartition(deque<int>* data)
+{
+	if (DEBUG == 1) cout << "beginning smart partition with deque ";
+	if (DEBUG == 1) printDqe(*data);
+
+	deque<int>::iterator hi = data->end();
+	deque<int>::iterator lo = data->begin();
+
+	while (hi != lo)
+	{
+		hi--;
+		if (hi == lo) //TODO: FIX COMPARISON
+			break;
+		cout << "hi = " << *hi << endl;
+		cout << "lo = " << *lo << endl;
+		lo++;
+	}
 }
 
 deque<int> partition(deque<int>* data)
@@ -104,6 +123,9 @@ int main()
 {
 	deque<int> data;
 	buildDqe(&data);
+
+	smartPartition(&data);
+
 	if (data.size() > 1)
 		partition(&data);
 	printDqe(data);

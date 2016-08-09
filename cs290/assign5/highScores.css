@@ -1,0 +1,32 @@
+table
+{
+	outline: 1px solid pink;
+	width: 15%;
+}
+
+table tr
+{
+	margin: .5em;
+}
+
+table th
+{
+	border-bottom: 1px solid black;
+	padding-bottom: .5em;
+	padding-top: .5em;
+}
+
+table th:first-child
+{
+	border-right: 1px solid black;
+}
+
+table td
+{
+	padding: .25em;
+}
+
+table td:first-child
+{
+	border-right: 1px solid black;
+}
