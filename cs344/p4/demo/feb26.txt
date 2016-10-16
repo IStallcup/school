@@ -1,0 +1,88 @@
+Computer has given IP address
+	10.0.0 cannot be used in internet, only internally
+	every process you have on a single computer has same IP
+	this is where ports come in
+
+Ports
+	In house with address "31" [unique #]
+	Each port is a window/door
+	Ways "into" the house
+	Every port is **unique** entrance
+	Ports map to specific unique numbers
+	Complete address is IP combined with port #
+	Uses colon : indicator
+
+Example port:
+	10.0.0.2:80 [port 80]
+
+Socket Documentation
+	man -s 3n socket
+	networking code spread accross many man pages
+	Best to have book or existing code
+		Program 4 uses own sample code
+			Go through the first part of this code today
+
+Process:
+	1. Creaet socket endpoint with socket()
+		Creates an entry
+	2. Connect socket to server with connect()
+		Connects your socket to some other socket
+	3. Use read(), write(), send(), recv() to transfer data
+
+int socket(int domain, int type, int protocol);
+	//function returns an integer
+	//domain: for IP, use AF_INET
+	//type: for TCP use SOCK_STREAM
+	//type: for UDP use SOCK_DGRAM (datagrams are packets)
+	//protocol: 0 means do shit the normal way
+
+socket returns a file descriptor!!!!!
+socket failing?
+	Permisisons may fail (user has no permission to open socket)
+
+//connect returns 0 success, -1 fail
+int connect(int sockfd, //socket file descriptor
+			struct sockaddr *address, //wierd-ass struct, IP addy
+			size_t address_size); //size of struct specified in arg2
+
+//can cast &server to a sockaddr
+
+htons() = host to newtwork short
+	exists b/c data storage is wierd; LSB first, backwards from
+		english numbers
+	converts from LSB first to MSB first
+
+IP addys: be careful about types!
+
+setting up addy frmo domain name:
+
+struct socaddur_in server;
+struct hostent *server_ip_address;
+server_ip_address = gethostbyname("[domain");
+server.sin_family = AF_INET;
+server.sin_port = htons(80);
+
+memcpy(&server.sin_addr, server_ip_address->h_addr,
+		server ip-address->h_length);
+
+Setting up an address
+
+server.sin_family = AF_INSERT;
+server.sin_port = htons(7000);
+server.sin_addr.s_addr = INADDR_ANY; //any address!
+
+Sending data
+
+ssize_t send(int sockfd, void *message, size_t message_size, int flags);
+//returns # bytes sent or zero
+//*message is pointer to data to be sent
+//message_size is # bytes to send STARTING AT ADDRESS IN MESSAGE
+//flags are flags
+
+Remember send will block until all data has been sent, or connection goes away
+However remember that internet connections fail all the time
+	Read book cuckoo's egg
+
+ssize_t recv(int sockfd, void *buffer, size_t buffer_size, int flags);
+//returns # bytes sent or 0
+//buffer_size is MAX # of bytes to recieve

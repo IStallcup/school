@@ -13,12 +13,12 @@ void error(const char *msg)
 	exit(1);
 }
 
-char* encrypt(char* input)
+char* crypt(char* input)
 {
 	char *buffer;
-	char text[1024];
+	char text[256];
 	char *ret;
-	bzero(text,1024);
+	bzero(text,245);
 	int k,i,r,tpos;
 	buffer = strtok(input," \n");
 //	printf("file to encode=%s\n",buffer);
@@ -44,13 +44,7 @@ char* encrypt(char* input)
 		if (i == EOF || i == '\n')
 		{
 //			printf("src: end of file");
-			k = fgetc(KEY);
 			break;
-		}
-		else if ((i < 65 && i != 32) || (i > 90))
-		{
-			fprintf(stderr,"bad file!\n");
-			exit(1);
 		}
 		if (i == ' ')
 			i = 64;
@@ -59,10 +53,7 @@ char* encrypt(char* input)
 		k = fgetc(KEY); 
 		if (k == EOF)
 		{
-//			fprintf(stderr,"key: end of file");
-			i = fgetc(SRC);
-			if (i != EOF && i != '\n')
-				error("ERROR key too short");
+//			printf("key: end of file");
 			break;
 		}
 		if (k == ' ')
@@ -72,9 +63,9 @@ char* encrypt(char* input)
 		r = (i - 64 + k - 64)%27;
 		
 		//trace statements here
-	//	printf("src char: %c,%d,%d\t",i,i,i-64);
-	//	printf("key char: %c,%d,%d\t",k,k,k-64);
-	//	printf("res char: %c,%d,%d\t",r+64,r+64,r);	
+		printf("src char: %c,%d,%d\t",i,i,i-64);
+		printf("key char: %c,%d,%d\t",k,k,k-64);
+		printf("res char: %c,%d,%d\t",r+64,r+64,r);	
 		//end trace statements
 		if (r == 0)
 		{
@@ -84,7 +75,7 @@ char* encrypt(char* input)
 		{	
 			text[tpos] = r+64;
 		}
-	//	printf("\n");
+		printf("\n");
 		
 		tpos++;
 
@@ -102,7 +93,7 @@ int main(int argc, char* argv[])
 	int yes = 1;
 	socklen_t clilen; //what does this do?
 	pid_t cPid;
-	char buffer[1024];
+	char buffer[256];
 	char *cryptb;
 	struct sockaddr_in serv_addr, cli_addr;
 	
@@ -155,10 +146,10 @@ int main(int argc, char* argv[])
 			case 0:
 //				printf("in child\n");
 				close(sockfd);
-				bzero(buffer,1024); //zero the buffer
+				bzero(buffer,256); //zero the buffer
 				//read 255 characters from the socket at newsockfd (client),
 				//into buffer, stores result of read call in n
-				n = read(newsockfd,buffer,1023);
+				n = read(newsockfd,buffer,255);
 				//error checking on read
 				if (n < 0)
 					error("ERROR otp_enc_d reading from socket");
@@ -166,7 +157,7 @@ int main(int argc, char* argv[])
 //				printf("Let's do some cryptography!\n");
 //				printf("string read in is %s\n",buffer);
 			
-				cryptb = encrypt(buffer);
+				cryptb = crypt(buffer);
 //				printf("cryptb = %s\n",cryptb);	
 				//write encrypted message back to connected process
 				n = write(newsockfd,cryptb,sizeof(char)*strlen(cryptb));

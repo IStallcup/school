@@ -1,0 +1,10 @@
+writing to otp_enc_d...
+pre call setbuff
+begin setbuff
+len of expected string is 16
+text=plaintext1
+key=mykey
+joined=plaintext1 mykey
+otp_enc: buffer = plaintext1 mykey
+strlen(buffer)=16
+mykey

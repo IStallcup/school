@@ -1,0 +1,4 @@
+#!/bin/bash
+
+otp_dec_d $1 &
+otp_dec result mykey $1
