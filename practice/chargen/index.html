@@ -6,77 +6,89 @@
 </head>
 <body>
 
-<h1>Character Generator</h1>
+<h1>Dingus' 5e Character Generator</h1>
+<p>Inspired by the great <a href="http://www.pathguy.com/cg35.htm">pathguy</a>. Brian is a dingus
 <form id="chargen" method="post">
 	<div id="debug">
 	</div>
-	<button type="button" id="genButton" onclick="genStats()">Generate Scores</button> <!--TODO: MAKE THIS WORK -->
-	<select id="statMethod">
-		<option value="classic">Classic</option>
-		<option value="pointBuy">Point Buy</option>
-	</select>
+	<h2>Determine Ability Scores</h2>
+	<p>Points remaining: <input class="statBox" id="pointsRem" value="30"/></p>
+	<strong>STR: </strong>
+	<input class="statBox" id="str" value="8"/ readonly>
+	<button id="str+" type="button" onclick="raiseScore(str)">+</button>
+	<button id="str-" type="button" onclick="lowerScore(str)">-</button>
+	</br>
+	<strong>DEX: </strong>
+	<input class="statBox" id="dex" value="8"/ readonly>
+	<button id="dex+" type="button" onclick="raiseScore(dex)">+</button>
+	<button id="dex-" type="button" onclick="lowerScore(dex)">-</button>
+	</br>
+	<strong>CON: </strong>
+	<input class="statBox" id="con" value="8"/ readonly>
+	<button id="con+" type="button" onclick="raiseScore(con)">+</button>
+	<button id="con-" type="button" onclick="lowerScore(con)">-</button>
+	</br>
+	<strong>INT: </strong>
+	<input class="statBox" id="_int" value="8"/ readonly>
+	<button id="int+" type="button" onclick="raiseScore(_int)">+</button>
+	<button id="int-" type="button" onclick="lowerScore(_int)">-</button>
+	</br>
+	<strong>WIS: </strong>
+	<input class="statBox" id="wis" value="8"/ readonly>
+	<button id="wis+" type="button" onclick="raiseScore(wis)">+</button>
+	<button id="wis-" type="button" onclick="lowerScore(wis)">-</button>
+	</br>
+	<strong>CHA: </strong>
+	<input class="statBox" id="cha" value="8"/ readonly>
+	<button id="cha+" type="button" onclick="raiseScore(cha)">+</button>
+	<button id="cha-" type="button" onclick="lowerScore(cha)">-</button>
+	</br>
+	<strong>SAN: </strong>
+	<input class="statBox" id="san" value="8"/ readonly>
+	<button id="san+" type="button" onclick="raiseScore(san)">+</button>
+	<button id="san-" type="button" onclick="lowerScore(san)">-</button>
+	</br>
+	<button type="button" id="acceptStats" onclick="acceptScores()">Accept Scores</button>
 	<br>
-	<input class="statBox" id="statBox1"/>
-	<select id="statChoice1">
-		<option value="str">Str</option>
-		<option value="dex">Dex</option>
-		<option value="con">Con</option>
-		<option value="int">Int</option>
-		<option value="wis">Wis</option>
-		<option value="cha">Cha</option>
-	</select>
+	<p id="confirmStats">Assign points.</p>
+	<!--Eventually move to floating box that stays with user as they scroll -->
+	<h2>Demographics</h2>
+	<h3>Race</h3>
+	<input type="radio" name="raceOpt" value="hillDwarf">Hill Dwarf
+	<input type="radio" name="raceOpt" value="mtnDwarf">Mountain Dwarf
+	<input type="radio" name="raceOpt" value="highElf">High Elf
+	<input type="radio" name="raceOpt" value="woodElf">Wood Elf
+	<input type="radio" name="raceOpt" value="darkElf">Dark Elf
+	<input type="radio" name="raceOpt" value="lightfootHalfling">Lightfoot Halfling
+	<input type="radio" name="raceOpt" value="stoutHalfling">Stout Halfling
+	<input type="radio" name="raceOpt" value="human">Human
+	<input type="radio" name="raceOpt" value="dragonborn">Dragonborn
+	<input type="radio" name="raceOpt" value="forestGnome">Forest Gnome
+	<input type="radio" name="raceOpt" value="rockGnome">Rock Gnome
+	<input type="radio" name="raceOpt" value="halfOrc">Half Orc
+	<input type="radio" name="raceOpt" value="tiefling">Tiefling
+	<input type="radio" name="raceOpt" value="halfElf">Half Elf</br>
+	<button type="button" id="chooseRace" onclick="racials()">Choose Race</button>
+	<p id="confirmRace">Choose a race.</p>
+	</br>
+	<h3>Gender</h3>
+	<input type="radio" name="genderOpt" value="male">Male
+	<input type="radio" name="genderOpt" value="female">Female</br>
+	<h3>Alignment</h3>
+	<input type="radio" name="alignOpt" value="CG">Chaotic Good
+	<input type="radio" name="alignOpt" value="CN">Chaotic Neutral
+	<input type="radio" name="alignOpt" value="CE">Chaotic Evil
 	<br>
-	<input class="statBox" id="statBox2"/>
-	<select id="statChoice2">
-		<option value="str">Str</option>
-		<option value="dex">Dex</option>
-		<option value="con">Con</option>
-		<option value="int">Int</option>
-		<option value="wis">Wis</option>
-		<option value="cha">Cha</option>
-	</select>
+	<input type="radio" name="alignOpt" value="NG">Neutral Good
+	<input type="radio" name="alignOpt" value="TN">True Neutral
+	<input type="radio" name="alignOpt" value="NE">Neutral Evil
 	<br>
-	<input class="statBox" id="statBox3"/>
-	<select id="statChoice3">
-		<option value="str">Str</option>
-		<option value="dex">Dex</option>
-		<option value="con">Con</option>
-		<option value="int">Int</option>
-		<option value="wis">Wis</option>
-		<option value="cha">Cha</option>
-	</select>
+	<input type="radio" name="alignOpt" value="LG">Lawful Good
+	<input type="radio" name="alignOpt" value="LN">Lawful Neutral
+	<input type="radio" name="alignOpt" value="LE">Lawful Evil
 	<br>
-	<input class="statBox" id="statBox4"/>
-	<select id="statChoice4">
-		<option value="str">Str</option>
-		<option value="dex">Dex</option>
-		<option value="con">Con</option>
-		<option value="int">Int</option>
-		<option value="wis">Wis</option>
-		<option value="cha">Cha</option>
-	</select>
+	<button type="button" id="demoConfirm" onclick="confirmDemographics()">Confirm</button>
 	<br>
-	<input class="statBox" id="statBox5"/>
-	<select id="statChoice5">
-		<option value="str">Str</option>
-		<option value="dex">Dex</option>
-		<option value="con">Con</option>
-		<option value="int">Int</option>
-		<option value="wis">Wis</option>
-		<option value="cha">Cha</option>
-	</select>
-	<br>
-	<input class="statBox" id="statBox6"/>
-	<select id="statChoice6">
-		<option value="str">Str</option>
-		<option value="dex">Dex</option>
-		<option value="con">Con</option>
-		<option value="int">Int</option>
-		<option value="wis">Wis</option>
-		<option value="cha">Cha</option>
-	</select>
-	<br>
-	<button type="button" id="accept" onclick="acceptScores()">Accept Scores</button>
 </form>
 
 	
