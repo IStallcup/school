@@ -4,6 +4,13 @@
 *.o
 *.obj
 
+#TeX stuff
+*.aux
+*.bbl
+*.blg
+*.log
+*.synctex.gz
+
 # Precompiled Headers
 *.gch
 *.pch
