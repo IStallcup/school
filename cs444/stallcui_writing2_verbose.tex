@@ -68,7 +68,7 @@
 	Device drivers help smooth communication to and from connected devices. They translate high-level commands from devices into low-level commands to the operating system. They do this by relaying instructions from the I/O Manager to devices and communicating the results of these commands back to the I/O Manager \cite{WInternals}.
 	
 	
-	\subsubsection{Data Structures}
+	\subsection{Data Structures}
 	
 	One data structure that the I/O system uses is the I/O Request Packet. An IRP stores information required to process an I/O request. Constructed when an I/O request is made, the packet allocates and initializes the IRP before storing a pointer to the \textit{file object} of the call responsible for generating the I/O request \cite{WInternals}.
 	
@@ -80,13 +80,13 @@
 	
 	IRPs are created then given a file object, which is a handle to the file associated with the IRP. The file object, when called, causes a driver object to come into being, which spawns the required device object for the needs of the file object \cite{WInternals}.
 	
-	\subsubsection{Types of Devices}
+	\subsection{Types of Devices}
 	
 	There are several types of device drivers, divided into two broad categories: user- and kernel-mode drivers. User-mode drivers are divided into printer drivers (which unsurprisingly deal with functionalities associated with printing) and User-Mode Driver Frameworks. User-Mode Driver Frameworks are a large group of hardware devices that interact with the user \cite{WInternals}.
 	
 	The kernel-mode drivers are file system drivers, Plug and Play (PnP) drivers, and non-Plug and Play drivers. File system drivers deal with I/O to files and communicate with storage and networking devices. PnP drivers deal with hardware including mass storage devices, video and audio devices and networking adapters. Non-PnP drivers deal with kernel functionality (essentially everything else) \cite{WInternals}.
 	
-	\subsubsection{I/O Scheduling}
+	\subsection{I/O Scheduling}
 	
 	In Windows, I/O Scheduling falls under the umbrella of I/O Prioritization. I/O Prioritization not only includes scheduling but determines which processes get preferential treatment throughout the scheduling process (usually those that deal with user interface) and those that do not (background processes like antivirus or search indexing) \cite{WInternals}. The levels of priority available in Windows are (in order of descending urgency) critical, high, normal, low and very low.
 	
@@ -100,18 +100,28 @@
 	
 	\subsection{I/O}
 	
-	In FreeBSD, all I/O is done through descriptors. These descriptors point to locations on a descriptor table. These descriptor tables are unique to each process and are used to locate file entries. The file entries in turn provide file types and a pointer to the underlying object of the descriptor \cite{BSD}. The file entries also contain the necessary capacity to read, write, poll, and truncate file descriptors \cite{BSD}.
+	In FreeBSD, all I/O is done through descriptors. These descriptors point to locations on a descriptor table. These descriptor tables are unique to each process and are used to locate file entries. The file entries in turn provide information on file extensions
 	
-	\subsection{Types of Devices}
+	\subsection{Data Structures}
 	
-	FreeBSD divides devices into three main categories: disk devices, character devices and network devices. Character devices are classified as almost everything except network interfaces [and disks]. They transform interfaces with hardware into byte streams. Disk devices are modeled as block devices, while network devices use an asynchronous framework \cite{BSD}.
+	\subsection{Algorithms}
 	
+	\subsection{Cryptography}
+
 	\section{Comparisons to Linux}
 	
-	\subsection{Types of Devices}
+	\subsection{Windows}
 	
-	FreeBSD and Linux both share character devices as bite stream objects \cite{BSD} \cite{Kevin}. However, block devices exist Linux \cite{Kevin} but not in FreeBSD past FreeBSD 5 \cite{BSD}. The paradigm of device handling is different in Windows, with a user-mode and kernel-mode separating the types of devices \cite{WInternals}.
-		
+	
+	
+	
+	\begin{figure}[H]
+		\caption{"Stuff"}
+		\begin{lstlisting}
+		printf("Hello, World!");
+		\end{lstlisting}
+	\end{figure}
+
 \bibliographystyle{IEEEtran}	
 \bibliography{writing2}
 \end{document}
