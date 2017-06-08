@@ -1,7 +1,13 @@
-all:
-	latex stallcui_writing2.tex
-	bibtex stallcui_writing2.aux
-	latex stallcui_writing2.tex
-	latex stallcui_writing2.tex
-	dvips stallcui_writing2.dvi
-	ps2pdf stallcui_writing2.ps
+all: stallcui_writing3.pdf
+	
+stallcui_writing3.dvi: stallcui_writing3.tex
+	latex stallcui_writing3.tex
+	bibtex stallcui_writing3.aux
+	latex stallcui_writing3.tex
+	latex stallcui_writing3.tex
+
+stallcui_writing3.ps: stallcui_writing3.dvi
+	dvips stallcui_writing3.dvi
+
+stallcui_writing3.pdf: stallcui_writing3.ps
+	ps2pdf stallcui_writing3.ps
