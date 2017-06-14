@@ -1,0 +1,82 @@
+\documentclass[10pt,draftclsnofoot,onecolumn,compsoc]{IEEEtran}
+
+\usepackage{hyperref}
+\usepackage{pdfpages}
+\usepackage{float}
+\usepackage{listings}
+
+\usepackage{color}
+\definecolor{blue}{rgb}{0.13,0.13,1}
+\definecolor{green}{rgb}{0,0.5,0}
+\definecolor{red}{rgb}{0.9,0,0}
+
+
+\lstdefinelanguage{clangstyle}%
+{	keywordstyle=\color{blue},
+	sensitive=true,
+	basicstyle=\ttfamily,
+	breaklines=true,
+	xleftmargin=\parindent,
+	aboveskip=\bigskipamount,
+	tabsize=4,
+	morecomment=[l][\color{green}]{//},
+	showstringspaces=false,
+	literate={`}{\`}1,
+	stringstyle=\color{red},
+}
+
+
+\author{Isaac Stallcup}
+
+\begin{document}
+	
+	\begin{titlepage}
+		
+		\begin{center}
+
+		\fontsize{20pt}{20pt}\selectfont
+				
+		\vspace*{3.5cm}
+	
+		\textbf{Writing Assignment 1}\\
+		
+		\vspace{0.5cm}
+		
+		\fontsize{16pt}{16pt}\selectfont
+		
+		Isaac Stallcup \\
+		CS 444\\
+		Spring 2017\\
+		
+
+		\end{center}
+	
+	\end{titlepage}
+	
+	\section{Processes}
+	
+	\subsection{Windows}
+	
+	In Windows, processes begin with one thread, called the primary thread. However, each thread within a process can create additional threads \cite{msdnproc}. Threads in Windows share the virtual address space and system resource availability of the process they belong to. 
+	
+	Processes in Windows use virtual memory addresses when reading or writing to memory. \cite{msdnproc} Virtual memory addresses are placeholders, and when read or write operations with virtual memory addresses are called the virtual memory address is assigned to a physical memory address. \cite{msdnvirt} Processes also have handles to system resources. Handles are tools used to interact with system resource objects, like files or threads. 
+	
+	Within a process, each of its threads also have priorities associated with them, valued from 0 to 31. \cite{msdnsched} The scheduling utility in Windows then assigns time slices to be scheduled in round-robin fashion, starting with highest priority threads then moving to the lowest priority threads \cite{msdnproc}.
+	
+	
+	\subsection{FreeBSD}
+
+	FreeBSD has two methods of implementing threading. The first, 1:1 threading, implements each thread as an individual process. The second, 1:N threading, groups all threads as a single process and runs it that way. Both have benefits and detriments. \cite{bsdsched}
+	
+	1:1 scheduling implements larger threads than 1:N scheduling, and in 1:1 scheduling the scheduling itself cannot be altered by the user where as in 1:N scheduling the user can modify the scheduling. However, 1:1 threading can utilize multiple CPUs, and 1:N threading cannot. \cite{bsdsched}
+	
+	FreeBSD implements scheduling in two ways; that is, there are two schedulers that come with FreeBSD. They are M:N (hybrid) threading and 1:1 threading. \cite{bsdsched} 
+	
+
+	\subsection{Comparisons to Linux}
+	
+	Windows and Linux both use virtual memory \cite{kernel} \cite{msdnvirt}. 
+
+\bibliographystyle{IEEEtran}	
+\bibliography{biblio}
+\end{document}
