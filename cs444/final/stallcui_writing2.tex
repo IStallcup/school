@@ -1,0 +1,117 @@
+\documentclass[10pt,draftclsnofoot,onecolumn,compsoc]{IEEEtran}
+
+\usepackage{hyperref}
+\usepackage{pdfpages}
+\usepackage{float}
+\usepackage{listings}
+
+\usepackage{color}
+\definecolor{blue}{rgb}{0.13,0.13,1}
+\definecolor{green}{rgb}{0,0.5,0}
+\definecolor{red}{rgb}{0.9,0,0}
+
+
+\lstdefinelanguage{clangstyle}%
+{	keywordstyle=\color{blue},
+	sensitive=true,
+	basicstyle=\ttfamily,
+	breaklines=true,
+	xleftmargin=\parindent,
+	aboveskip=\bigskipamount,
+	tabsize=4,
+	morecomment=[l][\color{green}]{//},
+	showstringspaces=false,
+	literate={`}{\`}1,
+	stringstyle=\color{red},
+}
+
+
+\author{Isaac Stallcup}
+\title{Writing Assignment 2}
+
+\begin{document}
+	
+	\begin{titlepage}
+		
+		\begin{center}
+
+		\fontsize{20pt}{20pt}\selectfont
+				
+		\vspace*{3.5cm}
+	
+		\textbf{Writing Assignment 2}\\
+		
+		\vspace{0.5cm}
+		
+		\fontsize{16pt}{16pt}\selectfont
+		
+		Isaac Stallcup \\
+		CS 444\\
+		Spring 2017\\
+		
+
+		\end{center}
+	
+	\end{titlepage}
+	
+	\section{Introduction}
+	
+	
+	\section{Windows}
+	
+	Please note: all Windows material is from \cite{WInternals}. This statement is designed to replace a citation \cite{WInternals} after every single sentence for reading pleasure, but feel free to mentally insert one before each period in the following sections on Windows. They have been inserted for you in some cases.
+	
+	\subsection{I/O}
+	
+	At the heart of the I/O system in Windows, the I/O Manager connects components of I/O system together to ensure their proper functioning, communicating via a packet-based system of data structures called I/O Request Packets. The I/O Manager defines the model by which I/O requests are delivered to device drivers \cite{WInternals}.
+	
+	Device drivers help smooth communication to and from connected devices. They translate high-level commands from devices into low-level commands to the operating system. They do this by relaying instructions from the I/O Manager to devices and communicating the results of these commands back to the I/O Manager \cite{WInternals}.
+	
+	
+	\subsubsection{Data Structures}
+	
+	One data structure that the I/O system uses is the I/O Request Packet. An IRP stores information required to process an I/O request. Constructed when an I/O request is made, the packet allocates and initializes the IRP before storing a pointer to the \textit{file object} of the call responsible for generating the I/O request \cite{WInternals}.
+	
+	File objects are represented by data structures implemented in the kernel that represent handles to devices. They contain a "name" (the actual file that the file object refers to) as well as location data, permissions, information for I/O priority and scheduling, and a pointer to the device associated with it \cite{WInternals}.
+	
+	When file objects are called, Windows must determine which driver to use to handle the file object based on the its name. Driver objects are data structures that handle these operations, and in turn create device objects. These device objects are also data structures representing physical or logical devices on the system. Driver objects can create and be connected to multiple device objects in order to fulfill whatever requests the file object makes. When a driver object's last device object has been deleted, the driver object is unloaded \cite{WInternals}.
+	
+	Essentially:
+	
+	IRPs are created then given a file object, which is a handle to the file associated with the IRP. The file object, when called, causes a driver object to come into being, which spawns the required device object for the needs of the file object \cite{WInternals}.
+	
+	\subsubsection{Types of Devices}
+	
+	There are several types of device drivers, divided into two broad categories: user- and kernel-mode drivers. User-mode drivers are divided into printer drivers (which unsurprisingly deal with functionalities associated with printing) and User-Mode Driver Frameworks. User-Mode Driver Frameworks are a large group of hardware devices that interact with the user \cite{WInternals}.
+	
+	The kernel-mode drivers are file system drivers, Plug and Play (PnP) drivers, and non-Plug and Play drivers. File system drivers deal with I/O to files and communicate with storage and networking devices. PnP drivers deal with hardware including mass storage devices, video and audio devices and networking adapters. Non-PnP drivers deal with kernel functionality (essentially everything else) \cite{WInternals}.
+	
+	\subsubsection{I/O Scheduling}
+	
+	In Windows, I/O Scheduling falls under the umbrella of I/O Prioritization. I/O Prioritization not only includes scheduling but determines which processes get preferential treatment throughout the scheduling process (usually those that deal with user interface) and those that do not (background processes like antivirus or search indexing) \cite{WInternals}. The levels of priority available in Windows are (in order of descending urgency) critical, high, normal, low and very low.
+	
+	Windows has two methods to schedule priority-ranked processes: hierarchy prioritization and idle prioritization. The former handles processes of all priority except very low, and sorts each incoming process into a queue based on its priority, grouping like to like (all processes of a similar priority are grouped together). All critical priority processes must be completed before the high priority queue is dealt with, and all high priority processes must be completed before the normal queue comes up, and so on. Each queue is processed in a FIFO manner \cite{WInternals}.
+	
+	Idle prioritization uses a separate queue for the lowest priority I/O requests. Starvation is prevented via a mechanism that requires at least one idle priority I/O request be processed per unit time. Additionally, a delay occurs after after the last idle priority I/O before another is sought in order to prevent the low priority I/O requests from arising amidst high priority requests \cite{WInternals}.
+	
+	\section{FreeBSD}
+	
+	As with the Windows section, this is based on information from \cite{BSD}.
+	
+	\subsection{I/O}
+	
+	In FreeBSD, all I/O is done through descriptors. These descriptors point to locations on a descriptor table. These descriptor tables are unique to each process and are used to locate file entries. The file entries in turn provide file types and a pointer to the underlying object of the descriptor \cite{BSD}. The file entries also contain the necessary capacity to read, write, poll, and truncate file descriptors \cite{BSD}.
+	
+	\subsection{Types of Devices}
+	
+	FreeBSD divides devices into three main categories: disk devices, character devices and network devices. Character devices are classified as almost everything except network interfaces [and disks]. They transform interfaces with hardware into byte streams. Disk devices are modeled as block devices, while network devices use an asynchronous framework \cite{BSD}.
+	
+	\section{Comparisons to Linux}
+	
+	\subsection{Types of Devices}
+	
+	FreeBSD and Linux both share character devices as bite stream objects \cite{BSD} \cite{Kevin}. However, block devices exist Linux \cite{Kevin} but not in FreeBSD past FreeBSD 5 \cite{BSD}. The paradigm of device handling is different in Windows, with a user-mode and kernel-mode separating the types of devices \cite{WInternals}.
+		
+\bibliographystyle{IEEEtran}	
+\bibliography{biblio}
+\end{document}

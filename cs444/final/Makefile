@@ -1,4 +1,4 @@
-all: stallcui_writing3.pdf
+all: stallcui_writing3.pdf stallcui_writing2.pdf
 	
 stallcui_writing3.dvi: stallcui_writing3.tex
 	latex stallcui_writing3.tex
@@ -9,9 +9,8 @@ stallcui_writing3.dvi: stallcui_writing3.tex
 stallcui_writing3.ps: stallcui_writing3.dvi
 	dvips stallcui_writing3.dvi
 
-#writing assign 2
-stallcui_writing2.pdf: stallcui_writing2.ps
-	ps2pdf stallcui_writing2.ps
+stallcui_writing3.pdf: stallcui_writing3.ps
+	ps2pdf stallcui_writing3.ps
 
 stallcui_writing2.dvi: stallcui_writing2.tex
 	latex stallcui_writing2.tex

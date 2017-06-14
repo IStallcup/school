@@ -13,4 +13,4 @@ stallcui_writing3.pdf: stallcui_writing3.ps
 	ps2pdf stallcui_writing3.ps
 
 clean:
-	rm -f *.dvi *.aux *.ps
+	rm -f *.dvi *.aux *.ps *.log *.out *.bbl *blg
