@@ -1,0 +1,83 @@
+\documentclass[10pt,a4paper,final]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{lstautogobble}
+\usepackage[left=1.00in, right=1.00in, top=1.00in, bottom=1.00in]{geometry}
+\author{Isaac Stallcup}
+\title{An Algorithmic Analysis of Several Primality Tests}
+
+\newcommand{\False}[0]{\texttt{False}}
+\newcommand{\True}[0]{\texttt{True}}
+
+\lstset{basicstyle=\ttfamily,
+	mathescape=true,
+	escapeinside=||,
+	autogobble,
+	tabsize=4}
+
+\begin{document}
+\maketitle	
+\clearpage
+\section{Introduction}
+
+Primality testing algorithms:
+\begin{enumerate}
+	\item Wilson's Theorem (known to perform very poorly): An integer $p > 1$ is prime $\iff (p-1)! \equiv -1 \mod p$ \cite{stein2008elementary}.
+	\item Pseudoprimality test: An integer $p > 1$ is prime $\iff \forall a \not\equiv 0 \mod p, a^{p-1} \equiv 1 \mod p$ \cite{stein2008elementary}.
+	\item Miller-Rabin: Given an integer $n \ge 5$, output either \True{}  or \False{}. If the result is \True{}, $n$ is "probably prime", and if the result is \False{} $n$ is definitely composite \cite{stein2008elementary}. The algorithm has the following steps.
+	\begin{enumerate}
+		\item Compute the unique integers $m$ and $k$ such that $m$ is odd and $n-1 = 2^{k}*m$.
+		\item Choose some random $a$ with $1 < a < n$.
+		\item Set $b \equiv a^{m} \mod n$. If $b \equiv \pm1 \mod n$, return \True{}.
+		\item If $b^{2^{r}} \equiv -1 \mod n$ for any $1 \le r \le k-1$, return \True{}. Otherwise return \False{}.
+	\end{enumerate}
+	\item AKS Primality test \cite{agrawal2004primes}. This algorithm returns \False{} if an integer $n > 1$ is composite, and \True{} if it is prime.
+	\begin{enumerate}
+		\item If $(n = a^{b}$ for $a \in \mathbb{N}$ and $b > 1 \in \mathbb{N}$, return \False{}.
+		\item Find the smallest $r$ such that the order of $n\mod r > (\log_2 n)^2$.
+		\item Two mini-versions:
+			\subitem If $1 < \gcd(a,n) < n$ for some $a \le r$, return \False{}; OR
+			\subitem For all $2 \le a \le \min(r,n-1)$, check that $a$ does not divide $n$; if $a|n$ for some $2 \le a \le \min(r,n-1)$, output \False{}
+		\item If $n \le r$, return \True{}.
+		\item For $a = 1$ to $\lfloor \sqrt{\phi(r)}log_2 n \rfloor$ do
+			\subitem	if $((X+a)^n \ne X^n + a \mod \gcd(X^r -1,n)$ return \False{}
+		\item Return \True{}
+	\end{enumerate}
+	
+\end{enumerate}
+
+Pseudocodes:
+\begin{enumerate}
+	\item Wilson's primality test
+	Inputs: $p > 1$
+	Outputs: \True{} if $p$ is prime; otherwise \False{}.
+\begin{lstlisting}
+function wilson_primality_test(p)
+	if (mod((p-1)!,p) == -1):
+		return True
+	else:
+		return False
+\end{lstlisting}
+
+	\item Exhaustive pseudoprimality test
+	Inputs: $p > 1$
+	Outputs: \True{} if $p$ is prime; otherwise \False{}.
+\begin{lstlisting}
+function exh_primality_test(p)
+	a = 1
+	while (a $\ne$ 0 mod p):
+		if (mod($a^{p-1}$,p) != 1):
+			return False
+		a = a  +1
+	return True
+\end{lstlisting}
+\end{enumerate}
+
+\bibliographystyle{plain}
+\bibliography{stallcui_440_final}
+
+\end{document}
